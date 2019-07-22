@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* 全局栅格样式 */
+/* 全局栅格样式 */
+body{font-family: "华文行楷"}
+a:hover{text-decoration: none;}
+.breadcrumb{margin-bottom: 0;padding: 0;background:none;}
+.breadcrumb a{color:#323131;}
+.breadcrumb a:hover{color: rgb(240, 90, 45)}
+.btn{background: none;padding:0;margin:0;border:none;}
+/* 顶部导航栏样式 */
+.topBar{background-color: #e9ebee;height: 2em;margin-bottom: 2em;}
+.topBar p{font-size:1.2em;color: #323131;display: inline-block;}
+.topNav{font-size:1.2em;float: right;height: 100%;}
+.topLang button{font-size: inherit;}
+.topLang button:hover{color: rgb(240, 90, 45);}
+.topLang li a:hover{color: rgb(240, 90, 45);}
+
+/* 搜索栏样式 */
+.header{margin-bottom: 2em;}
+.headerLogo{height:7em;}
+.headerSearch{margin-top:1.5em;}
+.headerSearch input{height:4em;border-radius:2em;border:2px solid rgb(240, 90, 45);}
+.headerSearch button{height:4em;width:4em;border-radius:2em;background-color:rgb(240, 90, 45);color:white;}
+.cart{margin-top:1.5em;float:right; }
+.shoppingCart{height:4em;}
+.littleDot{display: inline;position: absolute;right:0.45em;color: white;background-color: rgb(240, 90, 45);width:1.5em;text-align: center;border-radius:50%;}
+
+/* 头导航样式 */
+.headBar{background-color: rgba(49, 69, 85,0.7);}
+.headBar>.container{height:4em;}
+.leftTag {height:4em;background-color: rgba(240, 90, 45);}
+.leftTag button{border:0;background:none;font-size: 2em;line-height: 2em;width:100%;color: white;}
+.leftTag button:focus, .leftTag button:hover{color:white;}
+.leftTag  button img{height:1.7em;margin-left:1em;}
+.leftTag ul{height:30em;background-color: #e9ebee;width: 100%;margin: 0;border-radius:0;background-color: rgb(255, 255, 255,0.5);  }
+.leftTag ul li{height:3em;}
+.leftTag ul img{height: 1.33em;float:left;}
+.leftTag a{font-size: 1.5em;text-align: center;}
+
+.rightTag ul{height: 4em;}
+.rightTag  ul li a{font-size: 2em;color: white;}
+.rightTag  ul li a:hover{background-color:rgb(240, 159, 37);}
+
+/* 二级导航样式 */
+
+/* 二级导航样式 */
+
+hr{height:0.1em;background-color: rgb(240, 90, 45);margin:0;border: 0;}
+
+/* 主样式 */
+.carouselBox{right:3.7em;width: 100%;;padding:0;background-color: darkred}
+#myCarousel img{display:block;width:100%;}
+
+
+/* 主样式 */
+

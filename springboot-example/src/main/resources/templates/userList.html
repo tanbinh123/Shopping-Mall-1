@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+</head>
+<body>
+User List:
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Password</th>
+        <th>删除</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.age}"></td>
+        <td th:text="${user.password}"></td>
+        <td><button data-th-attr="onclick='deleteUser(this, \'' + ${user.id} + '\')'">删除</button> </td>
+    </tr>
+</table>
+</body>
+<script>
+    function deleteUser(elem, id) {
+        $.ajax({
+            url: '/user/delete?id=' + id,
+            type: 'get',
+            success: function (data) {
+                $(elem).parent().parent().remove();
+            },
+            fail: function (data) {
+                console.log('fail')
+            }
+        })
+    }
+</script>
+</html>

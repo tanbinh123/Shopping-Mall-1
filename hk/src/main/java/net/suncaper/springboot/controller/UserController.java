@@ -37,11 +37,28 @@ public class UserController {
         return "user-add";
     }
 
+
+    @GetMapping("/index")
+    public String goIndexPage(Model model){
+        model.addAttribute("user", new User());
+        return "index";
+    }
+
+    @GetMapping("/login")
+    public String goLoginPage(User user ,Model model){
+        model.addAttribute("user", new User());
+        if (userService.login(user)){
+        return "index";
+        }
+        else return "add";
+    }
+
+
     @PostMapping("/add")
     public String saveUser(User user) {
         userService.saveUser(user);
 
-        return "redirect:/user/search";
+        return "login";
     }
 
     @GetMapping("/delete")

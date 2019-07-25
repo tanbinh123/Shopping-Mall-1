@@ -19,9 +19,9 @@ User List:
         <th>删除</th>
     </tr>
     <tr th:each="user : ${users}">
-        <td th:text="${user.id}"></td>
         <td th:text="${user.name}"></td>
-        <td th:text="${user.age}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.id}"></td>
         <td th:text="${user.password}"></td>
         <td><button data-th-attr="onclick='deleteUser(this, \'' + ${user.id} + '\')'">删除</button> </td>
     </tr>

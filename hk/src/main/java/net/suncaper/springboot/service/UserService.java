@@ -4,6 +4,7 @@ import net.suncaper.springboot.domain.SearchUserRequest;
 import net.suncaper.springboot.domain.User;
 import net.suncaper.springboot.domain.UserExample;
 import net.suncaper.springboot.mapper.UserMapper;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +35,17 @@ public class UserService {
         }
 
     }
+    public boolean login(User user) {
+        if (userMapper.islogin(user)) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+
+
     public User findUserByPrimaryKey(String id) {
         return userMapper.selectByPrimaryKey(id);
     }

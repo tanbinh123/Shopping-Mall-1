@@ -10,6 +10,7 @@ public class UserExample {
      *
      * @mbg.generated Wed Jul 24 09:45:14 GMT+08:00 2019
      */
+
     protected String orderByClause;
 
     /**

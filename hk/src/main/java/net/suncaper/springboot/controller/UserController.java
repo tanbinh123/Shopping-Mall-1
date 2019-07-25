@@ -45,7 +45,12 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String goLoginPage(User user ,Model model){
+    public String goLoginPage(Model model){
+        model.addAttribute("user", new User());
+        return "login";
+    }
+    @PostMapping("/login")
+    public String goIndexPage(User user ,Model model){
         model.addAttribute("user", new User());
         if (userService.login(user)){
         return "index";

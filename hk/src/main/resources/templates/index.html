@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html  xmlns:th="http://www.thymeleaf.org">
 
     <head>
         <meta charset="utf-8">
@@ -22,11 +22,14 @@
                 <div class="col-md-6">
                     <p>欢迎光临&nbsp;HK商城</p>
                 </div>
-                <div class=" col-md-6 topNav">
+                <div  class=" col-md-6 topNav">
                 <ul class="breadcrumb">
                     <li>
-                            <a href="login">
-                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
+                            <a th:if="${isLogin}"  >
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>已登录
+                            </a>
+                            <a th:if="${!isLogin}" href="login">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
                             </a>
                     </li>
                     <li class="dropdown topLang">
@@ -72,7 +75,7 @@
             </div>
             <div class="col-md-3 Cart">
                 <a href="#">
-                    <img src="/image/logo/cartLogo.png" alt="购物车">
+                    <img src="/image/logo/cartLogo.png" onclick="javascript:location.href='shopcart'" alt="购物车">
                     <p class="littleDot">3</p>
                 </a>
             </div>

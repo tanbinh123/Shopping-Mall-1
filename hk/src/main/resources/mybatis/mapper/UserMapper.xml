@@ -149,7 +149,7 @@
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
       select uuid()
     </selectKey>
-    insert  into t_user (id, sho_id, name,
+    insert  ignore into t_user (id, sho_id, name,
       password, phone, email
       )
     values (#{id,jdbcType=VARCHAR}, #{shoId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 

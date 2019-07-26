@@ -3,13 +3,17 @@ package net.suncaper.springboot.controller;
 import net.suncaper.springboot.domain.User;
 import net.suncaper.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Controller
 @RequestMapping("/user")
@@ -67,7 +71,27 @@ public class UserController {
         model.addAttribute("isLogin", isLogin);
         return "/shoppingcart";
     }
+    @GetMapping("demo")public String aaa(Model model){
+        model.addAttribute("User",new User());
+        return "/demo";
 
+    }
+    @PostMapping("/demo")
+    public String godemoPage(User user,Model model, MultipartFile file) {
+        if(file!=null){
+            try {
+                user.setFileContent(file.getBytes());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            user.setFileTitle(file.getOriginalFilename());
+            user.setFileLenth(file.getSize());
+            user.setFileType(file.getContentType());
+            userService.saveUser(user);
+        }
+
+        return "demo";
+    }
     @PostMapping("/login")
 
     public String goIndexPage(HttpServletRequest request, String userName, String password, User user, Model model) {
@@ -78,7 +102,15 @@ public class UserController {
         }
         return  "redirect:/user/index";
     }
+    @GetMapping("/download")
+    public ResponseEntity<ByteArrayResource> downloadFile (@RequestParam("id") String id){
+        User user=userService.findUserByPrimaryKey(id);
+        return  ResponseEntity.ok()
+                .contentLength(user.getFileLenth())
+                .contentType(MediaType.parseMediaType(user.getFileType()))
+                .body(new ByteArrayResource(user.getFileContent()));
 
+    }
     @GetMapping("/delete")
     @ResponseBody
     public Boolean deleteUser(@RequestParam("id") String id) {

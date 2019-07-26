@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/user")
-public class UserController {
+public class  UserController {
     @Autowired
     private UserService userService;
 
@@ -29,7 +29,11 @@ public class UserController {
         model.addAttribute("user", new User());
         return "user-add";
     }
-
+    @GetMapping("/shopcart")
+    public String goCartPage(Model model){
+        model.addAttribute("user", new User());
+        return "shoppingcart";
+    }
     @GetMapping("/edit")
     public String goUserEditPage(@RequestParam("id") String id, Model model) {
         User user = userService.findUserByPrimaryKey(id);

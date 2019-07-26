@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "">
+<html xmlns="">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+    <script type="text/javascript">
+        function foo(){
+            var s=document.getElementById('m').innerHTML;
+            if(s==0){document.getElementById('d1').style.display='none'; document.getElementById('d2').style.display='block'; return;}
+            document.getElementById('m').innerHTML=s-1;
+            t=setTimeout('foo()',1000);
+        }
+    </script>
+
+<body onload="foo()">
+<div id="d1" style="position:absolute; right:0px; bottom:0px; border:1px solid #666; width:200px; height:100px; background-color:#FFFFBF; display:block;">第一个窗口，<br />倒计时<span id="m">120</span>秒</div>
+<div id="d2" style="position:absolute; right:0px; bottom:0px; border:1px solid #666; width:200px; height:100px; background-color:#FFFFBF; display:none;">第二个窗口</div>
+</body>
+</html>

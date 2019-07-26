@@ -22,7 +22,7 @@
     <script type="text/javascript">
         function foo(){
             var s=document.getElementById('m').innerHTML;
-            if(s==0){alert("支付时间已过期，请重新选购！"); return;}
+            if(s==0){setTimeout("javascript:location.href='index'", 3000);alert("支付时间已过期，请重新选购！2秒后将返回主页。");return;}
             document.getElementById('m').innerHTML=s-1;
             document.getElementById('n').innerHTML=s-1;
             t=setTimeout('foo()',1000);
@@ -76,8 +76,8 @@
 <!-- logo与进度反馈区域 -->
 <div id="logo_line" class="car_wrap clear">
     <div class="logo fl">
-        <a href="index.html">
-            <img src="/image/logo/biglogo.png" alt="HK购物商城" >
+        <a href="index">
+            <img  src="/image/logo/biglogo.png"  alt="HK购物商城" >
         </a>
     </div>
     <div class="shopCar_tit fl">
@@ -375,7 +375,7 @@
         <div class="common_handler">
             <div class="right_handler"> 共 <span class="total_amount"> 1 </span> &nbsp;件商品 &nbsp;&nbsp; 商品应付总额：<span class="total_price">￥141.00</span> <a id="go_to_order" class="btn" href="lookOrderForm.html">去结算</a> </div>
             <label for="js_all_selector" class="cart_all_selector_wrapper">
-                <input id="js_all_selector" class="js_all_selector all_selector" type="checkbox"> 全选 </label> <a class="go_back_shopping" href="http://sh.jumei.com/i/deal/d150603p892053zc.html">继续购物</a> <span class="seperate_line">|</span> <a class="clear_cart_all" href="">清空选中商品</a>
+                <input id="js_all_selector" class="js_all_selector all_selector"  onclick="cli('多选项名称');"     type="checkbox"> 全选 </label> <a class="go_back_shopping" href="index">继续购物</a> <span class="seperate_line">|</span> <a class="clear_cart_all" href="">清空选中商品</a>
             <form id="form_to_order" action="" method="post" style="display: none;">
                 <input name="items_key" type="hidden"> </form>
         </div>

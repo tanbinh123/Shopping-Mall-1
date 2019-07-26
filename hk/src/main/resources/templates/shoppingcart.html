@@ -26,13 +26,18 @@
             document.getElementById('n').innerHTML=s-1;
             t=setTimeout('foo()',1000);
         }
-        function add(a) {
+        function add(a,totalprice,singleprice) {
             document.getElementById(a.toString()).innerHTML=parseInt(document.getElementById(a.toString()).innerHTML)+1;
+            document.getElementById(totalprice.toString()).innerHTML=parseFloat(document.getElementById(singleprice.toString()).innerHTML)*parseInt(document.getElementById(a.toString()).innerHTML);
+            document.getElementById("orderprice").innerHTML=parseFloat(document.getElementById("totalprice1").innerHTML)+parseFloat(document.getElementById("totalprice2").innerHTML)+parseFloat(document.getElementById("totalprice3").innerHTML);
         }
-        function sub(a) {
+        function sub(a,totalprice,singleprice) {
             var quantity=parseInt(document.getElementById(a).innerHTML);
             if(quantity>1)
-            {document.getElementById(a.toString()).innerHTML=parseInt(document.getElementById(a.toString()).innerHTML)-1;}
+            {document.getElementById(a.toString()).innerHTML=parseInt(document.getElementById(a.toString()).innerHTML)-1;
+                document.getElementById(totalprice.toString()).innerHTML=parseFloat(document.getElementById(singleprice.toString()).innerHTML)*parseInt(document.getElementById(a.toString()).innerHTML);
+                document.getElementById("orderprice").innerHTML=parseFloat(document.getElementById("totalprice1").innerHTML)+parseFloat(document.getElementById("totalprice2").innerHTML)+parseFloat(document.getElementById("totalprice3").innerHTML);
+            }
         }
     </script>
 </head>
@@ -163,24 +168,24 @@
                     </td>
                     <td>
                         <div class="cart_item_price">
-                            <p class="jumei_price">32.00</p>
-                            <p class="market_price">45.00</p>
+                            <p class="jumei_price" id="singleprice1">32.00</p>
+                           <!-- <p class="market_price">45.00</p>-->
                         </div>
                     </td>
                     <td>
                         <div class="cart_item_num ">   <!-- <input class="item_quantity" name="quantity1" value="1" type="text">-->
                             <div class="item_quantity_editer clear" data-item-key="1057066_d150603p892053zc">
-                                <span type="button"  class="increase_one "  onclick='sub("quantity1")'  >-</span>
-                                <p type="text"  class="item_quantity" id="quantity1">7</p>
-                                <span type="button" name="increase1" class="increase_one " onclick='add("quantity1")'>+</span>
+                                <span type="button"  class="increase_one "  onclick='sub("quantity1","totalprice1","singleprice1")'  >-</span>
+                                <p type="text"  class="item_quantity" id="quantity1">1</p>
+                                <span type="button" name="increase1" class="increase_one " onclick='add("quantity1","totalprice1","singleprice1")'>+</span>
                             </div>
                             <div class="item_shortage_tip"> </div>
                         </div>
                     </td>
                     <td>
                         <div class="cart_item_total">
-                            <p class="item_total_price">32.00</p>
-                            <p>省 <span class="item_saved_price">13.00</span></p>
+                            <p class="item_total_price" id="totalprice1">32.00</p>
+                            <!-- <p>省 <span class="item_saved_price">13.00</span></p>-->
                         </div>
                     </td>
                     <td>
@@ -225,23 +230,23 @@
                     </td>
                     <td>
                         <div class="cart_item_price">
-                            <p class="jumei_price">34.00</p>
-                            <p class="market_price">38.00</p>
+                            <p class="jumei_price" id="singleprice2">34.00</p>
+                           <!-- <p class="market_price">38.00</p>-->
                         </div>
                     </td>
                     <td>
                         <div class="cart_item_num ">
                             <div class="item_quantity_editer clear" data-item-key="1057066_d150603p892053zc">
-                                <span type="button"  class="increase_one "  onclick='sub("quantity2")'  >-</span>
-                                <p type="text"  class="item_quantity" id="quantity2">2</p>
-                                <span type="button" name="increase1" class="increase_one " onclick='add("quantity2")'>+</span> </div>
+                                <span type="button"  class="increase_one "  onclick='sub("quantity2","totalprice2","singleprice2")'  >-</span>
+                                <p type="text"  class="item_quantity" id="quantity2">1</p>
+                                <span type="button" name="increase1" class="increase_one " onclick='add("quantity2","totalprice2","singleprice2")'>+</span> </div>
                             <div class="item_shortage_tip"> </div>
                         </div>
                     </td>
                     <td>
                         <div class="cart_item_total">
-                            <p class="item_total_price">34.00</p>
-                            <p>省 <span class="item_saved_price">4.00</span></p>
+                            <p class="item_total_price" id="totalprice2">34.00</p>
+                          <!--  <p>省 <span class="item_saved_price">4.00</span></p>-->
                         </div>
                     </td>
                     <td>
@@ -286,23 +291,23 @@
                     </td>
                     <td>
                         <div class="cart_item_price">
-                            <p class="jumei_price">27.00</p>
-                            <p class="market_price">39.00</p>
+                            <p class="jumei_price" id="singleprice3">27.00</p>
+                           <!-- <p class="market_price">39.00</p>-->
                         </div>
                     </td>
                     <td>
                         <div class="cart_item_num ">
                             <div class="item_quantity_editer clear" data-item-key="1057066_d150603p892053zc">
-                                <span type="button"  class="increase_one "  onclick='sub("quantity3")'  >-</span>
-                                <p type="text"  class="item_quantity" id="quantity3">3</p>
-                                <span type="button" name="increase1" class="increase_one " onclick='add("quantity3")'>+</span> </div>
-                            <div class="item_shortage_tip"> </div>
+                                <span type="button"  class="increase_one "  onclick='sub("quantity3","totalprice3","singleprice3")'  >-</span>
+                                <p type="text"  class="item_quantity" id="quantity3">1</p>
+                                <span type="button" name="increase1" class="increase_one " onclick='add("quantity3","totalprice3","singleprice3")'>+</span> </div>
+                            <div class="item_shortage_tip" > </div>
                         </div>
                     </td>
                     <td>
                         <div class="cart_item_total">
-                            <p class="item_total_price">27.00</p>
-                            <p>省 <span class="item_saved_price">12.00</span></p>
+                            <p class="item_total_price"  id="totalprice3">27.00</p>
+                           <!-- <p>省 <span class="item_saved_price">12.00</span></p>-->
                         </div>
                     </td>
                     <td>
@@ -314,7 +319,7 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <td colspan="5"> 商品金额： <span class="group_total_price">￥141.00</span> </td>
+                    <td colspan="5"> 商品金额：￥ <span class="group_total_price" id="orderprice">93.00</span> </td>
                 </tr>
                 </tfoot>
             </table>

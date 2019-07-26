@@ -60,6 +60,13 @@ public class UserController {
         model.addAttribute("user", new User());
         return "login";
     }
+    @GetMapping("/shoppingcart")
+    public String goShoppingcartPage(HttpServletRequest request,Model model) {
+        model.addAttribute("user", new User());
+        Boolean isLogin = request.getSession().getAttribute("USER_ID") != null;
+        model.addAttribute("isLogin", isLogin);
+        return "/shoppingcart";
+    }
 
     @PostMapping("/login")
 

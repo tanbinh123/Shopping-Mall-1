@@ -4,6 +4,7 @@ import net.suncaper.springboot.domain.User;
 import net.suncaper.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,9 +26,16 @@ public class UserController {
     }
 
     @GetMapping("/add")
-    public String goUserAddPage(Model model){
+    public String goUserAddPage(Model model) {
         model.addAttribute("user", new User());
         return "user-add";
+    }
+
+    @PostMapping("/add")
+    public String saveUser(User user) {
+        userService.saveUser(user);
+
+        return "login";
     }
 
     @GetMapping("/edit")
@@ -39,31 +47,29 @@ public class UserController {
 
 
     @GetMapping("/index")
-    public String goIndexPage(Model model){
+    public String goIndexPage(HttpServletRequest request, Model model) {
         model.addAttribute("user", new User());
+
+        Boolean isLogin = request.getSession().getAttribute("USER_ID") != null;
+        model.addAttribute("isLogin", isLogin);
         return "index";
     }
 
     @GetMapping("/login")
-    public String goLoginPage(Model model){
+    public String goLoginPage(Model model) {
         model.addAttribute("user", new User());
         return "login";
     }
+
     @PostMapping("/login")
-    public String goIndexPage(User user ,Model model){
-        model.addAttribute("user", new User());
-        if (userService.login(user)){
-        return "index";
+
+    public String goIndexPage(HttpServletRequest request, String userName, String password, User user, Model model) {
+        User loginUser=userService.login(user);
+        if (loginUser!=null) {
+            request.getSession().setAttribute("USER_ID", "loginUser.getId()");
+
         }
-        else return "add";
-    }
-
-
-    @PostMapping("/add")
-    public String saveUser(User user) {
-        userService.saveUser(user);
-
-        return "login";
+        return  "redirect:/user/index";
     }
 
     @GetMapping("/delete")

@@ -28,8 +28,10 @@
         #{password,jdbcType=VARCHAR},  #{email,jdbcType=VARCHAR}
         )
     </insert>
-    <select id="islogin" resultType="net.suncaper.springboot.domain.User">
-        select count(*)  from t_user <where>  (id==#{id}  and password==#{password})</where>;
-
+    <select id="selectByName" resultType="net.suncaper.springboot.domain.User">
+        select * from t_user where name=#{name}
     </select>
+
+
+
 </mapper>

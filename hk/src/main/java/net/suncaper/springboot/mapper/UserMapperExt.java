@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface UserMapperExt {
     List<User> search(@Param("keyword") String keyword, @Param("age") Integer age);
-    boolean islogin(User user);
+    User selectByName(String name);
 }
 

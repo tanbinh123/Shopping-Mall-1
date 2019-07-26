@@ -8,6 +8,7 @@ import net.suncaper.springboot.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,15 +32,17 @@ public class UserService {
         if (user.getId() == null|| user.getId().equals("")) {
             return userMapper.insert(user);
         } else {
-            return userMapper.updateByPrimaryKey(user);
+            return userMapper.updateByPrimaryKeySelective(user);
         }
 
     }
-    public boolean login(User user) {
-        if (userMapper.islogin(user)) {
-            return true;
+    public User login(User user) {
+       User user1= userMapper.selectByName(user.getName());
+        if (user1!=null && user1.getPassword().equals(user.getPassword())){
+
+            return user1;
         } else {
-            return false;
+            return null;
         }
 
     }
@@ -53,3 +56,4 @@ public class UserService {
         userMapper.deleteByPrimaryKey(id);
     }
 }
+

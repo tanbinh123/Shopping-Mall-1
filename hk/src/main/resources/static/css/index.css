@@ -7,6 +7,8 @@
 .topNav ul{font-size:1.5em;float: right;height: 100%;}
 .topLang button{font-size: inherit;}
 .topLang button:hover{color: rgb(240, 90, 45);}
+.topLang ul{height:2.6em;}
+.topLang ul li{font-size: 0.7em;}
 .topLang li a:hover{color: rgb(240, 90, 45);}
 
 /* 搜索栏样式 */

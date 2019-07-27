@@ -6,7 +6,6 @@
     <title>购物车 || HK</title>
     <meta name="description" content="HK商城">
     <meta name="keywords" content="HK">
-    <link rel="shortcut icon" href="../image/icon/litIcon.ico">
     <link rel="stylesheet" href="/css/reset.css"   >
     <link rel="stylesheet" href="/css/page_car.css"  />
     <link rel="stylesheet" href="/css/page.css"   />
@@ -18,7 +17,7 @@
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/index.css" />
-
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1317171_9tqodcy3kpr.css">
     <script type="text/javascript">
         function foo(){
             var s=document.getElementById('m').innerHTML;
@@ -27,15 +26,23 @@
             document.getElementById('n').innerHTML=s-1;
             t=setTimeout('foo()',1000);
         }
+        function add(a,totalprice,singleprice) {
+            document.getElementById(a.toString()).innerHTML=parseInt(document.getElementById(a.toString()).innerHTML)+1;
+            document.getElementById(totalprice.toString()).innerHTML=parseFloat(document.getElementById(singleprice.toString()).innerHTML)*parseInt(document.getElementById(a.toString()).innerHTML);
+            document.getElementById("orderprice").innerHTML=parseFloat(document.getElementById("totalprice1").innerHTML)+parseFloat(document.getElementById("totalprice2").innerHTML)+parseFloat(document.getElementById("totalprice3").innerHTML);
+        }
+        function sub(a,totalprice,singleprice) {
+            var quantity=parseInt(document.getElementById(a).innerHTML);
+            if(quantity>1)
+            {document.getElementById(a.toString()).innerHTML=parseInt(document.getElementById(a.toString()).innerHTML)-1;
+                document.getElementById(totalprice.toString()).innerHTML=parseFloat(document.getElementById(singleprice.toString()).innerHTML)*parseInt(document.getElementById(a.toString()).innerHTML);
+                document.getElementById("orderprice").innerHTML=parseFloat(document.getElementById("totalprice1").innerHTML)+parseFloat(document.getElementById("totalprice2").innerHTML)+parseFloat(document.getElementById("totalprice3").innerHTML);
+            }
+        }
     </script>
-
-
-
-
-
 </head>
 
-<body onload="foo()">
+<body onload="foo()"  >
 <!-- 顶部导航栏 -->
 <div class="topBar">
     <div class="container">
@@ -125,71 +132,7 @@
                     <th class="cart_option">操作</th>
                 </tr>
                 </thead>
-                <tbody class="hide">
-                <tr class="cart_item " hashid="d150603p892053zc" id="1057066_d150603p892053zc" product_id="892053" item_price="48.00" category_v3_3="18" brand_id="623" product_type="product">
-                    <td valign="top">
-                        <div class="cart_item_desc clear">
-                            <input class="js_item_selector cart_item_selector" data-item-key="1057066_d150603p892053zc" checked="'checked'/" type="checkbox">
-                            <div class="cart_item_desc_wrapper">
-                                <a class="cart_item_pic" href="http://sh.jumei.com/i/deal/d150603p892053zc.html" target="_blank"> <img src="../image/book/book_list4/list4_lit1.jpg" alt="世界那么大，我想去看看！"> <span class="sold_out_pic png"></span> </a> <a class="cart_item_link" title="世界那么大，我想去看看" href="http://sh.jumei.com/i/deal/d150603p892053zc.html" target="_blank">世界那么大，我想去看看！</a>
-                                <p class="sku_info">规格：<span class="cart_item_attribute">彩色</span>&nbsp; </p>
-                                <div class="sale_info clear">
-                                    <div class="tips_pop_full float_box JS_tips_pop_full">
-                                        <div> <a class="sale_tag gift JS_sale_tag" data-promo-type="gift"> 满赠 <i class="icon_small png"></i> </a> </div>
-                                        <div class="pop_box JS_pop_box">
-                                            <div><span class="arrow_t_1"><span class="arrow_t_2"></span></span>
-                                            </div>
-                                            <div>
-                                                <a class="clear promo_sale_item promo_has_url" target="_blank" href="http://hd.jumei.com/act/4-3-6035-ppt_maybelline_150603.html"> <span class="title">时代图书团满99送109</span> <span class="tips">查看活动</span> </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tips_pop_full float_box JS_tips_pop_full">
-                                        <div> <a class="sale_tag reduce JS_sale_tag" data-promo-type="reduce"> 满减 <i class="icon_small png"></i> </a> </div>
-                                        <div class="pop_box JS_pop_box">
-                                            <div><span class="arrow_t_1"><span class="arrow_t_2"></span></span>
-                                            </div>
-                                            <div>
-                                                <a class="clear promo_sale_item promo_has_url" target="_blank" href="http://hd.jumei.com/act/4-3-6035-ppt_maybelline_150603.html"> <span class="title">时代图书团满99减20</span> <span class="tips">查看活动</span> </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="cart_item_price">
-                            <p class="jumei_price">48.00</p>
-                            <p class="market_price">59.00</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="cart_item_num ">
-                            <div class="item_quantity_editer clear" data-item-key="1057066_d150603p892053zc"> <span class="decrease_one disabled ">-</span>
-                                <input class="item_quantity" value="1" type="text"> <span class="increase_one ">+</span> </div>
-                            <div class="item_shortage_tip"> </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="cart_item_total">
-                            <p class="item_total_price">48.00</p>
-                            <p>省 <span class="item_saved_price">11.00</span></p>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="cart_item_option">
-                            <a class="icon_small delete_item png" data-item-key="1057066_d150603p892053zc" href="javascript:void(0)" title="删除"></a>
-                        </div>
-                        <script type="text/javascript">
-                            $(".delete_item").click(function  () {
-                                $(".hide").hide();
-                            })
-                        </script>
 
-                    </td>
-                </tr>
-                </tbody>
                 <tbody class="hide2">
                 <tr class="cart_item " hashid="d150603p892053zc" id="1057066_d150603p892053zc" product_id="892053" item_price="32.00" category_v3_3="18" brand_id="623" product_type="product">
                     <td valign="top">
@@ -225,26 +168,29 @@
                     </td>
                     <td>
                         <div class="cart_item_price">
-                            <p class="jumei_price">32.00</p>
-                            <p class="market_price">45.00</p>
+                            <p class="jumei_price" id="singleprice1">32.00</p>
+                           <!-- <p class="market_price">45.00</p>-->
                         </div>
                     </td>
                     <td>
-                        <div class="cart_item_num ">
-                            <div class="item_quantity_editer clear" data-item-key="1057066_d150603p892053zc"> <span class="decrease_one disabled ">-</span>
-                                <input class="item_quantity" value="1" type="text"> <span class="increase_one ">+</span> </div>
+                        <div class="cart_item_num ">   <!-- <input class="item_quantity" name="quantity1" value="1" type="text">-->
+                            <div class="item_quantity_editer clear" data-item-key="1057066_d150603p892053zc">
+                                <span type="button"  class="increase_one "  onclick='sub("quantity1","totalprice1","singleprice1")'  >-</span>
+                                <p type="text"  class="item_quantity" id="quantity1">1</p>
+                                <span type="button" name="increase1" class="increase_one " onclick='add("quantity1","totalprice1","singleprice1")'>+</span>
+                            </div>
                             <div class="item_shortage_tip"> </div>
                         </div>
                     </td>
                     <td>
                         <div class="cart_item_total">
-                            <p class="item_total_price">32.00</p>
-                            <p>省 <span class="item_saved_price">13.00</span></p>
+                            <p class="item_total_price" id="totalprice1">32.00</p>
+                            <!-- <p>省 <span class="item_saved_price">13.00</span></p>-->
                         </div>
                     </td>
                     <td>
                         <div class="cart_item_option">
-                            <a class="icon_small delete_item png" data-item-key="1057066_d150603p892053zc" href="javascript:void(0)" title="删除"></a>
+                            <a class="iconfont icon-shanchu" data-item-key="1057066_d150603p892053zc" href="javascript:void(0)" title="删除"></a>
                         </div>
                     </td>
                 </tr>
@@ -284,26 +230,28 @@
                     </td>
                     <td>
                         <div class="cart_item_price">
-                            <p class="jumei_price">34.00</p>
-                            <p class="market_price">38.00</p>
+                            <p class="jumei_price" id="singleprice2">34.00</p>
+                           <!-- <p class="market_price">38.00</p>-->
                         </div>
                     </td>
                     <td>
                         <div class="cart_item_num ">
-                            <div class="item_quantity_editer clear" data-item-key="1057066_d150603p892053zc"> <span class="decrease_one disabled ">-</span>
-                                <input class="item_quantity" value="1" type="text"> <span class="increase_one ">+</span> </div>
+                            <div class="item_quantity_editer clear" data-item-key="1057066_d150603p892053zc">
+                                <span type="button"  class="increase_one "  onclick='sub("quantity2","totalprice2","singleprice2")'  >-</span>
+                                <p type="text"  class="item_quantity" id="quantity2">1</p>
+                                <span type="button" name="increase1" class="increase_one " onclick='add("quantity2","totalprice2","singleprice2")'>+</span> </div>
                             <div class="item_shortage_tip"> </div>
                         </div>
                     </td>
                     <td>
                         <div class="cart_item_total">
-                            <p class="item_total_price">34.00</p>
-                            <p>省 <span class="item_saved_price">4.00</span></p>
+                            <p class="item_total_price" id="totalprice2">34.00</p>
+                          <!--  <p>省 <span class="item_saved_price">4.00</span></p>-->
                         </div>
                     </td>
                     <td>
                         <div class="cart_item_option">
-                            <a class="icon_small delete_item png" data-item-key="1057066_d150603p892053zc" href="javascript:void(0)" title="删除"></a>
+                            <a class="iconfont icon-shanchu" data-item-key="1057066_d150603p892053zc" href="javascript:void(0)" title="删除"></a>
                         </div>
                     </td>
                 </tr>
@@ -343,33 +291,35 @@
                     </td>
                     <td>
                         <div class="cart_item_price">
-                            <p class="jumei_price">27.00</p>
-                            <p class="market_price">39.00</p>
+                            <p class="jumei_price" id="singleprice3">27.00</p>
+                           <!-- <p class="market_price">39.00</p>-->
                         </div>
                     </td>
                     <td>
                         <div class="cart_item_num ">
-                            <div class="item_quantity_editer clear" data-item-key="1057066_d150603p892053zc"> <span class="decrease_one disabled ">-</span>
-                                <input class="item_quantity" value="1" type="text"> <span class="increase_one ">+</span> </div>
-                            <div class="item_shortage_tip"> </div>
+                            <div class="item_quantity_editer clear" data-item-key="1057066_d150603p892053zc">
+                                <span type="button"  class="increase_one "  onclick='sub("quantity3","totalprice3","singleprice3")'  >-</span>
+                                <p type="text"  class="item_quantity" id="quantity3">1</p>
+                                <span type="button" name="increase1" class="increase_one " onclick='add("quantity3","totalprice3","singleprice3")'>+</span> </div>
+                            <div class="item_shortage_tip" > </div>
                         </div>
                     </td>
                     <td>
                         <div class="cart_item_total">
-                            <p class="item_total_price">27.00</p>
-                            <p>省 <span class="item_saved_price">12.00</span></p>
+                            <p class="item_total_price"  id="totalprice3">27.00</p>
+                           <!-- <p>省 <span class="item_saved_price">12.00</span></p>-->
                         </div>
                     </td>
                     <td>
                         <div class="cart_item_option">
-                            <a class="icon_small delete_item png" data-item-key="1057066_d150603p892053zc" href="javascript:void(0)" title="删除"></a>
+                            <a class="iconfont icon-shanchu" data-item-key="1057066_d150603p892053zc" href="javascript:void(0)" title="删除"></a>
                         </div>
                     </td>
                 </tr>
                 </tbody>
                 <tfoot>
                 <tr>
-                    <td colspan="5"> 商品金额： <span class="group_total_price">￥141.00</span> </td>
+                    <td colspan="5"> 商品金额：￥ <span class="group_total_price" id="orderprice">93.00</span> </td>
                 </tr>
                 </tfoot>
             </table>
@@ -390,8 +340,6 @@
         <a href="javascript:void(0)"></a>
     </div>
 </div>
-
-
 <div class="container lastNav">
     <hr>
     <div class="col-md-3">

@@ -16,9 +16,10 @@
 .Search{margin-top:1.5em;}
 .Search input{height:4em;border-radius:2em;border:2px solid rgb(240, 90, 45);}
 .Search button{height:4em;width:4em;border-radius:2em;background-color:rgb(240, 90, 45);color:white;}
-.Cart a{margin-top:1.5em;float:right; }
+.Cart li{width: 8em;float:left;}
+.Cart a{margin-top:1.5em;float:right;}
 .Cart img{height:4em;}
-.littleDot{display: inline;position: absolute;right:0.45em;color: white;background-color: rgb(240, 90, 45);width:1.5em;text-align: center;border-radius:50%;}
+.littleDot{display: inline-block;position:relative;top: -1em;left: -1.3em;color: white;background-color: rgb(240, 90, 45);width:1.5em;text-align: center;border-radius:50%;}
 
 /* 商品目录 */
 .Tag{background-color:#a8d1ff;}

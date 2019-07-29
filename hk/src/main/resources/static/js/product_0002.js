@@ -23,22 +23,22 @@ $(function () {
         var color=$(".colorSelect").val();
         var a=$(".carousel-inner img");
         if (color=="天空之境") {
-            a.eq(0).attr("src","../static/image/product/product_0002/product_0002_white1.png");
-            a.eq(1).attr("src","../static/image/product/product_0002/product_0002_white2.png");
-            a.eq(2).attr("src","../static/image/product/product_0002/product_0002_white3.png");
-            a.eq(3).attr("src","../static/image/product/product_0002/product_0002_white4.png");
+            a.eq(0).attr("src","/image/product/product_0002/product_0002_white1.png");
+            a.eq(1).attr("src","/image/product/product_0002/product_0002_white2.png");
+            a.eq(2).attr("src","/image/product/product_0002/product_0002_white3.png");
+            a.eq(3).attr("src","/image/product/product_0002/product_0002_white4.png");
         }
         else if(color=="极光色"){
-            a.eq(0).attr("src","../static/image/product/product_0002/product_0002_aurora1.png");
-            a.eq(1).attr("src","../static/image/product/product_0002/product_0002_aurora2.png");
-            a.eq(2).attr("src","../static/image/product/product_0002/product_0002_aurora3.png");
-            a.eq(3).attr("src","../static/image/product/product_0002/product_0002_aurora4.png");
+            a.eq(0).attr("src","/image/product/product_0002/product_0002_aurora1.png");
+            a.eq(1).attr("src","/image/product/product_0002/product_0002_aurora2.png");
+            a.eq(2).attr("src","/image/product/product_0002/product_0002_aurora3.png");
+            a.eq(3).attr("src","/image/product/product_0002/product_0002_aurora4.png");
         }
         else{
-            a.eq(0).attr("src","../static/image/product/product_0002/product_0002_red1.png");
-            a.eq(1).attr("src","../static/image/product/product_0002/product_0002_red2.png");
-            a.eq(2).attr("src","../static/image/product/product_0002/product_0002_red3.png");
-            a.eq(3).attr("src","../static/image/product/product_0002/product_0002_red4.png");
+            a.eq(0).attr("src","/image/product/product_0002/product_0002_red1.png");
+            a.eq(1).attr("src","/image/product/product_0002/product_0002_red2.png");
+            a.eq(2).attr("src","/image/product/product_0002/product_0002_red3.png");
+            a.eq(3).attr("src","/image/product/product_0002/product_0002_red4.png");
         }
     });
 

@@ -37,5 +37,11 @@
             <property name="rootInterface" value="net.suncaper.springboot.mapper.UserMapperExt"/>
             <generatedKey column="id" sqlStatement="select uuid()" identity="false"/>
         </table>
+
+        <table schema="hk" tableName="pms_sku_stock" domainObjectName="Sku">
+            <property name="rootInterface" value="net.suncaper.springboot.mapper.UserMapperExt"/>
+            <generatedKey column="id" sqlStatement="select uuid()" identity="false"/>
+        </table>
+
     </context>
 </generatorConfiguration>

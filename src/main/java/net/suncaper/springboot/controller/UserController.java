@@ -68,6 +68,13 @@ public class UserController {
         return "/shoppingcart";
     }
 
+
+
+    @GetMapping("/product_0001")
+    public String a(Model model) {
+        model.addAttribute("user", new User());
+        return "/product_0001";
+    }
     @PostMapping("/login")
 
     public String goIndexPage(HttpServletRequest request, String userName, String password, User user, Model model) {

@@ -29,20 +29,37 @@
         function add(a,totalprice,singleprice) {
             document.getElementById(a.toString()).innerHTML=parseInt(document.getElementById(a.toString()).innerHTML)+1;
             document.getElementById(totalprice.toString()).innerHTML=parseFloat(document.getElementById(singleprice.toString()).innerHTML)*parseInt(document.getElementById(a.toString()).innerHTML);
-            document.getElementById("orderprice").innerHTML=parseFloat(document.getElementById("totalprice1").innerHTML)+parseFloat(document.getElementById("totalprice2").innerHTML)+parseFloat(document.getElementById("totalprice3").innerHTML);
+            document.getElementById("itemprice").innerHTML=parseFloat(document.getElementById("totalprice1").innerHTML)+parseFloat(document.getElementById("totalprice2").innerHTML)+parseFloat(document.getElementById("totalprice3").innerHTML);
+            if(document.getElementById("itemprice").innerHTML>=99) {
+                var freeship=0;
+                document.getElementById("shippingprice").innerHTML=parseFloat(freeship);
+            }
+            else if(document.getElementById("itemprice").innerHTML<99) {
+                document.getElementById("shippingprice").innerHTML=10;
+            }
+            document.getElementById("orderprice").innerHTML=parseFloat(document.getElementById("itemprice").innerHTML)+parseFloat(document.getElementById("shippingprice").innerHTML);
         }
         function sub(a,totalprice,singleprice) {
             var quantity=parseInt(document.getElementById(a).innerHTML);
             if(quantity>1)
             {document.getElementById(a.toString()).innerHTML=parseInt(document.getElementById(a.toString()).innerHTML)-1;
                 document.getElementById(totalprice.toString()).innerHTML=parseFloat(document.getElementById(singleprice.toString()).innerHTML)*parseInt(document.getElementById(a.toString()).innerHTML);
-                document.getElementById("orderprice").innerHTML=parseFloat(document.getElementById("totalprice1").innerHTML)+parseFloat(document.getElementById("totalprice2").innerHTML)+parseFloat(document.getElementById("totalprice3").innerHTML);
+                document.getElementById("itemprice").innerHTML=parseFloat(document.getElementById("totalprice1").innerHTML)+parseFloat(document.getElementById("totalprice2").innerHTML)+parseFloat(document.getElementById("totalprice3").innerHTML);
+                if(document.getElementById("itemprice").innerHTML>=99) {
+                    var freeship=0;
+                    document.getElementById("shippingprice").innerHTML=parseFloat(freeship);
+                }
+                else if(document.getElementById("itemprice").innerHTML<99) {
+                    document.getElementById("shippingprice").innerHTML=10;
+                }
+                document.getElementById("orderprice").innerHTML=parseFloat(document.getElementById("itemprice").innerHTML)+parseFloat(document.getElementById("shippingprice").innerHTML);
             }
         }
     </script>
 </head>
 
-<body onload="foo()"  >
+<body onload="foo();">
+
 <!-- 顶部导航栏 -->
 <div class="topBar">
     <div class="container">
@@ -61,7 +78,7 @@
                 </li>
                 <li class="dropdown topLang">
 
-                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"  style="background: none;col">
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"  style="background: none;color: black;">
                         语言
                         <span class="caret"></span>
                     </button>
@@ -83,21 +100,46 @@
         </div>
     </div>
 </div>
-<!-- logo与进度反馈区域 -->
-<div id="logo_line" class="car_wrap clear">
-    <div class="logo fl">
+<!-- 搜索框部分 -->
+<div class="container">
+    <div class="col-md-3 bigLogo">
         <a href="index">
-            <img  src="/image/logo/biglogo.png"  alt="HK购物商城" >
+            <img src="/image/logo/biglogo.png" alt="HK网上商城">
         </a>
-    </div>
-    <div class="shopCar_tit fl">
         <h1>购物车</h1>
     </div>
-    <div class="order_path order_path_1 ">
+
+    <div class="col-md-6 Search">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="搜你想要">
+            <span class="input-group-btn">
+                        <button class="btn btn-defalut"><span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+        </div>
+    </div>
+    <div class="col-md-3 Cart">
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="/image/logo/wish.png" alt="心愿单">
+                    <p class="littleDot">2</p>
+                </a>
+            </li>
+            <li>
+                <a href="/user/shoppingcart">
+                    <img src="/image/logo/cartLogo.png" alt="购物车">
+                    <p class="littleDot">1</p>
+                </a>
+            </li>
+        </ul>
+
     </div>
 </div>
-<div class="car_hr"></div>
-<!-- /logo与进度反馈区域 -->
+
+
+
+
 <div class="content_show_wrapper">
     <div class="cart_notification cart_error" style="">
         <div class="message">
@@ -141,30 +183,8 @@
                             <div class="cart_item_desc_wrapper">
                                 <a class="cart_item_pic" href="https://www.baidu.com" target="_blank"> <img src="/image/item/list2_lit1.jpg" alt="商品1"> <span class="sold_out_pic png"></span> </a> <a class="cart_item_link" title="商品1" href="https://www.baidu.com" target="_blank">商品1</a>
                                 <p class="sku_info"> 规格：<span class="cart_item_attribute">% %</span>&nbsp; </p>
-                                <div class="sale_info clear">
-                                    <div class="tips_pop_full float_box JS_tips_pop_full">
-                                        <div> <a class="sale_tag gift JS_sale_tag" data-promo-type="gift"> 满赠 <i class="icon_small png"></i> </a> </div>
-                                        <div class="pop_box JS_pop_box">
-                                            <div><span class="arrow_t_1"><span class="arrow_t_2"></span></span>
-                                            </div>
-                                            <div>
-                                                <a class="clear promo_sale_item promo_has_url" target="_blank" href="http://hd.jumei.com/act/4-3-6035-ppt_maybelline_150603.html"> <span class="title">时代图书团满99送109</span> <span class="tips">查看活动</span> </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tips_pop_full float_box JS_tips_pop_full">
-                                        <div> <a class="sale_tag reduce JS_sale_tag" data-promo-type="reduce"> 满减 <i class="icon_small png"></i> </a> </div>
-                                        <div class="pop_box JS_pop_box">
-                                            <div><span class="arrow_t_1"><span class="arrow_t_2"></span></span>
-                                            </div>
-                                            <div>
-                                                <a class="clear promo_sale_item promo_has_url" target="_blank" href="http://hd.jumei.com/act/4-3-6035-ppt_maybelline_150603.html"> <span class="title">时代图书团满99减20</span> <span class="tips">查看活动</span> </a>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
-                        </div>
                     </td>
                     <td>
                         <div class="cart_item_price">
@@ -203,28 +223,6 @@
                             <div class="cart_item_desc_wrapper">
                                 <a class="cart_item_pic" href="http://sh.jumei.com/i/deal/d150603p892053zc.html" target="_blank"> <img src="/image/item/list1_lit1.jpg" alt="商品2"> <span class="sold_out_pic png"></span> </a> <a class="cart_item_link" title="商品2" href="http://sh.jumei.com/i/deal/d150603p892053zc.html" target="_blank">商品2</a>
                                 <p class="sku_info"> 规格：<span class="cart_item_attribute">彩色</span>&nbsp; </p>
-                                <div class="sale_info clear">
-                                    <div class="tips_pop_full float_box JS_tips_pop_full">
-                                        <div> <a class="sale_tag gift JS_sale_tag" data-promo-type="gift"> 满赠 <i class="icon_small png"></i> </a> </div>
-                                        <div class="pop_box JS_pop_box">
-                                            <div><span class="arrow_t_1"><span class="arrow_t_2"></span></span>
-                                            </div>
-                                            <div>
-                                                <a class="clear promo_sale_item promo_has_url" target="_blank" href="http://hd.jumei.com/act/4-3-6035-ppt_maybelline_150603.html"> <span class="title">时代图书团满99送109</span> <span class="tips">查看活动</span> </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tips_pop_full float_box JS_tips_pop_full">
-                                        <div> <a class="sale_tag reduce JS_sale_tag" data-promo-type="reduce"> 满减 <i class="icon_small png"></i> </a> </div>
-                                        <div class="pop_box JS_pop_box">
-                                            <div><span class="arrow_t_1"><span class="arrow_t_2"></span></span>
-                                            </div>
-                                            <div>
-                                                <a class="clear promo_sale_item promo_has_url" target="_blank" href="http://hd.jumei.com/act/4-3-6035-ppt_maybelline_150603.html"> <span class="title">时代图书团满99减20</span> <span class="tips">查看活动</span> </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </td>
@@ -264,28 +262,6 @@
                             <div class="cart_item_desc_wrapper">
                                 <a class="cart_item_pic" href="http://sh.jumei.com/i/deal/d150603p892053zc.html" target="_blank"> <img src="/image/item/list7_lit1.jpg" alt="商品3"> <span class="sold_out_pic png"></span> </a> <a class="cart_item_link" title="商品3" href="http://sh.jumei.com/i/deal/d150603p892053zc.html" target="_blank">商品3</a>
                                 <p class="sku_info"> 规格：<span class="cart_item_attribute">彩色</span>&nbsp; </p>
-                                <div class="sale_info clear">
-                                    <div class="tips_pop_full float_box JS_tips_pop_full">
-                                        <div> <a class="sale_tag gift JS_sale_tag" data-promo-type="gift"> 满赠 <i class="icon_small png"></i> </a> </div>
-                                        <div class="pop_box JS_pop_box">
-                                            <div><span class="arrow_t_1"><span class="arrow_t_2"></span></span>
-                                            </div>
-                                            <div>
-                                                <a class="clear promo_sale_item promo_has_url" target="_blank" href="http://hd.jumei.com/act/4-3-6035-ppt_maybelline_150603.html"> <span class="title">时代图书团满99送109</span> <span class="tips">查看活动</span> </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tips_pop_full float_box JS_tips_pop_full">
-                                        <div> <a class="sale_tag reduce JS_sale_tag" data-promo-type="reduce"> 满减 <i class="icon_small png"></i> </a> </div>
-                                        <div class="pop_box JS_pop_box">
-                                            <div><span class="arrow_t_1"><span class="arrow_t_2"></span></span>
-                                            </div>
-                                            <div>
-                                                <a class="clear promo_sale_item promo_has_url" target="_blank" href="http://hd.jumei.com/act/4-3-6035-ppt_maybelline_150603.html"> <span class="title">时代图书团满99减20</span> <span class="tips">查看活动</span> </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </td>
@@ -319,14 +295,17 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <td colspan="5"> 商品金额：￥ <span class="group_total_price" id="orderprice">93.00</span> </td>
+                    <td colspan="5"> 商品价格：￥ <span class="group_total_price" id="itemprice"></span> </td>
+                </tr>
+                <tr>
+                    <td colspan="5"> 运费：￥ <span class="group_total_price" id="shippingprice">10.00</span> </td>
                 </tr>
                 </tfoot>
             </table>
         </div>
         <div class="common_handler_anchor"></div>
         <div class="common_handler">
-            <div class="right_handler"> 共 <span class="total_amount"> 1 </span> &nbsp;件商品 &nbsp;&nbsp; 商品应付总额：<span class="total_price">￥141.00</span> <a id="go_to_order" class="btn" href="lookOrderForm.html">去结算</a> </div>
+            <div class="right_handler"> 共 <span class="total_amount"> 3 </span> &nbsp;件商品 &nbsp;&nbsp; 商品应付总额：￥<span class="total_price" id="orderprice"></span><a id="go_to_order" class="btn" href="lookOrderForm.html">去结算</a> </div>
             <label for="js_all_selector" class="cart_all_selector_wrapper">
                 <input id="js_all_selector" class="js_all_selector all_selector"  onclick="cli('多选项名称');"     type="checkbox"> 全选 </label> <a class="go_back_shopping" href="index">继续购物</a> <span class="seperate_line">|</span> <a class="clear_cart_all" href="">清空选中商品</a>
             <form id="form_to_order" action="" method="post" style="display: none;">
@@ -386,6 +365,18 @@
 
 <script src="../js/jquery-1.4.2.min.js"></script>
 <script src="../js/imgTab.js"></script>
+<script>
+    document.getElementById("itemprice").innerHTML=parseFloat(document.getElementById("totalprice1").innerHTML)+parseFloat(document.getElementById("totalprice2").innerHTML)+parseFloat(document.getElementById("totalprice3").innerHTML);
+    if(document.getElementById("itemprice").innerHTML>=99) {
+        var freeship=0;
+        document.getElementById("shippingprice").innerHTML=parseFloat(freeship);
+
+    }
+    else if(document.getElementById("itemprice").innerHTML<99) {
+        document.getElementById("shippingprice").innerHTML=10;
+    }
+    document.getElementById("orderprice").innerHTML=parseFloat(document.getElementById("itemprice").innerHTML)+parseFloat(document.getElementById("shippingprice").innerHTML);
+</script>
 </body>
 
 </html>

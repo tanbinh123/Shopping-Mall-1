@@ -42,7 +42,8 @@
     </script>
 </head>
 
-<body onload="foo()"  >
+<body onload="foo();">
+
 <!-- 顶部导航栏 -->
 <div class="topBar">
     <div class="container">
@@ -61,7 +62,7 @@
                 </li>
                 <li class="dropdown topLang">
 
-                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"  style="background: none;col">
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"  style="background: none;color: black;">
                         语言
                         <span class="caret"></span>
                     </button>
@@ -319,14 +320,14 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <td colspan="5"> 商品金额：￥ <span class="group_total_price" id="orderprice">93.00</span> </td>
+                    <td colspan="5"> 运费：￥ <span class="group_total_price" id="shippingprice">10.00</span> </td>
                 </tr>
                 </tfoot>
             </table>
         </div>
         <div class="common_handler_anchor"></div>
         <div class="common_handler">
-            <div class="right_handler"> 共 <span class="total_amount"> 1 </span> &nbsp;件商品 &nbsp;&nbsp; 商品应付总额：<span class="total_price">￥141.00</span> <a id="go_to_order" class="btn" href="lookOrderForm.html">去结算</a> </div>
+            <div class="right_handler"> 共 <span class="total_amount"> 3 </span> &nbsp;件商品 &nbsp;&nbsp; 商品应付总额：￥<span class="total_price" id="orderprice"></span> <a id="go_to_order" class="btn" href="lookOrderForm.html">去结算</a> </div>
             <label for="js_all_selector" class="cart_all_selector_wrapper">
                 <input id="js_all_selector" class="js_all_selector all_selector"  onclick="cli('多选项名称');"     type="checkbox"> 全选 </label> <a class="go_back_shopping" href="index">继续购物</a> <span class="seperate_line">|</span> <a class="clear_cart_all" href="">清空选中商品</a>
             <form id="form_to_order" action="" method="post" style="display: none;">
@@ -386,6 +387,9 @@
 
 <script src="../js/jquery-1.4.2.min.js"></script>
 <script src="../js/imgTab.js"></script>
+<script>
+    document.getElementById("orderprice").innerHTML=parseFloat(document.getElementById("totalprice1").innerHTML)+parseFloat(document.getElementById("totalprice2").innerHTML)+parseFloat(document.getElementById("totalprice3").innerHTML);
+</script>
 </body>
 
 </html>

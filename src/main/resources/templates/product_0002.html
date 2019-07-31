@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>华为P30Pro-HK商城</title>
-    <script src="../static/js/jquery.min.js"></script>
-    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
-    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../static/css/main.css">
-    <link rel="stylesheet" href="../static/css/product_0002.css">
-    <script src="../static/js/product_0002.js"></script>
+    <script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <script src="../static/bootstrap/js/bootstrap.min.js"  th:src="@{/bootstrap/js/bootstrap.min.js}" ></script>
+    <link rel="stylesheet" href="../static/css/main.css" th:href="@{/css/main.css}"   >
+    <link rel="stylesheet" href="../static/css/product_0002.css"  th:href="@{/css/product_0002.css}"  >
+    <script src="../static/js/product_0002.js" th:src="@{/js/product_0002.js}" ></script>
 </head>
 <body>
 <!-- 顶部导航栏 -->
@@ -22,7 +22,7 @@
         <div class=" col-md-6 topNav">
             <ul class="breadcrumb">
                 <li>
-                    <a href="../templates/login.html">
+                    <a href="../templates/login.html" th:href="@{login}">
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
                     </a>
                 </li>
@@ -53,7 +53,7 @@
 <div class="container">
     <div class="col-md-3 bigLogo">
         <a href="index.html">
-            <img src="../static/image/logo/biglogo.png" alt="HK网上商城">
+            <img src="../static/image/logo/biglogo.png"  th:src="@{/image/logo/biglogo.png}" alt="HK网上商城">
         </a>
     </div>
     <div class="col-md-6 Search">
@@ -69,13 +69,13 @@
         <ul>
             <li>
                 <a href="#">
-                    <img src="../static/image/logo/wish.png" alt="心愿单">
+                    <img src="../static/image/logo/wish.png"  th:src="@{/image/logo/wish.png}"  alt="心愿单">
                     <p class="littleDot">2</p>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <img src="../static/image/logo/cartLogo.png" alt="购物车">
+                    <img src="../static/image/logo/cartLogo.png"  th:src="@{/image/logo/cartLogo.png}" alt="购物车">
                     <p class="littleDot">1</p>
                 </a>
             </li>
@@ -122,16 +122,24 @@
                     <!-- 轮播（Carousel）项目 -->
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
-                            <img  class="img-responsive" src="../static/image/product/product_0002/product_0002_white1.png" alt="First slide">
+                            <img  class="img-responsive" src="../static/image/product/product_0002/product_0002_white1.png"
+                                  th:src="@{/image/product/product_0002/product_0002_white1.png}"
+                                  alt="First slide">
                         </div>
                         <div class="item">
-                            <img src="../static/image/product/product_0002/product_0002_white2.png" alt="Second slide">
+                            <img src="../static/image/product/product_0002/product_0002_white2.png"
+                                 th:src="@{/image/product/product_0002/product_0002_white2.png}"
+                                 alt="Second slide">
                         </div>
                         <div class="item">
-                            <img src="../static/image/product/product_0002/product_0002_white3.png" alt="Third slide">
+                            <img src="../static/image/product/product_0002/product_0002_white3.png"
+                                 th:src="@{/image/product/product_0002/product_0002_white3.png}"
+                                 alt="Third slide">
                         </div>
                         <div class="item">
-                            <img src="../static/image/product/product_0002/product_0002_white4.png" alt="Third slide">
+                            <img src="../static/image/product/product_0002/product_0002_white4.png"
+                                 th:src="@{/image/product/product_0002/product_0002_white4.png}"
+                                 alt="Third slide">
                         </div>
                     </div>
                     <!-- 轮播（Carousel）导航 -->
@@ -181,25 +189,25 @@
         </div>
     </div>
     <div class="tab-pane fade" id="details">
-        <img src="../static/image/product/product_0002/product_0002_detail1.jpg">
-        <img src="../static/image/product/product_0002/product_0002_detail2.jpg">
-        <img src="../static/image/product/product_0002/product_0002_detail3.jpg">
-        <img src="../static/image/product/product_0002/product_0002_detail4.jpg">
-        <img src="../static/image/product/product_0002/product_0002_detail5.jpg">
-        <img src="../static/image/product/product_0002/product_0002_detail6.jpg">
-        <img src="../static/image/product/product_0002/product_0002_detail7.jpg">
-        <img src="../static/image/product/product_0002/product_0002_detail8.jpg">
-        <img src="../static/image/product/product_0002/product_0002_detail9.jpg">
-        <img src="../static/image/product/product_0002/product_0002_detail10.jpg">
-        <img src="../static/image/product/product_0002/product_0002_detail11.jpg">
-        <img src="../static/image/product/product_0002/product_0002_detail12.jpg">
-        <img src="../static/image/product/product_0002/product_0002_detail13.jpg">
-        <img src="../static/image/product/product_0002/product_0002_detail14.jpg">
-        <img src="../static/image/product/product_0002/product_0002_detail15.jpg">
-        <img src="../static/image/product/product_0002/product_0002_detail16.jpg">
-        <img src="../static/image/product/product_0002/product_0002_detail17.jpg">
-        <img src="../static/image/product/product_0002/product_0002_detail18.jpg">
-        <img src="../static/image/product/product_0002/product_0002_detail19.jpg">
+        <img src="../static/image/product/product_0002/product_0002_detail1.jpg" th:src="@{/image/product/product_0002/product_0002_detail1.jpg}">
+        <img src="../static/image/product/product_0002/product_0002_detail2.jpg"th:src="@{/image/product/product_0002/product_0002_detail2.jpg}">
+        <img src="../static/image/product/product_0002/product_0002_detail3.jpg"th:src="@{/image/product/product_0002/product_0002_detail3.jpg}">
+        <img src="../static/image/product/product_0002/product_0002_detail4.jpg"th:src="@{/image/product/product_0002/product_0002_detail4.jpg}">
+        <img src="../static/image/product/product_0002/product_0002_detail5.jpg"th:src="@{/image/product/product_0002/product_0002_detail5.jpg}">
+        <img src="../static/image/product/product_0002/product_0002_detail6.jpg"th:src="@{/image/product/product_0002/product_0002_detail6.jpg}">
+        <img src="../static/image/product/product_0002/product_0002_detail7.jpg"th:src="@{/image/product/product_0002/product_0002_detail7.jpg}">
+        <img src="../static/image/product/product_0002/product_0002_detail8.jpg"th:src="@{/image/product/product_0002/product_0002_detail8.jpg}">
+        <img src="../static/image/product/product_0002/product_0002_detail9.jpg"th:src="@{/image/product/product_0002/product_0002_detail9.jpg}">
+        <img src="../static/image/product/product_0002/product_0002_detail10.jpg"th:src="@{/image/product/product_0002/product_0002_detail10.jpg}">
+        <img src="../static/image/product/product_0002/product_0002_detail11.jpg"th:src="@{/image/product/product_0002/product_0002_detail11.jpg}">
+        <img src="../static/image/product/product_0002/product_0002_detail12.jpg"th:src="@{/image/product/product_0002/product_0002_detail12.jpg}">
+        <img src="../static/image/product/product_0002/product_0002_detail13.jpg"th:src="@{/image/product/product_0002/product_0002_detail13.jpg}">
+        <img src="../static/image/product/product_0002/product_0002_detail14.jpg"th:src="@{/image/product/product_0002/product_0002_detail14.jpg}">
+        <img src="../static/image/product/product_0002/product_0002_detail15.jpg"th:src="@{/image/product/product_0002/product_0002_detail15.jpg}">
+        <img src="../static/image/product/product_0002/product_0002_detail16.jpg"th:src="@{/image/product/product_0002/product_0002_detail16.jpg}">
+        <img src="../static/image/product/product_0002/product_0002_detail17.jpg"th:src="@{/image/product/product_0002/product_0002_detail17.jpg}">
+        <img src="../static/image/product/product_0002/product_0002_detail18.jpg"th:src="@{/image/product/product_0002/product_0002_detail18.jpg}">
+        <img src="../static/image/product/product_0002/product_0002_detail19.jpg"th:src="@{/image/product/product_0002/product_0002_detail19.jpg}">
 
 
 

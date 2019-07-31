@@ -74,16 +74,20 @@ public class UserController {
         return "/product_0001";
     }
 
+    @GetMapping("/product_0002")  //跳转至2号商品页面
+    public String a2(Model model) {
+        model.addAttribute("user", new User());
+        return "/product_0002";
+    }
+
+
+
     @GetMapping("/delete")   //delete页面，暂未定义
     @ResponseBody
     public Boolean deleteUser(@RequestParam("id") String id) {  //在search页面删除一个用户
         userService.deleteUserById(id);
         return true;
     }
-
-
-
-
 
     @GetMapping("/edit")    //目前打开出现错误，与id这个元素不存在有关
     public String goUserEditPage(@RequestParam("id") String id, Model model) {

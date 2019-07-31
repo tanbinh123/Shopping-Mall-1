@@ -1,10 +1,10 @@
 package net.suncaper.springboot.controller;
 
+import net.suncaper.springboot.domain.Product;
 import net.suncaper.springboot.domain.User;
 import net.suncaper.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +23,25 @@ public class UserController {
                                  Model model) {
         model.addAttribute("users", userService.listUser());
         return "userList";
+    }
+    @GetMapping("/product")    //跳转至productList页面展示查询产品表product中的所有元组
+    public String goProductListPage(HttpServletRequest request,
+                                 HttpServletResponse response,
+                                 Model model) {
+        model.addAttribute("products", userService.listProduct());
+        return "productlist";
+    }
+
+    @GetMapping("/addproduct")
+    public String goProductAddPage(Model model) {
+        model.addAttribute("product", new Product());
+        return "product-add";
+    }
+
+    @PostMapping("/addproduct")
+    public String saveProduct(Product product) {
+        userService.saveProduct(product);
+        return "redirect:/user/product";
     }
 
     @GetMapping("/add")       //跳转到注册界面user-add

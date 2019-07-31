@@ -1,6 +1,5 @@
 package net.suncaper.springboot.controller;
 
-import net.suncaper.springboot.domain.Product;
 import net.suncaper.springboot.domain.User;
 import net.suncaper.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 @Controller
 @RequestMapping("/user")
@@ -23,25 +24,6 @@ public class UserController {
                                  Model model) {
         model.addAttribute("users", userService.listUser());
         return "userList";
-    }
-    @GetMapping("/product")    //跳转至productList页面展示查询产品表product中的所有元组
-    public String goProductListPage(HttpServletRequest request,
-                                 HttpServletResponse response,
-                                 Model model) {
-        model.addAttribute("products", userService.listProduct());
-        return "productlist";
-    }
-
-    @GetMapping("/addproduct")
-    public String goProductAddPage(Model model) {
-        model.addAttribute("product", new Product());
-        return "product-add";
-    }
-
-    @PostMapping("/addproduct")
-    public String saveProduct(Product product) {
-        userService.saveProduct(product);
-        return "redirect:/user/product";
     }
 
     @GetMapping("/add")       //跳转到注册界面user-add
@@ -101,6 +83,8 @@ public class UserController {
 
 
 
+
+
     @GetMapping("/edit")    //目前打开出现错误，与id这个元素不存在有关
     public String goUserEditPage(@RequestParam("id") String id, Model model) {
         User user = userService.findUserByPrimaryKey(id);
@@ -114,5 +98,4 @@ public class UserController {
         User selectu=userService.findUserByPrimaryKey(id);
         return selectu;
     }
-
 }

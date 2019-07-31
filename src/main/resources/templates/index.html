@@ -23,7 +23,7 @@
                 <ul class="breadcrumb">
                     <li>
                             <a th:if="${isLogin}"  >
-                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>已登录
+                                <span class="glyphicon glyphicon-user"  th:text="${session.name}"  aria-hidden="true"></span>已登录
                             </a>
                             <a th:if="${!isLogin}" href="login">
                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册

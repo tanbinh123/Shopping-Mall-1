@@ -17,30 +17,32 @@ Product List:
         <th>Product_Type</th>
         <th>Price</th>
         <th>Hot_Point</th>
+        <th>图片</th>
 
     </tr>
-    <tr th:each="product : ${products}">
+    <tr th:each="product:${products}">
         <td th:text="${product.id}"></td>
         <td th:text="${product.name}"></td>
         <td th:text="${product.productType}"></td>
         <td th:text="${product.price}"></td>
         <td th:text="${product.hotPoint}"></td>
-        <!--<td><button data-th-attr="onclick='deleteUser(this, \'' + ${user.id} + '\')'">删除</button> </td>-->
+        <td><img th:src="@{/product/download(id=${product.id})}"></td>
+        <td><button data-th-attr="onclick='deleteProduct(this, \'' + ${product.id} + '\')'">删除</button> </td>
     </tr>
 </table>
 </body>
 <script>
-    // function deleteUser(elem, id) {
-    //     $.ajax({
-    //         url: '/user/delete?id=' + id,
-    //         type: 'get',
-    //         success: function (data) {
-    //             $(elem).parent().parent().remove();
-    //         },
-    //         fail: function (data) {
-    //             console.log('fail')
-    //         }
-    //     })
-    // }
+    function deleteProduct(elem,id) {
+        $.ajax({
+            url: '/product/delete?id=' + id,
+            type: 'get',
+            success: function (data) {
+                $(elem).parent().parent().remove();
+            },
+            fail: function (data) {
+                console.log('fail')
+            }
+        })
+    }
 </script>
 </html>

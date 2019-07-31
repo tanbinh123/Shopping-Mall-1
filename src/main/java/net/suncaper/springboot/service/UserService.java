@@ -13,8 +13,6 @@ import java.util.List;
 public class UserService {
     @Autowired
     private UserMapper userMapper;
-    @Autowired
-    private ProductMapper productMapper;
 
     public void add() {     //示例代码，这里没有用到
         SearchUserRequest request = new SearchUserRequest();
@@ -29,10 +27,6 @@ public class UserService {
     }
     //用户管理：调用userMapper里的selectByExample接口方法返回所有t_user中的元组
 
-    public List<Product> listProduct() {
-        //return ProductMapper.selectByExample(new ProductExample());
-        return productMapper.selectByExample(new ProductExample());
-    }
     public int saveUser(User user) {        //注册：将表单中的user对象插入数据库t_user表
         if (user.getId() == null|| user.getId().equals("")) {
             return userMapper.insert(user);
@@ -41,14 +35,6 @@ public class UserService {
         }
     }
 
-    public int saveProduct(Product product) {        //注册：将表单中的user对象插入数据库t_user表
-        //if (product.getName() == null|| product.getName().equals("")) {
-           // return productMapper.insert(product);
-        //} else {
-         //   return productMapper.updateByPrimaryKeySelective(product);
-       // }
-        return productMapper.insert(product);
-    }
 
 
     public User login(User user) {       //登录：判断输入的用户名密码是否正确
@@ -59,14 +45,11 @@ public class UserService {
             return null;
         }
     }
-
     public User findUserByPrimaryKey(String id) {
         return userMapper.selectByPrimaryKey(id);
     }
-
     public void deleteUserById(String id) {   //删除用户
         userMapper.deleteByPrimaryKey(id);
     }
-
 }
 

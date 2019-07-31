@@ -23,9 +23,9 @@
                 <ul class="breadcrumb">
                     <li>
                             <a th:if="${isLogin}"  >
-                                已登录
+                                欢迎,<i th:text="${session.USER_name}"></i>
                             </a>
-                            <a th:if="${!isLogin}" href="login.html" th:href="@{login.html}">
+                            <a th:if="${!isLogin}" href="login.html" th:href="@{login}">
                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
                             </a>
                     </li>

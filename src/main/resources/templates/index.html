@@ -6,11 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="renderer" content="webkit">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <script src="/js/jquery.min.js"></script>
-        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-        <script src="/bootstrap/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/css/main.css">
-        <link rel="stylesheet" href="/css/index.css" />
+        <script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+        <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css" th:href="@{/bootstrap/css/bootstrap.min.css}">
+        <script src="../static/bootstrap/js/bootstrap.min.js" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+        <link rel="stylesheet" href="../static/css/main.css" th:href="@{/css/main.css}">
+        <link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}">
     </head>
     <body>
     <!-- 顶部导航栏 -->
@@ -23,9 +23,9 @@
                 <ul class="breadcrumb">
                     <li>
                             <a th:if="${isLogin}"  >
-                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>已登录
+                                已登录
                             </a>
-                            <a th:if="${!isLogin}" href="login">
+                            <a th:if="${!isLogin}" href="login.html" th:href="@{login.html}">
                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
                             </a>
                     </li>
@@ -58,7 +58,7 @@
     <div class="container">
             <div class="col-md-3 bigLogo">
                 <a href="#">
-                    <img src="/image/logo/biglogo.png" alt="HK网上商城">
+                    <img src="../static/image/logo/biglogo.png" th:src="@{/image/logo/biglogo.png}" alt="HK网上商城">
                 </a>
             </div>
             <div class="col-md-6 Search">
@@ -74,13 +74,13 @@
                 <ul>
                     <li>
                         <a href="#">
-                            <img src="/image/logo/wish.png" alt="心愿单">
+                            <img src="../static/image/logo/wish.png" th:src="@{/image/logo/wish.png}" alt="心愿单">
                             <p class="littleDot">2</p>
                         </a>
                     </li>
                     <li>
-                        <a href="/user/shoppingcart">
-                            <img src="/image/logo/cartLogo.png" alt="购物车">
+                        <a href="shoppingcart.html" th:href="@{/user/shoppingcart}">
+                            <img src="../static/image/logo/cartLogo.png" th:src="@{/image/logo/cartLogo.png}" alt="购物车">
                             <p class="littleDot">1</p>
                         </a>
                     </li>
@@ -95,38 +95,38 @@
         <div class="container" >
             <div class="col-md-3  dropdown leftTag">
                         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">商品分类
-                                <img src="/image/logo/menu.png" alt="">
+                                <img src="../static/image/logo/menu.png" th:src="@{/image/logo/menu.png}" alt="">
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="#"><img src="/image/logo/电器.png" alt="">家用电器</a>
+                                <a href="#"><img src="../static/image/logo/电器.png" th:src="@{/image/logo/电器.png}" alt="">家用电器</a>
                             </li>
                             <li >
-                                <a href="#"><img src="/image/logo/手机.png" alt="">手机/数码</a>
+                                <a href="#"><img src="../static/image/logo/电器.png"  th:src="@{/image/logo/电器.png}" alt="">手机/数码</a>
                             </li>
                             <li>
-                                <a href="#"><img src="/image/logo/餐具.png" alt="">食物/饮料</a>
+                                <a href="#"><img src="../static/image/logo/电器.png"  th:src="@{/image/logo/电器.png}" alt="">食物/饮料</a>
                             </li>
                             <li>
-                                <a href="#"><img src="/image/logo/衣服.png" alt="">男女服装</a>
+                                <a href="#"><img src="../static/image/logo/衣服.png"  th:src="@{/image/logo/衣服.png}" alt="">男女服装</a>
                             </li>
                             <li>
-                                <a href="#"><img src="/image/logo/智能手表.png" alt="">智能设备</a>
+                                <a href="#"><img src="../static/image/logo/智能手表.png"  th:src="@{/image/logo/智能手表.png}" alt="">智能设备</a>
                             </li>
                             <li>
-                                <a href="#"><img src="/image/logo/运动.png" alt="">唱跳rap</a>
+                                <a href="#"><img src="../static/image/logo/运动.png"  th:src="@{/image/logo/运动.png}" alt="">唱跳rap</a>
                             </li>
                             <li>
-                                <a href="#"><img src="/image/logo/相机.png" alt="">摄影摄像</a>
+                                <a href="#"><img src="../static/image/logo/相机.png"  th:src="@{/image/logo/相机.png}" alt="">摄影摄像</a>
                             </li>
                             <li>
-                                <a href="#"><img src="/image/logo/耳机.png" alt="">音频播放</a>
+                                <a href="#"><img src="../static/image/logo/耳机.png"  th:src="@{/image/logo/耳机.png}" alt="">音频播放</a>
                             </li>
                             <li>
-                                <a href=""><img src="/image/logo/电视.png" alt="">智能电视</a>
+                                <a href=""><img src="../static/image/logo/电视.png"  th:src="@{/image/logo/电视.png}" alt="">智能电视</a>
                             </li>
                             <li>
-                                <a href=""><img src="/image/logo/wan_vip.png" alt="">会员专享</a>
+                                <a href=""><img src="../static/image/logo/wan_vip.png"  th:src="@{/image/logo/wan_vip.png}" alt="">会员专享</a>
                             </li>
                         </ul>
             </div>
@@ -159,16 +159,16 @@
                             <!-- 轮播（Carousel）项目 -->
                             <div class="carousel-inner" role="listbox">
                                 <div class="item active">
-                                    <a href="/user/product_0001"> <img  class="img-responsive" src="/image/carousel/ad1.png" alt="First slide"></a>
+                                    <a href="product_0001.html" th:href="@{/user/product_0001}"> <img  class="img-responsive" src="../static/image/carousel/ad1.png" th:src="@{/image/carousel/ad1.png}" alt="First slide"></a>
                                 </div>
                                 <div class="item">
-                                    <img src="/image/carousel/ad2.png" alt="Second slide">
+                                    <img src="../static/image/carousel/ad2.png" th:src="@{/image/carousel/ad2.png}" alt="Second slide">
                                 </div>
                                 <div class="item">
-                                    <img src="/image/carousel/ad3.png" alt="Third slide">
+                                    <img src="../static/image/carousel/ad3.png" th:src="@{/image/carousel/ad3.png}" alt="Third slide">
                                 </div>
                                 <div class="item">
-                                    <img src="/image/carousel/ad4.png" alt="Third slide">
+                                    <img src="../static/image/carousel/ad4.png" th:src="@{/image/carousel/ad4.png}" alt="Third slide">
                                 </div>
                             </div>
                             <!-- 轮播（Carousel）导航 -->
@@ -188,22 +188,22 @@
         <!-- 主要内容区 -->
         <div class="container">
         <div class="col-md-3">
-                <div class="storeInfo"><img src="/image/content/业务图标—快.png" alt=""><br/>极速配送</div>
+                <div class="storeInfo"><img src="../static/image/content/fast.png"  th:src="@{/image/content/fast.png}" alt=""><br/>极速配送</div>
         </div>
         <div class="col-md-3">
-                <div class="storeInfo"><img src="/image/content/业务图标—好.png" alt=""><br/>正品行货</div>
+                <div class="storeInfo"><img src="../static/image/content/good.png" th:src="@{/image/content/good.png}" alt=""><br/>正品行货</div>
         </div>       
         <div class="col-md-3">
-                <div class="storeInfo"><img src="/image/content/业务图标—省.png" alt=""><br/>天天低价</div>
+                <div class="storeInfo"><img src="../static/image/content/less.png" th:src="@{/image/content/less.png}" alt=""><br/>天天低价</div>
         </div>
         <div class="col-md-3">
-            <div class="storeInfo"><img src="/image/content/业务图标—免.png" alt=""><br/>运费全免</div>
+            <div class="storeInfo"><img src="../static/image/content/free.png" th:src="@{/image/content/free.png}" alt=""><br/>运费全免</div>
     </div>
         </div>
 
         <!-- 商品区 -->
         <div class="content1">
-            <img src="/image/spacepro.png" alt="">
+            <img src="../static/image/content/spacepro.png" th:src="@{/image/content/spacepro.png}" alt="">
         </div>
 
         <div class="container lastNav">
@@ -243,4 +243,5 @@
             </div>
         </div>
     </body>
+
 </html>

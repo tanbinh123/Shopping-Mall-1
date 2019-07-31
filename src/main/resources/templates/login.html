@@ -15,13 +15,15 @@
     <div class="topLogo">
         <div class="container">
             <div class="col-md-3 leftLogin">
-                <img src="../static/image/logo/biglogo.png" th:src="@{/image/logo/biglogo.png}" alt="">
+                <a href="index.html" th:href="@{index}">
+                    <img src="../static/image/logo/biglogo.png" th:src="@{/image/logo/biglogo.png}">
+                </a>
                 账号登录
             </div>
             <div class="col-md-3 col-md-offset-6">
                 <div class="rightLogin">
                 没有账号，
-                <a href="add">点击注册</a>
+                <a href="user-add.html" th:href="@{add}">点击注册</a>
             </div>
             </div>
                 
@@ -47,7 +49,7 @@
                         </div>
                     </form>
                     <ul>
-                        <li><a href="add">立即注册</a></li>
+                        <li><a href="user-add.html" th:href="@{add}">立即注册</a></li>
                         <li> | </li>
                         <li><a href="">忘记密码？</a></li>
                     </ul>

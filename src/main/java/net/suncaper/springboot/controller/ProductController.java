@@ -36,6 +36,14 @@ public class ProductController {
         return "product-add";
     }
 
+    @GetMapping("/checkout")      //订单页面的实验
+    public String goCheckOutPage(HttpServletRequest request,
+                                 HttpServletResponse response,
+                                 Model model) {
+        model.addAttribute("products", productService.listProduct());
+        return "checkout";
+    }
+
     @PostMapping("/addproduct")
     public String saveProduct(Product product,@RequestParam("file") MultipartFile file) throws IOException {
         if(file!=null){

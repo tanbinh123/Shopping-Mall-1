@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>填写订单信息</title>
-    <script src="../static/js/jquery.min.js"></script>
-    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
-    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../static/css/main.css">
-    <link rel="stylesheet" href="../static/css/checkout.css">
-    <script src="../static/js/checkout.js"></script>
+    <script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <script src="../static/bootstrap/js/bootstrap.min.js"  th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+    <link rel="stylesheet" href="../static/css/main.css" th:href="@{/css/main.css}">
+    <link rel="stylesheet" href="../static/css/checkout.css"  th:href="@{/css/checkout.css}">
+    <script src="../static/js/checkout.js" th:src="@{/js/checkout.js}"></script>
+    <script th:src="@{/js/jquery-3.4.1.min.js}"></script>
 </head>
 <body>
 <!--顶部导航栏-->
@@ -22,7 +23,7 @@
         <div class=" col-md-6 topNav">
             <ul class="breadcrumb">
                 <li>
-                    <a href="../templates/login.html">
+                    <a href="../templates/login.html" th:href="@{login}">
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
                     </a>
                 </li>
@@ -73,13 +74,14 @@
                                 <p>电子科技大学</p>
                             </div>
                             <div class="addressSub">
-                                <a href=""><img src="../static/image/checkout/delete.png">删除</a>
-                                <a href=""><img src="../static/image/checkout/edit.png">编辑</a>
+                                <a href=""><img src="../static/image/checkout/delete.png" th:src="@{/image/checkout/delete.png}">删除</a>
+                                <a href=""><img src="../static/image/checkout/edit.png" th:src="@{/image/checkout/edit.png}">编辑</a>
                             </div>
                         </div>
                     </li>
                     <li id="addressEmpty">
-                        <a href="" data-toggle="modal" data-target="#myModal"><img src="../static/image/checkout/add.png">
+                        <a href="" data-toggle="modal" data-target="#myModal">
+                            <img src="../static/image/checkout/add.png" th:src="@{/image/checkout/add.png}">
                             <br/><span>新增收货地址</span>
                         </a>
                     </li>
@@ -127,28 +129,49 @@
                 <div style="clear:both;"></div>
             </div>
         </div>
-
         <div class="sectionGoods">
             <h4>商品</h4>
             <div class="mainGoods">
                 <ul>
                     <li>
-                        <img src="../static/image/product/product_0001_white1.jpg">
+                        <img src="../static/image/product/product_0001_white1.jpg" th:src="@{/image/product/product_0001_white1.jpg}">
                         <span class="title">小米CC9 6GB+128GB 白色恋人（白色） </span>
                         <span class="num">x1</span>
                         <span class="price">1999元</span>
-
-
                     </li>
                     <li>
-                        <img src="../static/image/product/product_0002/product_0002_aurora1.png">
+                        <img src="../static/image/product/product_0002/product_0002_aurora1.png" th:src="@{/image/product/product_0002/product_0002_aurora1.png}">
                         <span class="title">华为P30 pro 8GB+128GB 极光色 </span>
                         <span class="num">x1</span>
                         <span class="price">5488元</span>
-
                     </li>
-                </ul>
 
+                    <li th:each="product:${products}">
+                        <img th:src="@{/product/download(id=${product.id})}">
+                        <span  th:text="${product.name}"></span>
+                        <span class="title" th:text="${product.productType}"></span>
+                        <span class="num">数量</span>
+                        <!--<span class="num">x1</span>-->
+                        <span class="price" th:text="${product.price}"></span>
+                    </li>
+
+
+                    <!--<table border="1">-->
+                        <!--<tr>-->
+                            <!--<th>商品名称</th>-->
+                            <!--<th>商品类型</th>-->
+                            <!--<th>商品价格</th>-->
+                            <!--<th>数量</th>-->
+                            <!--&lt;!&ndash;<th>图片</th>&ndash;&gt;-->
+                        <!--</tr>-->
+                    <!--<tr th:each="product:${products}">-->
+                        <!--<td th:text="${product.name}"></td>-->
+                        <!--<td th:text="${product.productType}"></td>-->
+                        <!--<td th:text="${product.price}"></td>-->
+                        <!--&lt;!&ndash;<td><img th:src="@{/product/download(id=${product.id})}"></td>&ndash;&gt;-->
+                    <!--</tr>-->
+                    <!--</table>-->
+                </ul>
             </div>
             <div class="sendWay">
                 <span>配送方式</span>
@@ -165,14 +188,10 @@
                     <li><label>优惠券抵扣:</label><span>-0元</span></li>
                     <li><label>运费:</label><span>0元</span></li>
                     <li><label>应付总额</label><h2>0元</h2></li>
-
-
                 </ul>
             </div>
 
         </div>
-
-
     </div>
     <div class="container">
         <div class="pullOrder">

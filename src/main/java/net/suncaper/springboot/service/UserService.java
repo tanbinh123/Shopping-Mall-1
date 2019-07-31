@@ -27,13 +27,23 @@ public class UserService {
     }
     //用户管理：调用userMapper里的selectByExample接口方法返回所有t_user中的元组
 
-    public int saveUser(User user) {        //注册：将表单中的user对象插入数据库t_user表
-        if (user.getId() == null|| user.getId().equals("")) {
-            return userMapper.insert(user);
-        } else {
-            return userMapper.updateByPrimaryKeySelective(user);
-        }
+//    public int saveUser(User user) {        //注册：将表单中的user对象插入数据库t_user表
+//        if (user.getId() == null|| user.getId().equals("")) {
+//            return userMapper.insert(user);
+//        } else {
+//            return userMapper.updateByPrimaryKeySelective(user);
+//        }
+//    }
+public Boolean saveUser(User user) {        //注册：将表单中的user对象插入数据库t_user表
+
+    User CompareName=userMapper.selectByName(user.getName());
+    if (CompareName==null) {
+        userMapper.insert(user);
+        return true;
+    } else {
+        return false;
     }
+}
 
 
 

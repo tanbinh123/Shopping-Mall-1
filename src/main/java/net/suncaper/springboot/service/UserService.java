@@ -1,15 +1,12 @@
 package net.suncaper.springboot.service;
 
-import net.suncaper.springboot.domain.SearchUserRequest;
-import net.suncaper.springboot.domain.User;
-import net.suncaper.springboot.domain.UserExample;
+import net.suncaper.springboot.domain.*;
+import net.suncaper.springboot.mapper.ProductMapper;
 import net.suncaper.springboot.mapper.UserMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -28,6 +25,7 @@ public class UserService {
     public List<User> listUser() {           //用户管理：调用userMapper里的selectByExample接口方法返回所有t_user中的元组
         return userMapper.selectByExample(new UserExample());
     }
+    //用户管理：调用userMapper里的selectByExample接口方法返回所有t_user中的元组
 
     public int saveUser(User user) {        //注册：将表单中的user对象插入数据库t_user表
         if (user.getId() == null|| user.getId().equals("")) {
@@ -37,6 +35,8 @@ public class UserService {
         }
     }
 
+
+
     public User login(User user) {       //登录：判断输入的用户名密码是否正确
        User user1= userMapper.selectByName(user.getName());
         if (user1!=null && user1.getPassword().equals(user.getPassword())){
@@ -45,14 +45,11 @@ public class UserService {
             return null;
         }
     }
-
     public User findUserByPrimaryKey(String id) {
         return userMapper.selectByPrimaryKey(id);
     }
-
     public void deleteUserById(String id) {   //删除用户
         userMapper.deleteByPrimaryKey(id);
     }
-
 }
 

@@ -4,12 +4,13 @@ import net.suncaper.springboot.domain.User;
 import net.suncaper.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 @Controller
 @RequestMapping("/user")
@@ -82,6 +83,8 @@ public class UserController {
 
 
 
+
+
     @GetMapping("/edit")    //目前打开出现错误，与id这个元素不存在有关
     public String goUserEditPage(@RequestParam("id") String id, Model model) {
         User user = userService.findUserByPrimaryKey(id);
@@ -95,5 +98,4 @@ public class UserController {
         User selectu=userService.findUserByPrimaryKey(id);
         return selectu;
     }
-
 }

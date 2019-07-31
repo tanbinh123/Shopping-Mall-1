@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+</head>
+<body>
+Product List:
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Product_Type</th>
+        <th>Price</th>
+        <th>Hot_Point</th>
+        <th>图片</th>
+
+    </tr>
+    <tr th:each="product:${products}">
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.productType}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.hotPoint}"></td>
+        <td><img th:src="@{/product/download(id=${product.id})}"></td>
+        <td><button data-th-attr="onclick='deleteProduct(this, \'' + ${product.id} + '\')'">删除</button> </td>
+    </tr>
+</table>
+</body>
+<script>
+    function deleteProduct(elem,id) {
+        $.ajax({
+            url: '/product/delete?id=' + id,
+            type: 'get',
+            success: function (data) {
+                $(elem).parent().parent().remove();
+            },
+            fail: function (data) {
+                console.log('fail')
+            }
+        })
+    }
+</script>
+</html>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -20,33 +20,34 @@
                     </div>
 
                     <div class="card-body py-5">
+                        <form th:action="@{/admin/login}" method="post" th:object="${admin}">
                         <div class="form-group">
-                            <label class="form-control-label">Email or Tel</label>
-                            <input type="email" class="form-control">
+                             <label>Adminid</label>
+                            <input type="text" class="form-control"name="adminid" th:field="*{adminid}"  placeholder="账号" >
                         </div>
 
                         <div class="form-group">
-                            <label class="form-control-label">Password</label>
-                            <input type="password" class="form-control">
+                            <label>Password</label>
+                            <input type="password" class="form-control"name="password"  th:field="*{password}"  placeholder="密码" >
                         </div>
 
                         <div class="custom-control custom-checkbox mt-4">
                             <input type="checkbox" class="custom-control-input" id="login">
                             <label class="custom-control-label" for="login">Check this custom checkbox</label>
 
-                        </div>
                     </div>
+
 
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-6">
-                                <button type="submit" class="btn btn-primary px-5">
-                                    <a href="htindex.html">
-                                        Login</a>
-                                </button>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">登录</button>
+                                </div>
                             </div>
-                            <div>
-                                <a href="htregister.html">注册</a>
+
+                            <!--<div>-->
+                                <!--<a href="htregister.html">注册</a>-->
 
                                 <div>
                                     <input type="checkbox"id="login1">
@@ -54,9 +55,10 @@
 
                                 </div>
 
-
-                            </div>
+                           </div>
+                            <!--</div>-->
                         </div>
+                            </form>
                     </div>
                 </div>
             </div>

@@ -14,26 +14,11 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    public void add() {     //示例代码，这里没有用到
-        SearchUserRequest request = new SearchUserRequest();
-        request.setKeyword("%李%");
-        request.setAge(10);
-        List<User> results = userMapper.search(null, 20);
-        System.out.println(results);
-    }
 
     public List<User> listUser() {           //用户管理：调用userMapper里的selectByExample接口方法返回所有t_user中的元组
         return userMapper.selectByExample(new UserExample());
     }
-    //用户管理：调用userMapper里的selectByExample接口方法返回所有t_user中的元组
 
-//    public int saveUser(User user) {        //注册：将表单中的user对象插入数据库t_user表
-//        if (user.getId() == null|| user.getId().equals("")) {
-//            return userMapper.insert(user);
-//        } else {
-//            return userMapper.updateByPrimaryKeySelective(user);
-//        }
-//    }
 public Boolean saveUser(User user) {        //注册：将表单中的user对象插入数据库t_user表
 
     User CompareName=userMapper.selectByName(user.getName());

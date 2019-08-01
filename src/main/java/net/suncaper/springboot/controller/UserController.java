@@ -31,6 +31,7 @@ public class UserController {
         model.addAttribute("user", new User());
         return "user-add";
     }
+
     @PostMapping("/add")     //在注册界面提交表单后将数据写入数据库，成功则跳转到登录页面login，失败则注册界面
     public String saveUser(User user) {
 
@@ -57,16 +58,16 @@ public class UserController {
     }
 
     @PostMapping("/login")   //在登录页面提交表单后判断用户名、密码是否正确
-    public String goIndexPage(HttpServletRequest request, String userName, String password, User user, Model model) {
+    public String goIndexPage(HttpServletRequest request,User user) {
         User loginUser=userService.login(user);
         if (loginUser!=null) {
-            request.getSession().setAttribute("USER_ID", "loginUser.getId()");
+            request.getSession().setAttribute("USER_ID", loginUser.getId());
+            request.getSession().setAttribute("USER_name", loginUser.getName());
         }
         return  "redirect:/user/index";
     }
     @GetMapping("/index")    //主页
     public String goIndexPage(HttpServletRequest request, Model model) {
-        model.addAttribute("user", new User());
         Boolean isLogin = request.getSession().getAttribute("USER_ID") != null;
         model.addAttribute("isLogin", isLogin);
         return "index";

@@ -1,4 +1,5 @@
 package net.suncaper.springboot.controller;
+
 import net.suncaper.springboot.domain.Admin;
 import net.suncaper.springboot.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +17,14 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
     @GetMapping("/login")
-    public String goAdminLoginPage() {
+    public String goAdminLoginPage(HttpServletRequest request, Model model) {
+        if(request.getSession().getAttribute("admin")==null){
+            model.addAttribute("admin" ,new Admin());
+        }
         return "htlogin";
     }
 
-    @PostMapping("/login")   //在登录页面提交表单后判断用户名、密码是否正确
+    @PostMapping("/login")   //在登录页面提交表单后判断管理员用户名、密码是否正确
     public String goIndexPage(HttpServletRequest request, Admin admin) {
         List<Admin> admins = adminService.login(admin);
         if (admins.isEmpty()) {
@@ -28,7 +32,7 @@ public class AdminController {
         }
         else{
            request.getSession().setAttribute("ADMIN_ID", admins.get(0).getId());
-            return  "redirect:/admin/htindex";
+            return  "redirect:/admin/index";
 
         }
     }

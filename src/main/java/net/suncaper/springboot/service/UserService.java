@@ -1,7 +1,5 @@
 package net.suncaper.springboot.service;
-
 import net.suncaper.springboot.domain.*;
-import net.suncaper.springboot.mapper.ProductMapper;
 import net.suncaper.springboot.mapper.UserMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;

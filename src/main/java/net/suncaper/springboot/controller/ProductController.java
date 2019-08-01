@@ -1,6 +1,7 @@
 package net.suncaper.springboot.controller;
 
 import net.suncaper.springboot.domain.Product;
+import net.suncaper.springboot.domain.User;
 import net.suncaper.springboot.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
@@ -44,6 +45,16 @@ public class ProductController {
         return "checkout";
     }
 
+    @GetMapping("/shoppingcart")  //跳转到购物车页面shoppingcart
+    public String goShoppingcartPage(HttpServletRequest request,Model model) {
+        model.addAttribute("user", new User());
+        Boolean isLogin = request.getSession().getAttribute("USER_ID") != null;
+        model.addAttribute("isLogin", isLogin);
+        model.addAttribute("products", productService.listProduct());
+        return "/shoppingcart";
+    }
+
+
     @PostMapping("/addproduct")
     public String saveProduct(Product product,@RequestParam("file") MultipartFile file) throws IOException {
         if(file!=null){
@@ -63,6 +74,8 @@ public class ProductController {
                 .contentType(MediaType.parseMediaType(product.getFiletype()))
                 .body(new ByteArrayResource(product.getFilecontent()));
     }
+
+
     @GetMapping("/delete")   //delete页面，暂未定义
 
     @ResponseBody

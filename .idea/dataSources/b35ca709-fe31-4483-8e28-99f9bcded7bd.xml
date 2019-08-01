@@ -815,162 +815,157 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="205" parent="2" name="commerce_item"/>
-    <table id="206" parent="2" name="payment"/>
-    <table id="207" parent="2" name="product"/>
-    <table id="208" parent="2" name="shipping"/>
-    <table id="209" parent="2" name="shopping_cart"/>
-    <table id="210" parent="2" name="t_order">
+    <table id="205" parent="2" name="admin"/>
+    <table id="206" parent="2" name="commerce_item"/>
+    <table id="207" parent="2" name="payment"/>
+    <table id="208" parent="2" name="product"/>
+    <table id="209" parent="2" name="shipping"/>
+    <table id="210" parent="2" name="shopping_cart"/>
+    <table id="211" parent="2" name="t_order">
       <Comment>订单表。包含id、订单状态、总价、优惠价格</Comment>
     </table>
-    <table id="211" parent="2" name="t_user"/>
-    <column id="212" parent="205" name="id">
+    <table id="212" parent="2" name="t_user"/>
+    <column id="213" parent="205" name="id">
       <Position>1</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="213" parent="205" name="t_o_id">
+    <column id="214" parent="205" name="name">
       <Position>2</Position>
       <DataType>varchar(40)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="214" parent="205" name="pro_id">
+    <column id="215" parent="205" name="password">
       <Position>3</Position>
-      <DataType>varchar(40)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="215" parent="205" name="quantity">
-      <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="216" parent="205" name="FK_Relationship_7">
-      <ColNames>t_o_id</ColNames>
+    <index id="216" parent="205" name="admin_id_uindex">
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="217" parent="205" name="FK_have">
-      <ColNames>pro_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="218" parent="205" name="PRIMARY">
+    <key id="217" parent="205" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="219" parent="205" name="FK_Relationship_7">
+    <key id="218" parent="205" name="admin_id_uindex">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>admin_id_uindex</UnderlyingIndexName>
+    </key>
+    <column id="219" parent="206" name="id">
+      <Position>1</Position>
+      <DataType>varchar(40)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="220" parent="206" name="t_o_id">
+      <Position>2</Position>
+      <DataType>varchar(40)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="221" parent="206" name="pro_id">
+      <Position>3</Position>
+      <DataType>varchar(40)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="222" parent="206" name="quantity">
+      <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="223" parent="206" name="FK_Relationship_7">
+      <ColNames>t_o_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="224" parent="206" name="FK_have">
+      <ColNames>pro_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="225" parent="206" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="226" parent="206" name="FK_Relationship_7">
       <ColNames>t_o_id</ColNames>
       <RefSchemaName>hk</RefSchemaName>
       <RefTableName>t_order</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="220" parent="205" name="FK_have">
+    <foreign-key id="227" parent="206" name="FK_have">
       <ColNames>pro_id</ColNames>
       <RefSchemaName>hk</RefSchemaName>
       <RefTableName>product</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="221" parent="206" name="id">
+    <column id="228" parent="207" name="id">
       <Position>1</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="222" parent="206" name="t_o_id">
+    <column id="229" parent="207" name="t_o_id">
       <Position>2</Position>
       <DataType>varchar(40)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="223" parent="206" name="payment_method">
+    <column id="230" parent="207" name="payment_method">
       <Position>3</Position>
       <DataType>varchar(40)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="224" parent="206" name="PRIMARY">
+    <key id="231" parent="207" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="225" parent="207" name="id">
+    <column id="232" parent="208" name="id">
       <Position>1</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="226" parent="207" name="name">
+    <column id="233" parent="208" name="name">
       <Position>2</Position>
       <DataType>varchar(200)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="227" parent="207" name="product_type">
+    <column id="234" parent="208" name="product_type">
       <Position>3</Position>
       <DataType>varchar(40)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="228" parent="207" name="price">
+    <column id="235" parent="208" name="price">
       <Position>4</Position>
       <DataType>decimal(10,2 digit)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="229" parent="207" name="hot_point">
+    <column id="236" parent="208" name="hot_point">
       <Position>5</Position>
       <DataType>decimal(10,2 digit)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="230" parent="207" name="fileContent">
+    <column id="237" parent="208" name="fileContent">
       <Position>6</Position>
       <DataType>longblob|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="231" parent="207" name="fileTitle">
+    <column id="238" parent="208" name="fileTitle">
       <Position>7</Position>
       <DataType>varchar(200)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="232" parent="207" name="fileLenth">
+    <column id="239" parent="208" name="fileLenth">
       <Position>8</Position>
       <DataType>decimal(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="233" parent="207" name="fileType">
+    <column id="240" parent="208" name="fileType">
       <Position>9</Position>
       <DataType>varchar(40)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="234" parent="207" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="235" parent="208" name="id">
-      <Position>1</Position>
-      <DataType>varchar(40)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="236" parent="208" name="t_o_id">
-      <Position>2</Position>
-      <DataType>varchar(40)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="237" parent="208" name="shipping_method">
-      <Position>3</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="238" parent="208" name="shipping_fee">
-      <Position>4</Position>
-      <DataType>decimal(10,2 digit)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="239" parent="208" name="shipping_destination">
-      <Position>5</Position>
-      <DataType>varchar(200)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="240" parent="208" name="current_location">
-      <Position>6</Position>
-      <DataType>varchar(200)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="241" parent="208" name="PRIMARY">
@@ -984,100 +979,136 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="243" parent="209" name="pro_id">
+    <column id="243" parent="209" name="t_o_id">
       <Position>2</Position>
       <DataType>varchar(40)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="244" parent="209" name="t_u_id">
+    <column id="244" parent="209" name="shipping_method">
+      <Position>3</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="245" parent="209" name="shipping_fee">
+      <Position>4</Position>
+      <DataType>decimal(10,2 digit)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="246" parent="209" name="shipping_destination">
+      <Position>5</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="247" parent="209" name="current_location">
+      <Position>6</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="248" parent="209" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="249" parent="210" name="id">
+      <Position>1</Position>
+      <DataType>varchar(40)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="250" parent="210" name="pro_id">
+      <Position>2</Position>
+      <DataType>varchar(40)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="251" parent="210" name="t_u_id">
       <Position>3</Position>
       <DataType>varchar(40)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="245" parent="209" name="quantity">
+    <column id="252" parent="210" name="quantity">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="246" parent="209" name="PRIMARY">
+    <key id="253" parent="210" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="247" parent="210" name="id">
+    <column id="254" parent="211" name="id">
       <Position>1</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="248" parent="210" name="pay_id">
+    <column id="255" parent="211" name="pay_id">
       <Position>2</Position>
       <DataType>varchar(40)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="249" parent="210" name="shi_id">
+    <column id="256" parent="211" name="shi_id">
       <Position>3</Position>
       <DataType>varchar(40)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="250" parent="210" name="t_u_id">
+    <column id="257" parent="211" name="t_u_id">
       <Position>4</Position>
       <DataType>varchar(40)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="251" parent="210" name="order_status">
+    <column id="258" parent="211" name="order_status">
       <Position>5</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="252" parent="210" name="total_price">
+    <column id="259" parent="211" name="total_price">
       <Position>6</Position>
       <DataType>decimal(10,2 digit)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="253" parent="210" name="discount">
+    <column id="260" parent="211" name="discount">
       <Position>7</Position>
       <DataType>decimal(10,2 digit)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="254" parent="210" name="PRIMARY">
+    <key id="261" parent="211" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="255" parent="211" name="id">
+    <column id="262" parent="212" name="id">
       <Position>1</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="211" name="sho_id">
+    <column id="263" parent="212" name="sho_id">
       <Position>2</Position>
       <DataType>varchar(40)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="211" name="name">
+    <column id="264" parent="212" name="name">
       <Position>3</Position>
       <DataType>varchar(80)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="211" name="password">
+    <column id="265" parent="212" name="password">
       <Position>4</Position>
       <DataType>varchar(40)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="259" parent="211" name="phone">
+    <column id="266" parent="212" name="phone">
       <Position>5</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="260" parent="211" name="email">
+    <column id="267" parent="212" name="email">
       <Position>6</Position>
       <DataType>varchar(40)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="261" parent="211" name="PRIMARY">
+    <key id="268" parent="212" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

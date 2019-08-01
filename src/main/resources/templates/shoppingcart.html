@@ -158,13 +158,17 @@
             <div class="common_shippment"> <i class="icon_small icon_baoyou png">包邮</i>规则：HK商城满99元全场包邮 </div>
         </div>
         <div class="groups_wrapper">
+
+
+
+
             <table class="cart_group_item  cart_group_item_product">
                 <thead>
                 <tr>
                     <th class="cart_overview">
                         <div class="cart_group_header">
-                            <input class="js_group_selector cart_group_selector" checked="checked" type="checkbox">
-                            <h2>HK商城发货</h2>
+                            <!--<input class="js_group_selector cart_group_selector" checked="checked" type="checkbox">-->
+                            <h2>商品信息</h2>
                         </div>
                     </th>
                     <th class="cart_price">价格（元）</th>
@@ -172,8 +176,59 @@
                     <th class="cart_total">小计（元）</th>
                     <th class="cart_option">操作</th>
                 </tr>
-
                 </thead>
+
+                <tbody class="hide2">
+                <tr class="cart_item " th:each="product:${products}">
+                    <td valign="top">
+                        <div class="cart_item_desc clear">
+                            <input class="js_item_selector cart_item_selector" data-item-key="1057066_d150603p892053zc" checked="'checked'/" type="checkbox">
+                            <div class="cart_item_desc_wrapper">
+                                <a class="cart_item_pic" href="https://www.baidu.com" target="_blank">
+                                    <img  th:src="@{/product/download(id=${product.id})}" alt="商品1">
+                                    <span class="sold_out_pic png"></span> </a>
+                                <a class="cart_item_link"  th:text="${product.name}" >商品1</a>
+                                <p class="sku_info" > 规格：<span class="cart_item_attribute" th:text="${product.productType}">% %</span>&nbsp; </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="cart_item_price">
+                            <p class="jumei_price"  th:text="${product.price}">32.00</p>
+                            <!-- <p class="market_price">45.00</p>-->
+                        </div>
+                    </td>
+                    <td>
+                        <div class="cart_item_num ">   <!-- <input class="item_quantity" name="quantity1" value="1" type="text">-->
+                            <div class="item_quantity_editer clear" data-item-key="1057066_d150603p892053zc">
+                                <span type="button"  class="increase_one "  onclick='sub("quantity1","totalprice1","singleprice1")'  >-</span>
+                                <p type="text"  class="item_quantity" >1</p>
+                                <span type="button" name="increase1" class="increase_one " onclick='add("quantity1","totalprice1","singleprice1")'>+</span>
+                            </div>
+                            <div class="item_shortage_tip"> </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="cart_item_total">
+                            <p class="item_total_price" >32.00</p>
+                            <!-- <p>省 <span class="item_saved_price">13.00</span></p>-->
+                        </div>
+                    </td>
+                    <td>
+                        <div class="cart_item_option">
+                            <a class="iconfont icon-shanchu" data-item-key="1057066_d150603p892053zc" href="javascript:void(0)" title="删除"></a>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+
+
+
+
+
+
+
+
 
                 <tbody class="hide2">
                 <tr class="cart_item " hashid="d150603p892053zc" id="1057066_d150603p892053zc" product_id="892053" item_price="32.00" category_v3_3="18" brand_id="623" product_type="product">
@@ -215,6 +270,8 @@
                     </td>
                 </tr>
                 </tbody>
+
+
                 <tbody>
                 <tr class="cart_item " hashid="d150603p892053zc" id="1057066_d150603p892053zc" product_id="892053" item_price="34.00" category_v3_3="18" brand_id="623" product_type="product">
                     <td valign="top">
@@ -254,6 +311,8 @@
                     </td>
                 </tr>
                 </tbody>
+
+
                 <tbody>
                 <tr class="cart_item " hashid="d150603p892053zc" id="1057066_d150603p892053zc" product_id="892053" item_price="48.00" category_v3_3="18" brand_id="623" product_type="product">
                     <td valign="top">
@@ -294,6 +353,9 @@
                 </tr>
                 </tbody>
                 <tfoot>
+
+
+
                 <tr>
                     <td colspan="5"> 商品价格：￥ <span class="group_total_price" id="itemprice"></span> </td>
                 </tr>

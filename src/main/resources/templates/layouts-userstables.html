@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HK - Admin System</title>
-    <link rel="stylesheet" href="../static/dist/vendor/simple-line-icons/css/simple-line-icons.css">
-    <link rel="stylesheet" href="../static/dist/vendor/font-awesome/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="../static/dist/css/styles.css">
+    <link rel="stylesheet" href="../static/dist/vendor/simple-line-icons/css/simple-line-icons.css" th:src="@{/dist/vendor/simple-line-icons/css/simple-line-icons.css}">
+    <link rel="stylesheet" href="../static/dist/vendor/font-awesome/css/fontawesome-all.min.css" th:src="@{/dist/vendor/font-awesome/css/fontawesome-all.min.css}">
+    <link rel="stylesheet" href="../static/dist/css/styles.css" th:src="@{/dist/css/styles.css}">
 </head>
 <body class="sidebar-fixed header-fixed">
 <div class="page-wrapper">
@@ -223,67 +223,26 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table">
+
+                                    User List:
                                     <thead>
-                                    <tr>
-                                        <th>用户编号</th>
-                                        <th>姓名</th>
-                                        <th>性别</th>
-                                        <th>年龄</th>
-                                        <th>注册时间</th>
-                                        <th>联系方式</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td class="text-nowrap"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td class="text-nowrap"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td class="text-nowrap"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td class="text-nowrap"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td class="text-nowrap"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Age</th>
+                                            <th>Password</th>
+                                            <th>删除</th>
+                                        </tr>
 
+                                        <tr th:each="user : ${users}">
+                                            <td th:text="${user.name}"></td>
+                                            <td th:text="${user.email}"></td>
+                                            <td th:text="${user.id}"></td>
+                                            <td th:text="${user.password}"></td>
+                                            <td><button data-th-attr="onclick='deleteUser(this, \'' + ${user.id} + '\')'">删除</button> </td>
+                                        </tr>
+                                    </table>
 
-                </tbody>
-                </table>
             </div>
         </div>
     </div>
@@ -292,11 +251,11 @@
 </div>
 </div>
 </div>
-<script src="../static/dist/vendor/jquery/jquery.min.js"></script>
-<script src="../static/dist/vendor/popper.js/popper.min.js"></script>
-<script src="../static/dist/vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="../static/dist/vendor/chart.js/chart.min.js"></script>
-<script src="../static/dist/js/carbon.js"></script>
-<script src="../static/dist/js/demo.js"></script>
+<script src="../static/dist/vendor/jquery/jquery.min.js" th:src="@{/dist/vendor/jquery/jquery.min.js}"></script>
+<script src="../static/dist/vendor/popper.js/popper.min.js" th:src="@{/dist/vendor/popper.js/popper.min.js}"></script>
+<script src="../static/dist/vendor/bootstrap/js/bootstrap.min.js" th:src="@{/dist/vendor/bootstrap/js/bootstrap.min.js}"></script>
+<script src="../static/dist/vendor/chart.js/chart.min.js" th:src="@{/dist/vendor/chart.js/chart.min.js}"></script>
+<script src="../static/dist/js/carbon.js"  th:src="@{/dist/js/carbon.js}"></script>
+<script src="../static/dist/js/demo.js" th:src="@{/dist/js/demo.js}"></script>
 </body>
 </html>

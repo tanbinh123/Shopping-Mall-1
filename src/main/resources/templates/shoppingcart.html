@@ -26,35 +26,70 @@
             document.getElementById('n').innerHTML=s-1;
             t=setTimeout('foo()',1000);
         }
-        function add(a,totalprice,singleprice) {
-            document.getElementById(a.toString()).innerHTML=parseInt(document.getElementById(a.toString()).innerHTML)+1;
-            document.getElementById(totalprice.toString()).innerHTML=parseFloat(document.getElementById(singleprice.toString()).innerHTML)*parseInt(document.getElementById(a.toString()).innerHTML);
-            document.getElementById("itemprice").innerHTML=parseFloat(document.getElementById("totalprice1").innerHTML)+parseFloat(document.getElementById("totalprice2").innerHTML)+parseFloat(document.getElementById("totalprice3").innerHTML);
-            if(document.getElementById("itemprice").innerHTML>=99) {
-                var freeship=0;
-                document.getElementById("shippingprice").innerHTML=parseFloat(freeship);
-            }
-            else if(document.getElementById("itemprice").innerHTML<99) {
-                document.getElementById("shippingprice").innerHTML=10;
-            }
-            document.getElementById("orderprice").innerHTML=parseFloat(document.getElementById("itemprice").innerHTML)+parseFloat(document.getElementById("shippingprice").innerHTML);
-        }
-        function sub(a,totalprice,singleprice) {
-            var quantity=parseInt(document.getElementById(a).innerHTML);
-            if(quantity>1)
-            {document.getElementById(a.toString()).innerHTML=parseInt(document.getElementById(a.toString()).innerHTML)-1;
-                document.getElementById(totalprice.toString()).innerHTML=parseFloat(document.getElementById(singleprice.toString()).innerHTML)*parseInt(document.getElementById(a.toString()).innerHTML);
-                document.getElementById("itemprice").innerHTML=parseFloat(document.getElementById("totalprice1").innerHTML)+parseFloat(document.getElementById("totalprice2").innerHTML)+parseFloat(document.getElementById("totalprice3").innerHTML);
-                if(document.getElementById("itemprice").innerHTML>=99) {
-                    var freeship=0;
-                    document.getElementById("shippingprice").innerHTML=parseFloat(freeship);
-                }
-                else if(document.getElementById("itemprice").innerHTML<99) {
-                    document.getElementById("shippingprice").innerHTML=10;
-                }
-                document.getElementById("orderprice").innerHTML=parseFloat(document.getElementById("itemprice").innerHTML)+parseFloat(document.getElementById("shippingprice").innerHTML);
-            }
-        }
+        // function add(a,totalprice,singleprice) {
+        //     document.getElementById(a.toString()).innerHTML=parseInt(document.getElementById(a.toString()).innerHTML)+1;
+        //     document.getElementById(totalprice.toString()).innerHTML=parseFloat(document.getElementById(singleprice.toString()).innerHTML)*parseInt(document.getElementById(a.toString()).innerHTML);
+        //     document.getElementById("itemprice").innerHTML=parseFloat(document.getElementById("totalprice1").innerHTML)+parseFloat(document.getElementById("totalprice2").innerHTML)+parseFloat(document.getElementById("totalprice3").innerHTML);
+        //     if(document.getElementById("itemprice").innerHTML>=99) {
+        //         var freeship=0;
+        //         document.getElementById("shippingprice").innerHTML=parseFloat(freeship);
+        //     }
+        //     else if(document.getElementById("itemprice").innerHTML<99) {
+        //         document.getElementById("shippingprice").innerHTML=10;
+        //     }
+        //     document.getElementById("orderprice").innerHTML=parseFloat(document.getElementById("itemprice").innerHTML)+parseFloat(document.getElementById("shippingprice").innerHTML);
+        // }
+        // function sub(a,totalprice,singleprice) {
+        //     var quantity=parseInt(document.getElementById(a).innerHTML);
+        //     if(quantity>1)
+        //     {document.getElementById(a.toString()).innerHTML=parseInt(document.getElementById(a.toString()).innerHTML)-1;
+        //         document.getElementById(totalprice.toString()).innerHTML=parseFloat(document.getElementById(singleprice.toString()).innerHTML)*parseInt(document.getElementById(a.toString()).innerHTML);
+        //         document.getElementById("itemprice").innerHTML=parseFloat(document.getElementById("totalprice1").innerHTML)+parseFloat(document.getElementById("totalprice2").innerHTML)+parseFloat(document.getElementById("totalprice3").innerHTML);
+        //         if(document.getElementById("itemprice").innerHTML>=99) {
+        //             var freeship=0;
+        //             document.getElementById("shippingprice").innerHTML=parseFloat(freeship);
+        //         }
+        //         else if(document.getElementById("itemprice").innerHTML<99) {
+        //             document.getElementById("shippingprice").innerHTML=10;
+        //         }
+        //         document.getElementById("orderprice").innerHTML=parseFloat(document.getElementById("itemprice").innerHTML)+parseFloat(document.getElementById("shippingprice").innerHTML);
+        //     }
+        // }
+
+        $(function () {
+            var finalNum = 0;
+            $(".item_total_price").each(function () {
+                finalNum += Number($(this).html());
+            });
+            $("#itemprice").html(finalNum);
+            var quantity=0;
+            $(".goodsNum").each(function () {
+                quantity+=Number($(this).val());
+            });
+            $(".total_amount").html(quantity);
+            var shipPrice=Number($("#shippingprice").html());
+            $("#orderprice").html(finalNum+shipPrice);
+
+            //点击之后，再算一遍
+            $(".goodsNum").change(function () {
+                var price = $(this).parent().prev().children().html();      //商品单价
+                var num = $(this).val();                                    //商品数量
+                var total = price * num;
+                $(this).parent().next().children().html(total);
+                var finalNum = 0;
+                $(".item_total_price").each(function () {
+                    finalNum += Number($(this).html());
+                });
+                $("#itemprice").html(finalNum);
+                var quantity=0;
+                $(".goodsNum").each(function () {
+                    quantity+=Number($(this).val());
+                });
+                $(".total_amount").html(quantity);
+                var shipPrice=Number($("#shippingprice").html());
+                $("#orderprice").html(finalNum+shipPrice);
+            });
+            });
     </script>
 </head>
 
@@ -193,157 +228,18 @@
                         </div>
                     </td>
                     <td>
-                        <div class="cart_item_price">
-                            <p class="jumei_price"  th:text="${product.price}">32.00</p>
-                            <!-- <p class="market_price">45.00</p>-->
-                        </div>
-                    </td>
-                    <td>
-                        <div class="cart_item_num ">   <!-- <input class="item_quantity" name="quantity1" value="1" type="text">-->
-                            <div class="item_quantity_editer clear" data-item-key="1057066_d150603p892053zc">
-                                <span type="button"  class="increase_one "  onclick='sub("quantity1","totalprice1","singleprice1")'  >-</span>
-                                <p type="text"  class="item_quantity" >1</p>
-                                <span type="button" name="increase1" class="increase_one " onclick='add("quantity1","totalprice1","singleprice1")'>+</span>
-                            </div>
-                            <div class="item_shortage_tip"> </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="cart_item_total">
-                            <p class="item_total_price" >32.00</p>
-                            <!-- <p>省 <span class="item_saved_price">13.00</span></p>-->
-                        </div>
-                    </td>
-                    <td>
-                        <div class="cart_item_option">
-                            <a class="iconfont icon-shanchu" data-item-key="1057066_d150603p892053zc" href="javascript:void(0)" title="删除"></a>
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
 
+                            <p class="jumei_price"  th:text="${product.price}" style="margin-left: 3em;">32.00</p>
 
+                    </td>
+                    <td >
 
+                                <input type="number" min="1" value="1" class="goodsNum" style="width: 40%;margin-left: 3em;">
 
-
-
-
-
-
-                <tbody class="hide2">
-                <tr class="cart_item " hashid="d150603p892053zc" id="1057066_d150603p892053zc" product_id="892053" item_price="32.00" category_v3_3="18" brand_id="623" product_type="product">
-                    <td valign="top">
-                        <div class="cart_item_desc clear">
-                            <input class="js_item_selector cart_item_selector" data-item-key="1057066_d150603p892053zc" checked="'checked'/" type="checkbox">
-                            <div class="cart_item_desc_wrapper">
-                                <a class="cart_item_pic" href="https://www.baidu.com" target="_blank"> <img src="/image/item/list2_lit1.jpg" alt="商品1"> <span class="sold_out_pic png"></span> </a> <a class="cart_item_link" title="商品1" href="https://www.baidu.com" target="_blank">商品1</a>
-                                <p class="sku_info"> 规格：<span class="cart_item_attribute">% %</span>&nbsp; </p>
-                                </div>
-                            </div>
                     </td>
                     <td>
-                        <div class="cart_item_price">
-                            <p class="jumei_price" id="singleprice1">32.00</p>
-                           <!-- <p class="market_price">45.00</p>-->
-                        </div>
-                    </td>
-                    <td>
-                        <div class="cart_item_num ">   <!-- <input class="item_quantity" name="quantity1" value="1" type="text">-->
-                            <div class="item_quantity_editer clear" data-item-key="1057066_d150603p892053zc">
-                                <span type="button"  class="increase_one "  onclick='sub("quantity1","totalprice1","singleprice1")'  >-</span>
-                                <p type="text"  class="item_quantity" id="quantity1">1</p>
-                                <span type="button" name="increase1" class="increase_one " onclick='add("quantity1","totalprice1","singleprice1")'>+</span>
-                            </div>
-                            <div class="item_shortage_tip"> </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="cart_item_total">
-                            <p class="item_total_price" id="totalprice1">32.00</p>
-                            <!-- <p>省 <span class="item_saved_price">13.00</span></p>-->
-                        </div>
-                    </td>
-                    <td>
-                        <div class="cart_item_option">
-                            <a class="iconfont icon-shanchu" data-item-key="1057066_d150603p892053zc" href="javascript:void(0)" title="删除"></a>
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
+                            <p class="item_total_price" th:text="${product.price}" style="margin-left: 2em;">32.00</p>
 
-
-                <tbody>
-                <tr class="cart_item " hashid="d150603p892053zc" id="1057066_d150603p892053zc" product_id="892053" item_price="34.00" category_v3_3="18" brand_id="623" product_type="product">
-                    <td valign="top">
-                        <div class="cart_item_desc clear">
-                            <input class="js_item_selector cart_item_selector" data-item-key="1057066_d150603p892053zc" checked="'checked'/" type="checkbox">
-                            <div class="cart_item_desc_wrapper">
-                                <a class="cart_item_pic" href="http://sh.jumei.com/i/deal/d150603p892053zc.html" target="_blank"> <img src="/image/item/list1_lit1.jpg" alt="商品2"> <span class="sold_out_pic png"></span> </a> <a class="cart_item_link" title="商品2" href="http://sh.jumei.com/i/deal/d150603p892053zc.html" target="_blank">商品2</a>
-                                <p class="sku_info"> 规格：<span class="cart_item_attribute">彩色</span>&nbsp; </p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="cart_item_price">
-                            <p class="jumei_price" id="singleprice2">34.00</p>
-                           <!-- <p class="market_price">38.00</p>-->
-                        </div>
-                    </td>
-                    <td>
-                        <div class="cart_item_num ">
-                            <div class="item_quantity_editer clear" data-item-key="1057066_d150603p892053zc">
-                                <span type="button"  class="increase_one "  onclick='sub("quantity2","totalprice2","singleprice2")'  >-</span>
-                                <p type="text"  class="item_quantity" id="quantity2">1</p>
-                                <span type="button" name="increase1" class="increase_one " onclick='add("quantity2","totalprice2","singleprice2")'>+</span> </div>
-                            <div class="item_shortage_tip"> </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="cart_item_total">
-                            <p class="item_total_price" id="totalprice2">34.00</p>
-                          <!--  <p>省 <span class="item_saved_price">4.00</span></p>-->
-                        </div>
-                    </td>
-                    <td>
-                        <div class="cart_item_option">
-                            <a class="iconfont icon-shanchu" data-item-key="1057066_d150603p892053zc" href="javascript:void(0)" title="删除"></a>
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
-
-
-                <tbody>
-                <tr class="cart_item " hashid="d150603p892053zc" id="1057066_d150603p892053zc" product_id="892053" item_price="48.00" category_v3_3="18" brand_id="623" product_type="product">
-                    <td valign="top">
-                        <div class="cart_item_desc clear">
-                            <input class="js_item_selector cart_item_selector" data-item-key="1057066_d150603p892053zc" checked="'checked'/" type="checkbox">
-                            <div class="cart_item_desc_wrapper">
-                                <a class="cart_item_pic" href="http://sh.jumei.com/i/deal/d150603p892053zc.html" target="_blank"> <img src="/image/item/list7_lit1.jpg" alt="商品3"> <span class="sold_out_pic png"></span> </a> <a class="cart_item_link" title="商品3" href="http://sh.jumei.com/i/deal/d150603p892053zc.html" target="_blank">商品3</a>
-                                <p class="sku_info"> 规格：<span class="cart_item_attribute">彩色</span>&nbsp; </p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="cart_item_price">
-                            <p class="jumei_price" id="singleprice3">27.00</p>
-                           <!-- <p class="market_price">39.00</p>-->
-                        </div>
-                    </td>
-                    <td>
-                        <div class="cart_item_num ">
-                            <div class="item_quantity_editer clear" data-item-key="1057066_d150603p892053zc">
-                                <span type="button"  class="increase_one "  onclick='sub("quantity3","totalprice3","singleprice3")'  >-</span>
-                                <p type="text"  class="item_quantity" id="quantity3">1</p>
-                                <span type="button" name="increase1" class="increase_one " onclick='add("quantity3","totalprice3","singleprice3")'>+</span> </div>
-                            <div class="item_shortage_tip" > </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="cart_item_total">
-                            <p class="item_total_price"  id="totalprice3">27.00</p>
-                           <!-- <p>省 <span class="item_saved_price">12.00</span></p>-->
-                        </div>
                     </td>
                     <td>
                         <div class="cart_item_option">

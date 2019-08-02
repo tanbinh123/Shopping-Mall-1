@@ -43,7 +43,6 @@
             <generatedKey column="id" sqlStatement="select uuid()" identity="false"/>
         </table>
 
-
         <table schema="hk" tableName="admin" domainObjectName="Admin">
             <property name="rootInterface" value="net.suncaper.springboot.mapper.AdminMapper"/>
             <generatedKey column="id" sqlStatement="select uuid()" identity="false"/>

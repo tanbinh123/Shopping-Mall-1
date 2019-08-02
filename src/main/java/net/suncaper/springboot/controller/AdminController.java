@@ -38,10 +38,79 @@ public class AdminController {
     }
     @GetMapping("/index")    //主页
     public String goIndexPage(HttpServletRequest request, Model model) {
-        model.addAttribute("admin", new Admin());
-        Boolean isLogin = request.getSession().getAttribute("ADMIN_ID") != null;
-        model.addAttribute("isLogin", isLogin);
-        return "htindex";
+            model.addAttribute("admin", new Admin());
+            Boolean isLogin = request.getSession().getAttribute("ADMIN_ID") != null;
+            model.addAttribute("isLogin", isLogin);
+            return "htindex";
+    }
+    @GetMapping("/adminlist")   //跳转到
+    public String goAdminTablePage(Model model) {
+
+        return "layouts-admintables";
+
+    }
+        @GetMapping("/goodslist")   //跳转到
+        public String goGoodsTablesPage(Model model) {
+
+            return "layouts-goodstables";
+    }
+
+    @GetMapping("/incomelist")   //跳转到
+    public String goIncomeTablesPage(Model model) {
+
+        return "layouts-incometables";
+    }
+     @GetMapping("/orderlist")   //跳转到
+    public String goOrderTablesPage(Model model) {
+
+        return "layouts-ordertables";
+    }
+
+    @GetMapping("/userlist")   //跳转到
+    public String goUsersTablesPage(Model model) {
+
+        return "layouts-userstables";
+    }
+
+
+    @GetMapping("/coustomlimit")   //跳转到
+    public String goCoustomLimitPage(Model model) {
+
+        return "coustomlimit";
+    }
+
+    @GetMapping("/adminlimit")   //跳转到
+    public String goAdminLimitPage(Model model) {
+
+        return "adminlimit";
+    }
+
+    @GetMapping("/userchartjs")   //跳转到
+    public String goUserChartJsPage(Model model) {
+
+        return "chartjs";
+    }
+
+    @GetMapping("/incomechartjs")   //跳转到
+    public String goIncomeChartJsPage(Model model) {
+
+        return "chartjs2";
+    }
+
+    @GetMapping("/admininform")   //跳转到
+    public String goAdminInformPage(Model model) {
+
+        return "forms";
+    }
+    @GetMapping("/nofound")   //跳转到
+    public String goNoFoundPage(Model model) {
+
+        return "404";
+    }
+    @GetMapping("/bug")   //跳转到
+    public String goBugPage(Model model) {
+
+        return "505";
     }
 
 

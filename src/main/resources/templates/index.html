@@ -22,10 +22,10 @@
                 <div  class=" col-md-6 topNav">
                 <ul class="breadcrumb">
                     <li>
-                            <a th:if="${isLogin}"  >
+                            <a th:if="${isLogin==true}"  >
                                 欢迎,<i th:text="${session.USER_name}"></i>
                             </a>
-                            <a th:if="${!isLogin}" href="login.html" th:href="@{login}">
+                            <a th:if="${isLogin==false}" href="login.html" th:href="@{login}">
                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
                             </a>
                     </li>

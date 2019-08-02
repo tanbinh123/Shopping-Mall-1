@@ -33,10 +33,10 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table schema="hk" tableName="t_user" domainObjectName="User">
-            <property name="rootInterface" value="net.suncaper.springboot.mapper.UserMapperExt"/>
-            <generatedKey column="id" sqlStatement="select uuid()" identity="false"/>
-        </table>
+        <!--<table schema="hk" tableName="t_user" domainObjectName="User">-->
+            <!--<property name="rootInterface" value="net.suncaper.springboot.mapper.UserMapperExt"/>-->
+            <!--<generatedKey column="id" sqlStatement="select uuid()" identity="false"/>-->
+        <!--</table>-->
 
         <table schema="hk" tableName="product" domainObjectName="Product">
             <property name="rootInterface" value="net.suncaper.springboot.mapper.ProductMapper"/>
@@ -44,9 +44,9 @@
         </table>
 
 
-        <table schema="hk" tableName="admin" domainObjectName="Admin">
-            <property name="rootInterface" value="net.suncaper.springboot.mapper.AdminMapper"/>
-            <generatedKey column="id" sqlStatement="select uuid()" identity="false"/>
-        </table>
+        <!--<table schema="hk" tableName="admin" domainObjectName="Admin">-->
+            <!--<property name="rootInterface" value="net.suncaper.springboot.mapper.AdminMapper"/>-->
+            <!--<generatedKey column="id" sqlStatement="select uuid()" identity="false"/>-->
+        <!--</table>-->
     </context>
 </generatorConfiguration>

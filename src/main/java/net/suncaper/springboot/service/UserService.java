@@ -30,8 +30,8 @@ public Boolean saveUser(User user) {        //注册：将表单中的user对象
 
 
 
-    public User login(User user) {       //登录：判断输入的用户名密码是否正确
-       User user1= userMapper.selectByName(user.getName());
+       public User login(User user) {       //登录：判断输入的用户名密码是否正确
+        User user1= userMapper.selectByName(user.getName());
         if (user1!=null && user1.getPassword().equals(user.getPassword())){
             return user1;
         } else {
@@ -44,5 +44,13 @@ public Boolean saveUser(User user) {        //注册：将表单中的user对象
     public void deleteUserById(String id) {   //删除用户
         userMapper.deleteByPrimaryKey(id);
     }
+
+
+
+
+
+
+
+
 }
 

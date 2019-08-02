@@ -221,18 +221,22 @@
                                     User List:
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>Id</th>
+                                            <th>Sho_Id</th>
                                             <th>Name</th>
-                                            <th>Age</th>
                                             <th>Password</th>
+                                            <th>Phone</th>
+                                            <th>Email</th>
                                             <th>删除</th>
                                         </tr>
 
                                         <tr th:each="user : ${users}">
-                                            <td th:text="${user.name}"></td>
-                                            <td th:text="${user.email}"></td>
                                             <td th:text="${user.id}"></td>
+                                            <td th:text="${user.sho_id}"></td>
+                                            <td th:text="${user.name}"></td>
                                             <td th:text="${user.password}"></td>
+                                            <td th:text="${user.phone}"></td>
+                                            <td th:text="${user.email}"></td>
                                             <td><button data-th-attr="onclick='deleteUser(this, \'' + ${user.id} + '\')'">删除</button> </td>
                                         </tr>
                                     </table>

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
@@ -71,6 +72,7 @@ public class AdminController {
     @GetMapping("/userlist")   //跳转到
     public String goUsersTablesPage(Model model) {
 
+
         return "layouts-userstables";
     }
 
@@ -83,7 +85,6 @@ public class AdminController {
 
     @GetMapping("/adminlimit")   //跳转到
     public String goAdminLimitPage(Model model) {
-
         return "adminlimit";
     }
 
@@ -114,6 +115,8 @@ public class AdminController {
 
         return "505";
     }
+
+
 
 
 }

@@ -18,7 +18,7 @@
                 <i class="fa fa-bars"></i>
             </a>
 
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" th:href="@{/admin/index}">
                 <img src="/dist/imgs/biglogo.png" alt="logo">
             </a>
 
@@ -212,7 +212,7 @@
                 <div class="col-md">
                     <div class="card">
                         <div class="card-header bg-light">
-                            Good Table
+                            商品列表
                         </div>
 
                         <div class="card-body">
@@ -222,11 +222,11 @@
                                     <tr>
                                         <th>商品编号</th>
                                         <th>商品名称</th>
-                                        <th>商品总数</th>
-                                        <th>商品售出</th>
-                                        <th>商品剩余</th>
+                                        <th>商品SKU</th>
                                         <th>商品价格</th>
-                                        <th>商品折扣</th>
+                                        <th>商品图片</th>
+                                        <th>商品价格</th>
+                                        <th>操作</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -239,41 +239,18 @@
                                         <td></td>
                                         <td></td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td class="text-nowrap"></td>
+
+
+                                    <tr th:each="product:${productsList}">
+                                        <td th:text="${product.id}">5</td>
+                                        <td class="text-nowrap" th:text="${product.name}"></td>
+                                        <td th:text="${product.productType}"></td>
+                                        <td th:text="${product.price}"></td>
+                                        <td ></td>
                                         <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td class="text-nowrap"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td class="text-nowrap"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td class="text-nowrap"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>
+                                            <button>删除</button>
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>

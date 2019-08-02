@@ -49,8 +49,10 @@ public class AdminController {
         return "layouts-admintables";
 
     }
-        @GetMapping("/goodslist")   //跳转到
+        @GetMapping("/goodslist")   //跳转到商品列表
         public String goGoodsTablesPage(Model model) {
+
+        model.addAttribute("productsList",adminService.getProductsList());
 
             return "layouts-goodstables";
     }

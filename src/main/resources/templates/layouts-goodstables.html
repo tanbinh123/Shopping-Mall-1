@@ -225,8 +225,8 @@
                                         <th>商品SKU</th>
                                         <th>商品价格</th>
                                         <th>商品图片</th>
-                                        <th>商品价格</th>
-                                        <th>操作</th>
+                                        <th>其他属性</th>
+                                        <th>编辑/删除</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -245,12 +245,60 @@
                                         <td class="text-nowrap" th:text="${product.name}"></td>
                                         <td th:text="${product.productType}"></td>
                                         <td th:text="${product.price}"></td>
-                                        <td th:if="${product.filetitle}!=null">
-                                            <img style="width: 3em;" th:src="'img/'+${product.id}">
-                                        </td>
-                                        <td></td>
                                         <td>
-                                            <button class="btn btn-danger">删除</button>
+                                            <img  th:if="${product.filetitle}!=null" style="width: 3em;" th:src="'img/'+${product.id}">
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-warning" >编辑</button>
+                                            <!--编辑商品信息-->
+                                            <!--<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-hidden="true">-->
+                                                <!--<div class="modal-dialog">-->
+                                                    <!--<div class="modal-content">-->
+                                                        <!--<div class="modal-header">-->
+                                                            <!--<h4 class="modal-title" id="myModalLabel">添加商品信息</h4>-->
+                                                            <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+                                                        <!--</div>-->
+                                                        <!--<form th:action="@{/admin/addproduct}" method="post" enctype="multipart/form-data">-->
+                                                            <!--<div class="modal-body">-->
+
+                                                                <!--<div class="form-group">-->
+                                                                    <!--<label>商品名称</label>-->
+                                                                    <!--<input type="text" class="form-control" name="name" th:field="${addProduct.name}" placeholder="请输入商品名称">-->
+                                                                <!--</div>-->
+                                                                <!--<div class="form-group">-->
+                                                                    <!--<label >商品SKU</label>-->
+                                                                    <!--<input type="text" class="form-control" name="product_type" th:field="${addProduct.productType}" placeholder="请输入商品SKU属性">-->
+                                                                <!--</div>-->
+                                                                <!--<div class="form-group">-->
+                                                                    <!--<label >商品价格</label>-->
+                                                                    <!--<input type="number" class="form-control" name="price" th:field="${addProduct.price}" placeholder="请输入商品价格">-->
+                                                                <!--</div>-->
+                                                                <!--<div class="form-group">-->
+                                                                    <!--<label >商品图片</label>-->
+                                                                    <!--<input type="file" class="form-control" name="file">-->
+                                                                <!--</div>-->
+
+                                                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                                                <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
+                                                                <!--&lt;!&ndash;<label>详细地址</label>&ndash;&gt;-->
+                                                                <!--&lt;!&ndash;<textarea class="form-control" rows="3" id="Address"></textarea>&ndash;&gt;-->
+                                                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                                            <!--</div>-->
+                                                            <!--<div class="modal-footer">-->
+                                                                <!--<button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>-->
+                                                                <!--<button type="submit" class="btn btn-success">添加</button>-->
+
+                                                            <!--</div>-->
+                                                        <!--</form>-->
+                                                    <!--</div>&lt;!&ndash; /.modal-content &ndash;&gt;-->
+                                                <!--</div>&lt;!&ndash; /.modal &ndash;&gt;-->
+                                            <!--</div>-->
+
+
+                                            <button class="btn btn-danger deleteBtn" data-toggle="modal" data-target="#deleteproduct" th:value="${product.id}">删除</button>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -258,11 +306,13 @@
                             </div>
                         </div>
 
-                        <button class="btn btn-success" style="width: 8em;height: 4em;margin-left:3em;margin-bottom: 3em;text-align: center;border-radius: 0.5em;" data-toggle="modal" data-target="#myModal">
+                        <button class="btn btn-success" style="width: 8em;height: 4em;margin-left:3em;margin-bottom: 3em;text-align: center;border-radius: 0.5em;" data-toggle="modal" data-target="#addModal">
                             添加商品</button>
 
                     </div>
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+
+                    <!--添加商品模态框-->
+                    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -305,6 +355,35 @@
                         </div><!-- /.modal -->
                     </div>
 
+                    <!--删除商品模态框-->
+                    <div class="modal fade" id="deleteproduct" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">删除商品</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                </div>
+                                <form th:action="@{/admin/deleteproduct}" method="post" enctype="multipart/form-data">
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label>商品编号</label>
+                                            <input type="text" class="form-control" name="id" readonly="readonly">
+                                            <p>确认删除商品吗？商品删除后无法恢复</p>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+                                        <button type="submit" class="btn btn-success">确认删除</button>
+
+                                    </div>
+                                </form>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal -->
+                    </div>
+
+
+
+
                 </div>
 
 
@@ -324,5 +403,15 @@
 <script src="/dist/vendor/chart.js/chart.min.js"></script>
 <script src="/dist/js/carbon.js"></script>
 <script src="/dist/js/demo.js"></script>
+<script type="text/javascript">
+    $(function () {         //删除功能模态框的调用
+        $(".deleteBtn").click(function () {
+            var proid=$(this).val();
+            $("#deleteproduct").modal('show');
+            $("#deleteproduct input").val(proid);
+            $("#deleteproduct input").attr("readOnly","readOnly");
+        });
+    });
+</script>
 </body>
 </html>

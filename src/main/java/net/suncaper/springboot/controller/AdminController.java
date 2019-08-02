@@ -85,8 +85,8 @@ public class AdminController {
     }
 
     @PostMapping("/addproduct")//新增商品
-    public String addProductInto(Product product,MultipartFile file) throws IOException {
-        if (file!=null){
+    public String addProductInfo(Product product,MultipartFile file) throws IOException {
+        if (file.getSize()!=0){
             //保存图片的路径
             String filePath="C:\\databaseimg";
             //获取原始图片的拓展名
@@ -103,9 +103,14 @@ public class AdminController {
             product.setFiletype(file.getContentType());
         }
         productService.saveProduct(product);
-        return "redirect:/admin//goodslist";
+        return "redirect:/admin/goodslist";
     }
 
+    @PostMapping("/deleteproduct")//删除商品
+    public String deleteProductInfo(Product product){
+        productService.deleteProductById(product.getId());
+        return "redirect:/admin/goodslist";
+    }
     @GetMapping("/incomelist")   //跳转到
     public String goIncomeTablesPage(Model model) {
 

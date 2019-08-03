@@ -58,21 +58,12 @@ public class ProductController {
     @PostMapping("/addproduct")
     public String saveProduct(Product product,@RequestParam("file") MultipartFile file) throws IOException {
         if(file!=null){
-            product.setFilecontent(file.getBytes());
             product.setFiletitle(file.getOriginalFilename());
             product.setFilelenth(file.getSize());
             product.setFiletype(file.getContentType());
         }
         productService.saveProduct(product);
         return "redirect:/product/showproduct";
-    }
-    @GetMapping("/download")
-    public ResponseEntity<Resource> downloadFile(@RequestParam("id") String id){
-        Product product=productService.findProductByPrimaryKey(id);
-        return ResponseEntity.ok()
-                .contentLength(product.getFilelenth())
-                .contentType(MediaType.parseMediaType(product.getFiletype()))
-                .body(new ByteArrayResource(product.getFilecontent()));
     }
 
 

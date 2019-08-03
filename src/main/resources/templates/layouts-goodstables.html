@@ -211,9 +211,14 @@
             <div class="row">
                 <div class="col-md">
                     <div class="card">
+                        <form th:action="@{/admin/searchproduct}" method="post" enctype="multipart/form-data">
+
                         <div class="card-header bg-light">
                             商品列表
+                                <input style="margin-left: 2em;border: 1px solid #42a5f5;height: 2.5em;" type="text" name="name" placeholder=" 按名称搜索"><button type="submit" style="margin-top: -0.35em" class="btn btn-primary">搜索</button>
+
                         </div>
+                        </form>
 
                         <div class="card-body">
                             <div class="table-responsive">
@@ -230,16 +235,6 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td class="text-nowrap"></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-
                                     <tr th:each="product:${productsList}">
                                         <td th:text="${product.id}">5</td>
                                         <td class="text-nowrap" th:text="${product.name}"></td>
@@ -251,54 +246,51 @@
                                         <td>
 
                                         </td>
-                                        <td>
-                                            <button class="btn btn-warning" >编辑</button>
+                                        <td style="white-space: nowrap">
+                                            <button class="btn btn-warning" data-toggle="modal" th:attr="data-target='#'+${product.id}">编辑</button>
                                             <!--编辑商品信息-->
-                                            <!--<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-hidden="true">-->
-                                                <!--<div class="modal-dialog">-->
-                                                    <!--<div class="modal-content">-->
-                                                        <!--<div class="modal-header">-->
-                                                            <!--<h4 class="modal-title" id="myModalLabel">添加商品信息</h4>-->
-                                                            <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
-                                                        <!--</div>-->
-                                                        <!--<form th:action="@{/admin/addproduct}" method="post" enctype="multipart/form-data">-->
-                                                            <!--<div class="modal-body">-->
+                                            <div class="modal fade" th:id="${product.id}" tabindex="-1" role="dialog" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">修改商品信息</h4>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                        </div>
+                                                        <form th:action="@{/admin/editproduct}" method="post" enctype="multipart/form-data">
+                                                            <div class="modal-body">
+                                                                <div class="form-group">
+                                                                <label>商品编号</label>
+                                                                <input type="text" class="form-control" name="id"  th:value="${product.id}"readonly="readonly">
+                                                            </div>
+                                                                <div class="form-group">
+                                                                    <label>商品名称</label>
+                                                                    <input type="text" class="form-control" name="name"  th:value="${product.name}" required="required">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label >商品SKU</label>
+                                                                    <input type="text" class="form-control" name="productType" th:value="${product.productType}" required="required">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label >商品价格</label>
+                                                                    <input type="number" class="form-control" name="price" th:value="${product.price}" required="required">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label >商品图片</label>
+                                                                    <input type="file" class="form-control" name="file">
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+                                                                <button type="submit" class="btn btn-success">确认修改</button>
 
-                                                                <!--<div class="form-group">-->
-                                                                    <!--<label>商品名称</label>-->
-                                                                    <!--<input type="text" class="form-control" name="name" th:field="${addProduct.name}" placeholder="请输入商品名称">-->
-                                                                <!--</div>-->
-                                                                <!--<div class="form-group">-->
-                                                                    <!--<label >商品SKU</label>-->
-                                                                    <!--<input type="text" class="form-control" name="product_type" th:field="${addProduct.productType}" placeholder="请输入商品SKU属性">-->
-                                                                <!--</div>-->
-                                                                <!--<div class="form-group">-->
-                                                                    <!--<label >商品价格</label>-->
-                                                                    <!--<input type="number" class="form-control" name="price" th:field="${addProduct.price}" placeholder="请输入商品价格">-->
-                                                                <!--</div>-->
-                                                                <!--<div class="form-group">-->
-                                                                    <!--<label >商品图片</label>-->
-                                                                    <!--<input type="file" class="form-control" name="file">-->
-                                                                <!--</div>-->
-
-                                                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                                                                <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
-                                                                <!--&lt;!&ndash;<label>详细地址</label>&ndash;&gt;-->
-                                                                <!--&lt;!&ndash;<textarea class="form-control" rows="3" id="Address"></textarea>&ndash;&gt;-->
-                                                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                                                            <!--</div>-->
-                                                            <!--<div class="modal-footer">-->
-                                                                <!--<button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>-->
-                                                                <!--<button type="submit" class="btn btn-success">添加</button>-->
-
-                                                            <!--</div>-->
-                                                        <!--</form>-->
-                                                    <!--</div>&lt;!&ndash; /.modal-content &ndash;&gt;-->
-                                                <!--</div>&lt;!&ndash; /.modal &ndash;&gt;-->
-                                            <!--</div>-->
+                                                            </div>
+                                                        </form>
+                                                    </div><!-- /.modal-content -->
+                                                </div><!-- /.modal -->
+                                            </div>
 
 
-                                            <button class="btn btn-danger deleteBtn" data-toggle="modal" data-target="#deleteproduct" th:value="${product.id}">删除</button>
+                                            <button class="btn btn-danger deleteBtn" data-toggle="modal" data-target="#deleteproduct" th:value="${product.id}" >删除</button>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -324,26 +316,20 @@
 
                                         <div class="form-group">
                                             <label>商品名称</label>
-                                            <input type="text" class="form-control" name="name" th:field="${addProduct.name}" placeholder="请输入商品名称">
+                                            <input type="text" class="form-control" name="name" required="required" th:field="${addProduct.name}" placeholder="请输入商品名称">
                                         </div>
                                         <div class="form-group">
                                             <label >商品SKU</label>
-                                            <input type="text" class="form-control" name="product_type" th:field="${addProduct.productType}" placeholder="请输入商品SKU属性">
+                                            <input type="text" class="form-control" name="productType" required="required" th:field="${addProduct.productType}" placeholder="请输入商品SKU属性">
                                         </div>
                                         <div class="form-group">
                                             <label >商品价格</label>
-                                            <input type="number" class="form-control" name="price" th:field="${addProduct.price}" placeholder="请输入商品价格">
+                                            <input type="number" class="form-control" name="price" min="0" required="required" th:field="${addProduct.price}" placeholder="请输入商品价格">
                                         </div>
                                         <div class="form-group">
                                             <label >商品图片</label>
                                             <input type="file" class="form-control" name="file">
                                         </div>
-
-                                        <!--</div>-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>详细地址</label>-->
-                                            <!--<textarea class="form-control" rows="3" id="Address"></textarea>-->
-                                        <!--</div>-->
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
@@ -366,14 +352,14 @@
                                 <form th:action="@{/admin/deleteproduct}" method="post" enctype="multipart/form-data">
                                     <div class="modal-body">
                                         <div class="form-group">
-                                            <label>商品编号</label>
+                                            <label>您将删除的商品编号为</label>
                                             <input type="text" class="form-control" name="id" readonly="readonly">
-                                            <p>确认删除商品吗？商品删除后无法恢复</p>
+                                            <p style="color: red">商品删除后无法恢复,确认删除吗？</p>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
-                                        <button type="submit" class="btn btn-success">确认删除</button>
+                                        <button type="button" class="btn btn-success" data-dismiss="modal">关闭</button>
+                                        <button type="submit" class="btn btn-danger">确认删除</button>
 
                                     </div>
                                 </form>

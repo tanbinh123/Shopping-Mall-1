@@ -63,10 +63,11 @@ public class AdminController {
 
     }
         @GetMapping("/goodslist")   //跳转到商品列表
-        public String goGoodsTablesPage(Model model) {
+        public String goGoodsTablesPage(HttpServletRequest request, Model model) {
         model.addAttribute("addProduct",new Product());
-        model.addAttribute("productsList",adminService.getProductsList());
-
+        if(request.getSession().getAttribute("productsList")==null){
+            model.addAttribute("productsList",adminService.getProductsList());
+        }
             return "layouts-goodstables";
     }
 
@@ -86,6 +87,12 @@ public class AdminController {
 
     @PostMapping("/addproduct")//新增商品
     public String addProductInfo(Product product,MultipartFile file) throws IOException {
+        saveImage(product,file);
+        productService.saveProduct(product);
+        return "redirect:/admin/goodslist";
+    }
+
+    public boolean saveImage(Product product,MultipartFile file) throws IOException {//图片的更新，保存等操作的方法
         if (file.getSize()!=0){
             //保存图片的路径
             String filePath="C:\\databaseimg";
@@ -101,9 +108,11 @@ public class AdminController {
             product.setFiletitle(newFileName);
             product.setFilelenth(file.getSize());
             product.setFiletype(file.getContentType());
+            return true;
         }
-        productService.saveProduct(product);
-        return "redirect:/admin/goodslist";
+        else
+            return false;
+
     }
 
     @PostMapping("/deleteproduct")//删除商品
@@ -111,6 +120,20 @@ public class AdminController {
         productService.deleteProductById(product.getId());
         return "redirect:/admin/goodslist";
     }
+
+    @PostMapping("/editproduct")//修改商品属性
+    public String editProductInfo(Product product,MultipartFile file) throws IOException {
+        saveImage(product,file);
+        productService.editProduct(product);
+        return "redirect:/admin/goodslist";
+    }
+
+
+//    @PostMapping("/searchproduct")//检索商品
+//    public String searchProductInfo(Model model, Product product){
+//        model.addAttribute("productsList",adminService.getProductsListByName(product.getName()));
+//        return "redirect:/admin/goodslist";
+//    }
     @GetMapping("/incomelist")   //跳转到
     public String goIncomeTablesPage(Model model) {
 

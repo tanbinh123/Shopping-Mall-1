@@ -19,7 +19,7 @@ public class ProductService {
         return productMapper.selectByExample(new ProductExample());
     }
 
-    public int saveProduct(Product product) {        //注册：将表单中的user对象插入数据库t_user表
+    public int saveProduct(Product product) {        //插入
         //if (product.getName() == null|| product.getName().equals("")) {
         // return productMapper.insert(product);
         //} else {
@@ -27,6 +27,12 @@ public class ProductService {
         // }
         return productMapper.insert(product);
     }
+
+    public boolean editProduct(Product product){       //修改商品属性
+        productMapper.updateByPrimaryKeySelective(product);
+        return true;
+    }
+
 
     public Product findProductByPrimaryKey(String id) {
         return productMapper.selectByPrimaryKey(id);

@@ -34,4 +34,10 @@ public class AdminService {
         return products;
     }
 
+//    public List<Product> getProductsListByName(String name) {
+//        ProductExample ex=new ProductExample();
+//        ex.createCriteria().andNameLike("%"+name+"%");
+//        List<Product> products=productMapper.selectByExample(ex);
+//        return products;
+//    }
 }

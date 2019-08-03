@@ -38,14 +38,20 @@
             <!--<generatedKey column="id" sqlStatement="select uuid()" identity="false"/>-->
         <!--</table>-->
 
-        <table schema="hk" tableName="product" domainObjectName="Product">
-            <property name="rootInterface" value="net.suncaper.springboot.mapper.ProductMapper"/>
-            <generatedKey column="id" sqlStatement="select uuid()" identity="false"/>
-        </table>
+        <!--<table schema="hk" tableName="product" domainObjectName="Product">-->
+            <!--<property name="rootInterface" value="net.suncaper.springboot.mapper.ProductMapper"/>-->
+            <!--<generatedKey column="id" sqlStatement="select uuid()" identity="false"/>-->
+        <!--</table>-->
 
         <!--<table schema="hk" tableName="admin" domainObjectName="Admin">-->
             <!--<property name="rootInterface" value="net.suncaper.springboot.mapper.AdminMapper"/>-->
             <!--<generatedKey column="id" sqlStatement="select uuid()" identity="false"/>-->
         <!--</table>-->
+
+
+        <table schema="hk" tableName="shopping_cart" domainObjectName="Shoppingcart">
+            <property name="rootInterface" value="net.suncaper.springboot.mapper.ShoppingcartMapper"/>
+            <generatedKey column="id" sqlStatement="select uuid()" identity="false"/>
+        </table>
     </context>
 </generatorConfiguration>

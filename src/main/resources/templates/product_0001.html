@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,7 +52,7 @@
 <!-- 搜索框部分 -->
 <div class="container">
     <div class="col-md-3 bigLogo">
-        <a href="index">
+        <a href="/user/index">
             <img src="/image/logo/biglogo.png" alt="HK网上商城">
         </a>
     </div>
@@ -74,7 +74,7 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="shoppingcart">
                     <img src="/image/logo/cartLogo.png" alt="购物车">
                     <p class="littleDot">1</p>
                 </a>
@@ -174,12 +174,19 @@
                         </select>
                     </li>
             </ul>
-            <div class="addCart">
-                <a href="#" type="button" class="btn btn-primary myCart"><p>加入购物车</p></a>
+
+
+            <form action="/product/product_0001" method="post" th:object="${shoppingcart}">
+
+                <input type="text" class="form-control" name="proId" th:text="*{proId}" th:readonly="readonly" value="973642ea-b5c2-11e9-b765-48ba4e461957">
+                <!--<input type="text" class="form-control" name="quantity" th:field="*{quantity}">-->
+                <input type="text" class="form-control" name="tUId" th:value="${session.USER_ID}">
+                <div class="addCart">
+                <button type="submit" class="btn btn-primary myCart"><p>加入购物车</p></button>
 
                 <a href="#" class="btn btn-primary myLove"><p>加入收藏</p></a>
-            </div>
-
+                </div>
+            </form>
 
 
         </div>

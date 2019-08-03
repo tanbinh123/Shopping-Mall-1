@@ -2,6 +2,7 @@ package net.suncaper.springboot.controller;
 
 import net.suncaper.springboot.domain.Admin;
 import net.suncaper.springboot.domain.Product;
+import net.suncaper.springboot.domain.User;
 import net.suncaper.springboot.service.AdminService;
 import net.suncaper.springboot.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;

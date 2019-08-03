@@ -133,21 +133,22 @@
             <h4>商品</h4>
             <div class="mainGoods">
                 <ul>
-                    <li>
-                        <img src="../static/image/product/product_0001_white1.jpg" th:src="@{/image/product/product_0001_white1.jpg}">
-                        <span class="title">小米CC9 6GB+128GB 白色恋人（白色） </span>
-                        <span class="num">x1</span>
-                        <span class="price">1999元</span>
-                    </li>
-                    <li>
-                        <img src="../static/image/product/product_0002/product_0002_aurora1.png" th:src="@{/image/product/product_0002/product_0002_aurora1.png}">
-                        <span class="title">华为P30 pro 8GB+128GB 极光色 </span>
-                        <span class="num">x1</span>
-                        <span class="price">5488元</span>
-                    </li>
+                    <!--<li>-->
+                        <!--<img src="../static/image/product/product_0001_white1.jpg" th:src="@{/image/product/product_0001_white1.jpg}">-->
+                        <!--<span class="title">小米CC9 6GB+128GB 白色恋人（白色） </span>-->
+                        <!--<span class="num">x1</span>-->
+                        <!--<span class="price">1999元</span>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<img src="../static/image/product/product_0002/product_0002_aurora1.png" th:src="@{/image/product/product_0002/product_0002_aurora1.png}">-->
+                        <!--<span class="title">华为P30 pro 8GB+128GB 极光色 </span>-->
+                        <!--<span class="num">x1</span>-->
+                        <!--<span class="price">5488元</span>-->
+                    <!--</li>-->
 
                     <li th:each="product:${products}">
-                        <img th:src="@{/product/download(id=${product.id})}">
+                        <!--<img th:src="@{/product/download(id=${product.id})}">-->
+                        <img  th:if="${product.filetitle}!=null" style="width: 3em;" th:src="'img/'+${product.id}">
                         <span  th:text="${product.name}"></span>
                         <span class="title" th:text="${product.productType}"></span>
                         <span class="num">数量</span>

@@ -1,6 +1,7 @@
 package net.suncaper.springboot.controller;
 
 import net.suncaper.springboot.domain.User;
+import net.suncaper.springboot.service.AdminService;
 import net.suncaper.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 public class UserController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private AdminService adminService;
 
     @GetMapping("/search")    //跳转至userList页面展示查询用户表t_user中的所有元组
     public String goUserListPage(HttpServletRequest request,
@@ -67,6 +70,12 @@ public class UserController {
         Boolean isLogin = request.getSession().getAttribute("USER_ID") != null;
         model.addAttribute("isLogin", isLogin);
         return "index";
+    }
+
+    @GetMapping("/searchproduct") //搜索结果界面
+    public String goSearchProductResultPage(Model model){
+        model.addAttribute("productsList",adminService.getProductsList());
+        return "searchproduct";
     }
 
     @GetMapping("/delete")   //delete

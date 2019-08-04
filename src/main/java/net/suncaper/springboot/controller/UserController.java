@@ -47,12 +47,6 @@ public class UserController {
     }
 
 
-//    @PostMapping("/add")     //在注册界面提交表单后将数据写入数据库，然后跳转到登录页面login
-//    public String saveUser(User user) {
-//        userService.saveUser(user);
-//        return "login";
-//    }
-
     @GetMapping("/login")   //跳转到登录页面login
     public String goLoginPage(Model model) {
         model.addAttribute("user", new User());
@@ -74,22 +68,6 @@ public class UserController {
         model.addAttribute("isLogin", isLogin);
         return "index";
     }
-
-
-
-    @GetMapping("/product_0001")  //跳转至1号商品页面
-    public String a(Model model) {
-        model.addAttribute("user", new User());
-        return "/product_0001";
-    }
-
-    @GetMapping("/product_0002")  //跳转至2号商品页面
-    public String a2(Model model) {
-        model.addAttribute("user", new User());
-        return "/product_0002";
-    }
-
-
 
     @GetMapping("/delete")   //delete
     @ResponseBody

@@ -108,7 +108,7 @@
 <!-- 搜索框部分 -->
 <div class="container">
     <div class="col-md-3 bigLogo">
-        <a href="index">
+        <a href="/user/index">
             <img src="/image/logo/biglogo.png" alt="HK网上商城">
         </a>
         <h1>购物车</h1>
@@ -191,7 +191,8 @@
                             <input class="js_item_selector cart_item_selector" data-item-key="1057066_d150603p892053zc" checked="'checked'/" type="checkbox">
                             <div class="cart_item_desc_wrapper">
                                 <a class="cart_item_pic" href="https://www.baidu.com" target="_blank">
-                                    <img  th:src="@{/product/download(id=${product.id})}" alt="商品1">
+                                    <!--<img  th:src="@{/product/download(id=${product.id})}" alt="商品1">-->
+                                    <img  th:if="${product.filetitle}!=null" style="width: 3em;" th:src="'img/'+${product.id}">
                                     <span class="sold_out_pic png"></span> </a>
                                 <a class="cart_item_link"  th:text="${product.name}" >商品1</a>
                                 <p class="sku_info" > 规格：<span class="cart_item_attribute" th:text="${product.productType}">% %</span>&nbsp; </p>

@@ -24,7 +24,7 @@
                     <li>
                             <a th:if="${isLogin==true}"  >
                                 欢迎,<i th:text="${session.USER_name}"></i>
-                            </a>
+                        </a>
                             <a th:if="${isLogin==false}" href="login.html" th:href="@{login}">
                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
                             </a>
@@ -79,7 +79,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="shoppingcart.html" th:href="@{/user/shoppingcart}">
+                        <a href="shoppingcart.html" th:href="@{/product/shoppingcart}">
                             <img src="../static/image/logo/cartLogo.png" th:src="@{/image/logo/cartLogo.png}" alt="购物车">
                             <p class="littleDot">1</p>
                         </a>
@@ -159,7 +159,7 @@
                             <!-- 轮播（Carousel）项目 -->
                             <div class="carousel-inner" role="listbox">
                                 <div class="item active">
-                                    <a href="product_0001.html" th:href="@{/user/product_0001}"> <img  class="img-responsive" src="../static/image/carousel/ad1.png" th:src="@{/image/carousel/ad1.png}" alt="First slide"></a>
+                                    <a href="product_0001.html" th:href="@{/product/product_0001}"> <img  class="img-responsive" src="../static/image/carousel/ad1.png" th:src="@{/image/carousel/ad1.png}" alt="First slide"></a>
                                 </div>
                                 <div class="item">
                                     <img src="../static/image/carousel/ad2.png" th:src="@{/image/carousel/ad2.png}" alt="Second slide">

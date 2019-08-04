@@ -15,7 +15,6 @@ public class ProductService {
     private ProductMapper productMapper;
 
     public List<Product> listProduct() {
-        //return ProductMapper.selectByExample(new ProductExample());
         return productMapper.selectByExample(new ProductExample());
     }
 
@@ -33,11 +32,9 @@ public class ProductService {
         return true;
     }
 
-
     public Product findProductByPrimaryKey(String id) {
         return productMapper.selectByPrimaryKey(id);
     }
-
 
     public void deleteProductById(String id) {   //删除用户
         productMapper.deleteByPrimaryKey(id);

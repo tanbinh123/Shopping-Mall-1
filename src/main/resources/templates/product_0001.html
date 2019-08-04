@@ -178,9 +178,9 @@
 
             <form action="/product/product_0001" method="post" th:object="${shoppingcart}">
 
-                <input type="text" class="form-control" name="proId" th:text="*{proId}" th:readonly="readonly" value="973642ea-b5c2-11e9-b765-48ba4e461957">
+                <input type="hidden" class="form-control" name="proId" th:text="*{proId}" th:readonly="readonly" value="973642ea-b5c2-11e9-b765-48ba4e461957">
                 <!--<input type="text" class="form-control" name="quantity" th:field="*{quantity}">-->
-                <input type="text" class="form-control" name="tUId" th:value="${session.USER_ID}">
+                <input type="hidden" class="form-control" name="tUId" th:value="${session.USER_ID}">
                 <div class="addCart">
                 <button type="submit" class="btn btn-primary myCart"><p>加入购物车</p></button>
 

@@ -60,7 +60,7 @@
                 var shipPrice=Number($("#shippingprice").html());
                 $("#orderprice").html(finalNum+shipPrice);
             });
-            });
+        });
     </script>
 </head>
 
@@ -74,12 +74,12 @@
         <div class=" col-md-6 topNav">
             <ul class="breadcrumb">
                 <li>
-                    <a th:if="${isLogin}"  >
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>已登录
-                    </a>
-                    <a th:if="${!isLogin}" href="login">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
-                    </a>
+                    <!--<a th:if="${isLogin}"  >-->
+                        <!--<span class="glyphicon glyphicon-user" aria-hidden="true"></span>已登录-->
+                    <!--</a>-->
+                    <!--<a th:if="${isLogin==}" href="login">-->
+                        <!--<span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册-->
+                    <!--</a>-->
                 </li>
                 <li class="dropdown topLang">
 
@@ -132,7 +132,7 @@
                 </a>
             </li>
             <li>
-                <a href="/user/shoppingcart">
+                <a href="#">
                     <img src="/image/logo/cartLogo.png" alt="购物车">
                     <p class="littleDot">1</p>
                 </a>
@@ -141,9 +141,6 @@
 
     </div>
 </div>
-
-
-
 
 <div class="content_show_wrapper">
     <div class="cart_notification cart_error" style="">
@@ -163,10 +160,8 @@
             </div>
             <div class="common_shippment"> <i class="icon_small icon_baoyou png">包邮</i>规则：HK商城满99元全场包邮 </div>
         </div>
+
         <div class="groups_wrapper">
-
-
-
 
             <table class="cart_group_item  cart_group_item_product">
                 <thead>
@@ -183,47 +178,44 @@
                     <th class="cart_option">操作</th>
                 </tr>
                 </thead>
-
-                <tbody class="hide2">
-                <tr class="cart_item " th:each="product:${products}">
+                <tr class="hide2">
+                <tr class="cart_item "  th:each="product:${products}">
                     <td valign="top">
                         <div class="cart_item_desc clear">
                             <input class="js_item_selector cart_item_selector" data-item-key="1057066_d150603p892053zc" checked="'checked'/" type="checkbox">
                             <div class="cart_item_desc_wrapper">
                                 <a class="cart_item_pic" href="https://www.baidu.com" target="_blank">
                                     <!--<img  th:src="@{/product/download(id=${product.id})}" alt="商品1">-->
-                                    <img  th:if="${product.filetitle}!=null" style="width: 3em;" th:src="'img/'+${product.id}">
+                                    <img  th:if="${product.filetitle}!=null" style="width: 5em;" th:src="'/admin/img/'+${product.id}">
                                     <span class="sold_out_pic png"></span> </a>
                                 <a class="cart_item_link"  th:text="${product.name}" >商品1</a>
-                                <p class="sku_info" > 规格：<span class="cart_item_attribute" th:text="${product.productType}">% %</span>&nbsp; </p>
+                                <!--<p class="sku_info" > 规格：<span class="cart_item_attribute" th:text="${product.productType}">% %</span>&nbsp; </p>-->
                             </div>
                         </div>
                     </td>
                     <td>
 
-                            <p class="jumei_price"  th:text="${product.price}" style="margin-left: 3em;">32.00</p>
+                        <p class="jumei_price"  th:text="${product.price}" style="margin-left: 3em;">32.00</p>
 
                     </td>
                     <td >
 
-                                <input type="number" min="1" value="1" class="goodsNum" style="width: 40%;margin-left: 3em;">
+                        <input type="number" min="1" value="1" class="goodsNum" style="width: 40%;margin-left: 3em;">
 
                     </td>
                     <td>
-                            <p class="item_total_price" th:text="${product.price}" style="margin-left: 2em;">32.00</p>
+                        <p class="item_total_price" th:text="${product.price}" style="margin-left: 2em;">32.00</p>
 
                     </td>
                     <td>
                         <div class="cart_item_option">
-                            <a class="iconfont icon-shanchu" data-item-key="1057066_d150603p892053zc" href="javascript:void(0)" title="删除"></a>
+                            <!--<a class="iconfont icon-shanchu" data-item-key="1057066_d150603p892053zc" href="javascript:void(0)"  title="删除"></a>-->
+                            <button  class="iconfont icon-shanchu"   data-th-attr="onclick='deleteShoppingcart2(this, \'' + ${product.id} + '\')'"></button>
                         </div>
                     </td>
                 </tr>
                 </tbody>
                 <tfoot>
-
-
-
                 <tr>
                     <td colspan="5"> 商品价格：￥ <span class="group_total_price" id="itemprice"></span> </td>
                 </tr>
@@ -232,6 +224,7 @@
                 </tr>
                 </tfoot>
             </table>
+
         </div>
         <div class="common_handler_anchor"></div>
         <div class="common_handler">
@@ -285,27 +278,21 @@
         </ul>
     </div>
 </div>
-
-
-
-
-
-
-
-
 <script src="../js/jquery-1.4.2.min.js"></script>
 <script src="../js/imgTab.js"></script>
 <script>
-    document.getElementById("itemprice").innerHTML=parseFloat(document.getElementById("totalprice1").innerHTML)+parseFloat(document.getElementById("totalprice2").innerHTML)+parseFloat(document.getElementById("totalprice3").innerHTML);
-    if(document.getElementById("itemprice").innerHTML>=99) {
-        var freeship=0;
-        document.getElementById("shippingprice").innerHTML=parseFloat(freeship);
-
+    function deleteShoppingcart2(elem, id) {
+        $.ajax({
+            url: '/product/deletecart2?id=' + id,
+            type: 'get',
+            success: function (data) {
+                $(elem).parent().parent().parent().remove();
+            },
+            fail: function (data) {
+                console.log('fail')
+            }
+        })
     }
-    else if(document.getElementById("itemprice").innerHTML<99) {
-        document.getElementById("shippingprice").innerHTML=10;
-    }
-    document.getElementById("orderprice").innerHTML=parseFloat(document.getElementById("itemprice").innerHTML)+parseFloat(document.getElementById("shippingprice").innerHTML);
 </script>
 </body>
 

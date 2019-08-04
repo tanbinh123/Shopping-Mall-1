@@ -17,8 +17,36 @@ public class ShoppingcartService {
         return shoppingcartMapper.selectByExample(new ShoppingcartExample());
     }
 
+//    public List<Product> listShoppingcart2() {
+//        return shoppingcartMapper.addShoppingcart();
+//    }
+
     public Boolean saveShoppingcart(Shoppingcart shoppingcart) {
         shoppingcartMapper.insert(shoppingcart);
     return true;
+    }
+    public Shoppingcart findShoppingcartByPrimaryKey(String id) {
+        return shoppingcartMapper.selectByPrimaryKey(id);
+    }
+    public void deleteShoppingcartById(String id) {   //删除用户
+        shoppingcartMapper.deleteByPrimaryKey(id);
+    }
+
+
+    public List<Shoppingcart> getProid(ShoppingcartExample example) {
+        return shoppingcartMapper.selectByExample(example);
+    }
+
+    public List<Shoppingcart> selectByUserID(String userID) {
+        ShoppingcartExample ex=new ShoppingcartExample();
+        ex.createCriteria()
+                .andTUIdEqualTo(userID);
+        return shoppingcartMapper.selectByExample(ex);
+    }
+
+    public void deleteShoppingcartByProID(String id) {
+
+        shoppingcartMapper.deleteByProID(id);
+
     }
 }

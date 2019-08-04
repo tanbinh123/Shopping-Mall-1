@@ -41,7 +41,6 @@ public class UserController {
 
     @PostMapping("/add")     //在注册界面提交表单后将数据写入数据库，成功则跳转到登录页面login，失败则注册界面
     public String saveUser(User user) {
-
         if(userService.saveUser(user)==true){
             return "login";
         }

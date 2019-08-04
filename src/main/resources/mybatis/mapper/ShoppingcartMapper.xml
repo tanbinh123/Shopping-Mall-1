@@ -138,6 +138,13 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
+
+  <delete id="deleteByProID" parameterType="net.suncaper.springboot.domain.ShoppingcartExample">
+    delete from shopping_cart
+     where shopping_cart.pro_id=#{id}
+  </delete>
+
+
   <insert id="insert" parameterType="net.suncaper.springboot.domain.Shoppingcart">
     <!--
       WARNING - @mbg.generated

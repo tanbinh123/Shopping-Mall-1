@@ -62,13 +62,16 @@
         </a>
     </div>
     <div class="col-md-6 Search">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="搜你想要">
-            <span class="input-group-btn">
-                        <button class="btn btn-defalut"><span class="glyphicon glyphicon-search"></span>
+        <form th:action="@{/user/searchproduct}" method="post" enctype="multipart/form-data">
+            <div class="input-group">
+                <input type="text" class="form-control" name="keyword" placeholder="搜你想要">
+                <span class="input-group-btn">
+                        <button type="submit" class="btn btn-defalut"><span class="glyphicon glyphicon-search"></span>
                         </button>
                     </span>
-        </div>
+            </div>
+        </form>
+
     </div>
     <div class="col-md-3 Cart">
         <ul>
@@ -79,7 +82,7 @@
                 </a>
             </li>
             <li>
-                <a href="shoppingcart.html" th:href="@{/user/shoppingcart}">
+                <a href="shoppingcart.html" th:href="@{/product/shoppingcart}">
                     <img src="../static/image/logo/cartLogo.png" th:src="@{/image/logo/cartLogo.png}" alt="购物车">
                     <p class="littleDot">1</p>
                 </a>
@@ -89,20 +92,19 @@
     </div>
 </div>
 
+
 <!--搜索结果界面-->
 <div class="searchBody">
     <div class="container">
         <div class="breadcrumbArea">
-            <a>全部结果</a>
-            >
-            <span>"手机"</span>
+            <a>全部结果</a> > <span th:text="${keyword}">"HK搜索引擎"</span>
         </div>
         <div class="chooseArea">
             <div  class="categoryBox clearFixed">
                 <div class="cTitle">分类：</div>
                 <div class="cValues">
                     <ul>
-                        <li><a class="selected">手机</a></li>
+                        <li><a class="selected" th:text="${keyword}">手机</a></li>
                         <li><a>笔记本&平板</a></li>
                         <li><a>热销配件</a></li>
                         <li><a>增值服务&其他</a></li>

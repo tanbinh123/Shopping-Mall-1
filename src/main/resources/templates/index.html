@@ -62,13 +62,16 @@
                 </a>
             </div>
             <div class="col-md-6 Search">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="搜你想要">
-                    <span class="input-group-btn">
-                        <button class="btn btn-defalut"><span class="glyphicon glyphicon-search"></span>
+                <form th:action="@{/user/searchproduct}" method="post" enctype="multipart/form-data">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="keyword" placeholder="搜你想要">
+                        <span class="input-group-btn">
+                        <button type="submit" class="btn btn-defalut"><span class="glyphicon glyphicon-search"></span>
                         </button>
                     </span>
-                </div>
+                    </div>
+                </form>
+
             </div>
             <div class="col-md-3 Cart">
                 <ul>

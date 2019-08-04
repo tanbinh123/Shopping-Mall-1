@@ -1,5 +1,6 @@
 package net.suncaper.springboot.controller;
 
+import net.suncaper.springboot.domain.Product;
 import net.suncaper.springboot.domain.User;
 import net.suncaper.springboot.service.AdminService;
 import net.suncaper.springboot.service.UserService;
@@ -72,11 +73,13 @@ public class UserController {
         return "index";
     }
 
-    @GetMapping("/searchproduct") //搜索结果界面
-    public String goSearchProductResultPage(Model model){
-        model.addAttribute("productsList",adminService.getProductsList());
+    @RequestMapping("/searchproduct") //搜索结果界面
+    public String goSearchProductResultPage(String keyword, Model model){
+        model.addAttribute("productsList",adminService.getProductsListByName(keyword));
+        model.addAttribute("keyword",keyword);
         return "searchproduct";
     }
+
 
     @GetMapping("/delete")   //delete
     @ResponseBody

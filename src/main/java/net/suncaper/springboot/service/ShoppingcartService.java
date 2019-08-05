@@ -61,6 +61,14 @@ public class ShoppingcartService {
         return true;
     }
 
+    public boolean selectShoppingcartByProIDAndTUID(String proID, String tUID) {
+        ShoppingcartExample ex=new ShoppingcartExample();
+        ex.createCriteria()
+                .andProIdEqualTo(proID)
+                .andTUIdEqualTo(tUID);
+        List<Shoppingcart> shoppingcarts=shoppingcartMapper.selectByExample(ex);
+        return shoppingcarts.size()>0;
+    }
 
 
 }

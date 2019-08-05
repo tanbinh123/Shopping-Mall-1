@@ -75,12 +75,11 @@
         <div class=" col-md-6 topNav">
             <ul class="breadcrumb">
                 <li>
-                    <!--<a th:if="${isLogin}"  >-->
-                        <!--<span class="glyphicon glyphicon-user" aria-hidden="true"></span>已登录-->
-                    <!--</a>-->
-                    <!--<a th:if="${isLogin==}" href="login">-->
-                        <!--<span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册-->
-                    <!--</a>-->
+                    <a th:if="${session.USER_ID!=null}"  >
+                        欢迎,<i th:text="${session.USER_name}"></i>
+                    </a>
+                    <a th:if="${session.USER_ID==null}" href="login.html" th:href="@{/user/login}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
+                    </a>
                 </li>
                 <li class="dropdown topLang">
 
@@ -110,33 +109,34 @@
 <!-- 搜索框部分 -->
 <div class="container">
     <div class="col-md-3 bigLogo">
-        <a href="/user/index">
-            <img src="/image/logo/biglogo.png" alt="HK网上商城">
+        <a href="#">
+            <img src="../static/image/logo/biglogo.png" th:src="@{/image/logo/biglogo.png}" alt="HK网上商城">
         </a>
-        <h1>购物车</h1>
     </div>
-
     <div class="col-md-6 Search">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="搜你想要">
-            <span class="input-group-btn">
-                        <button class="btn btn-defalut"><span class="glyphicon glyphicon-search"></span>
+        <form th:action="@{/user/searchproduct}" method="post" enctype="multipart/form-data">
+            <div class="input-group">
+                <input type="text" class="form-control" name="keyword" placeholder="搜你想要">
+                <span class="input-group-btn">
+                        <button type="submit" class="btn btn-defalut"><span class="glyphicon glyphicon-search"></span>
                         </button>
                     </span>
-        </div>
+            </div>
+        </form>
+
     </div>
     <div class="col-md-3 Cart">
         <ul>
             <li>
                 <a href="#">
-                    <img src="/image/logo/wish.png" alt="心愿单">
-                    <p class="littleDot">2</p>
+                    <img src="../static/image/logo/wish.png" th:src="@{/image/logo/wish.png}" alt="心愿单">
+                    <p th:if="${session.USER_ID!=null}" class="littleDot">0</p>
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <img src="/image/logo/cartLogo.png" alt="购物车">
-                    <p class="littleDot">1</p>
+                <a href="shoppingcart.html" th:href="@{/product/shoppingcart}">
+                    <img src="../static/image/logo/cartLogo.png" th:src="@{/image/logo/cartLogo.png}" alt="购物车">
+                    <p th:if="${session.USER_ID!=null}" th:text="${session.CART_num}" class="littleDot">0</p>
                 </a>
             </li>
         </ul>
@@ -212,7 +212,7 @@
 
                     </td>
                     <td >
-                        <input th:value="${product.id}" name="proID" readonly="readonly">
+                        <input th:value="${product.id}" name="proID" readonly="readonly" type="hidden">
                         <input type="number" min="1" value="1" name="quantity" class="goodsNum"  style="width: 40%;margin-left: 3em;">
 
                     </td>

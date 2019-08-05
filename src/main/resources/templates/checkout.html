@@ -23,8 +23,10 @@
         <div class=" col-md-6 topNav">
             <ul class="breadcrumb">
                 <li>
-                    <a href="../templates/login.html" th:href="@{login}">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
+                    <a th:if="${session.USER_ID!=null}"  >
+                        欢迎,<i th:text="${session.USER_name}"></i>
+                    </a>
+                    <a th:if="${session.USER_ID==null}" href="login.html" th:href="@{/user/login}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
                     </a>
                 </li>
                 <li class="dropdown topLang">

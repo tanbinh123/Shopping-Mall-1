@@ -1,5 +1,8 @@
 package net.suncaper.springboot.domain;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class Shoppingcart {
     /**
      *

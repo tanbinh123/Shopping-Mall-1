@@ -78,14 +78,6 @@ public class ProductController {
 
 
 
-
-//    @GetMapping("/product_0001")  //跳转至1号商品页面
-//    public String goProductonePage(Model model){
-//
-//        model.addAttribute("shoppingcart", new Shoppingcart());
-//            return "/product_0001";
-//    }
-
     @GetMapping("/details/{id}")//跳转到商品页面
     public String goProductPage(@PathVariable("id") String id,Model model){
         List<Product> products=  adminService.getProductsListByName(productService.findProductByPrimaryKey(id).getName());
@@ -97,11 +89,14 @@ public class ProductController {
     public String addShoppingCart(HttpServletRequest request,String proID) {
         String tUID= (String) request.getSession().getAttribute("USER_ID");
         if(tUID!=null){
-            Shoppingcart shoppingcart=new Shoppingcart();
-            shoppingcart.setProId(proID);
-            shoppingcart.settUId(tUID);
-            shoppingcartService.saveShoppingcart(shoppingcart);
-            return "redirect:/product/shoppingcart";
+            if(shoppingcartService.selectShoppingcartByProIDAndTUID(proID,tUID)==false){
+                Shoppingcart shoppingcart=new Shoppingcart();
+                shoppingcart.setProId(proID);
+                shoppingcart.settUId(tUID);
+                shoppingcartService.saveShoppingcart(shoppingcart);
+                request.getSession().setAttribute("CART_num",shoppingcartService.selectByUserID(tUID).size());
+            }
+            return "redirect:/product/details/"+proID;
         }
         else
             return "redirect:/user/login";

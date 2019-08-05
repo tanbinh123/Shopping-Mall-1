@@ -1,8 +1,10 @@
 package net.suncaper.springboot.controller;
 
 import net.suncaper.springboot.domain.Product;
+import net.suncaper.springboot.domain.Shoppingcart;
 import net.suncaper.springboot.domain.User;
 import net.suncaper.springboot.service.AdminService;
+import net.suncaper.springboot.service.ShoppingcartService;
 import net.suncaper.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,8 @@ public class UserController {
     private UserService userService;
     @Autowired
     private AdminService adminService;
+    @Autowired
+    private ShoppingcartService shoppingcartService;
 
     @GetMapping("/search")    //跳转至userList页面展示查询用户表t_user中的所有元组
     public String goUserListPage(HttpServletRequest request,
@@ -62,13 +66,12 @@ public class UserController {
         if (loginUser!=null) {
             request.getSession().setAttribute("USER_ID", loginUser.getId());
             request.getSession().setAttribute("USER_name", loginUser.getName());
+            request.getSession().setAttribute("CART_num",shoppingcartService.selectByUserID(loginUser.getId()).size());
         }
         return  "redirect:/user/index";
     }
     @GetMapping("/index")    //主页
-    public String goIndexPage(HttpServletRequest request, Model model) {
-        Boolean isLogin = request.getSession().getAttribute("USER_ID") != null;
-        model.addAttribute("isLogin", isLogin);
+    public String goIndexPage() {
         return "index";
     }
 

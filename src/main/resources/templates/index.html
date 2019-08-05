@@ -22,12 +22,11 @@
                 <div  class=" col-md-6 topNav">
                 <ul class="breadcrumb">
                     <li>
-                            <a th:if="${isLogin==true}"  >
-                                欢迎,<i th:text="${session.USER_name}"></i>
+                        <a th:if="${session.USER_ID!=null}"  >
+                            欢迎,<i th:text="${session.USER_name}"></i>
                         </a>
-                            <a th:if="${isLogin!=true}" href="login.html" th:href="@{login}">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
-                            </a>
+                        <a th:if="${session.USER_ID==null}" href="login.html" th:href="@{/user/login}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
+                        </a>
                     </li>
                     <li class="dropdown topLang">
                            
@@ -78,13 +77,13 @@
                     <li>
                         <a href="#">
                             <img src="../static/image/logo/wish.png" th:src="@{/image/logo/wish.png}" alt="心愿单">
-                            <p class="littleDot">2</p>
+                            <p th:if="${session.USER_ID!=null}" class="littleDot">0</p>
                         </a>
                     </li>
                     <li>
                         <a href="shoppingcart.html" th:href="@{/product/shoppingcart}">
                             <img src="../static/image/logo/cartLogo.png" th:src="@{/image/logo/cartLogo.png}" alt="购物车">
-                            <p class="littleDot">1</p>
+                            <p th:if="${session.USER_ID!=null}" th:text="${session.CART_num}" class="littleDot">0</p>
                         </a>
                     </li>
                 </ul>

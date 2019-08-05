@@ -21,11 +21,10 @@
         <div class=" col-md-6 topNav">
             <ul class="breadcrumb">
                 <li>
-                    <a th:if="${isLogin==true}"  >
+                    <a th:if="${session.USER_ID!=null}"  >
                         欢迎,<i th:text="${session.USER_name}"></i>
                     </a>
-                    <a th:if="${isLogin!=true}" href="login.html" th:href="@{/user/login}">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
+                    <a th:if="${session.USER_ID==null}" href="login.html" th:href="@{/user/login}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
                     </a>
                 </li>
                 <li class="dropdown topLang">
@@ -75,13 +74,13 @@
             <li>
                 <a href="#">
                     <img src="../static/image/logo/wish.png" th:src="@{/image/logo/wish.png}" alt="心愿单">
-                    <p class="littleDot">2</p>
+                    <p th:if="${session.USER_ID!=null}" class="littleDot">0</p>
                 </a>
             </li>
             <li>
                 <a href="shoppingcart.html" th:href="@{/product/shoppingcart}">
                     <img src="../static/image/logo/cartLogo.png" th:src="@{/image/logo/cartLogo.png}" alt="购物车">
-                    <p class="littleDot">1</p>
+                    <p th:if="${session.USER_ID!=null}" th:text="${session.CART_num}" class="littleDot">0</p>
                 </a>
             </li>
         </ul>
@@ -180,19 +179,6 @@
                         </select>
                     </li>
             </ul>
-
-
-            <!--<form action="/product/product_0001" method="post" th:object="${shoppingcart}">-->
-
-                <!--<input type="hidden" class="form-control" name="proId" th:text="*{proId}" th:readonly="readonly" value="973642ea-b5c2-11e9-b765-48ba4e461957">-->
-                <!--&lt;!&ndash;<input type="text" class="form-control" name="quantity" th:field="*{quantity}">&ndash;&gt;-->
-                <!--<input type="hidden" class="form-control" name="tUId" th:value="${session.USER_ID}">-->
-                <!--<div class="addCart">-->
-                <!--<button type="submit" class="btn btn-primary myCart"  ><p>加入购物车</p></button>-->
-
-                <!--<a href="#" class="btn btn-primary myLove"><p>加入收藏</p></a>-->
-                <!--</div>-->
-            <!--</form>-->
             <div class="addCart">
                 <button class="btn btn-success myCart" data-toggle="modal" data-target="#addToCart"><p>加入购物车</p></button>
                 <a href="#" class="btn btn-success myLove"><p>加入收藏</p></a>

@@ -10,7 +10,6 @@
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/product_0001.css">
-    <script src="/js/product_0001.js"></script>
 </head>
 <body>
 <!-- 顶部导航栏 -->
@@ -22,8 +21,11 @@
         <div class=" col-md-6 topNav">
             <ul class="breadcrumb">
                 <li>
-                    <a href="templates/login.html">
-                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
+                    <a th:if="${isLogin==true}"  >
+                        欢迎,<i th:text="${session.USER_name}"></i>
+                    </a>
+                    <a th:if="${isLogin!=true}" href="login.html" th:href="@{/user/login}">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
                     </a>
                 </li>
                 <li class="dropdown topLang">
@@ -52,34 +54,38 @@
 <!-- 搜索框部分 -->
 <div class="container">
     <div class="col-md-3 bigLogo">
-        <a href="/user/index">
-            <img src="/image/logo/biglogo.png" alt="HK网上商城">
+        <a href="#">
+            <img src="../static/image/logo/biglogo.png" th:src="@{/image/logo/biglogo.png}" alt="HK网上商城">
         </a>
     </div>
     <div class="col-md-6 Search">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="搜你想要">
-            <span class="input-group-btn">
-                <button class="btn btn-defalut"><span class="glyphicon glyphicon-search"></span>
-                </button>
-            </span>
-        </div>
+        <form th:action="@{/user/searchproduct}" method="post" enctype="multipart/form-data">
+            <div class="input-group">
+                <input type="text" class="form-control" name="keyword" placeholder="搜你想要">
+                <span class="input-group-btn">
+                        <button type="submit" class="btn btn-defalut"><span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+            </div>
+        </form>
+
     </div>
     <div class="col-md-3 Cart">
         <ul>
             <li>
                 <a href="#">
-                    <img src="/image/logo/wish.png" alt="心愿单">
+                    <img src="../static/image/logo/wish.png" th:src="@{/image/logo/wish.png}" alt="心愿单">
                     <p class="littleDot">2</p>
                 </a>
             </li>
             <li>
-                <a href="shoppingcart">
-                    <img src="/image/logo/cartLogo.png" alt="购物车">
+                <a href="shoppingcart.html" th:href="@{/product/shoppingcart}">
+                    <img src="../static/image/logo/cartLogo.png" th:src="@{/image/logo/cartLogo.png}" alt="购物车">
                     <p class="littleDot">1</p>
                 </a>
             </li>
         </ul>
+
     </div>
 </div>
 
@@ -110,8 +116,8 @@
 <div id="myTabContent" class="tab-content">
     <div class="tab-pane fade in active" id="home">
         <div class="container">
-        <div class="col-md-6">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <div class="col-md-6">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- 轮播（Carousel）指标 -->
                 <ol class="carousel-indicators">
                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -145,8 +151,8 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-        </div>
-        <div class="col-md-6 storeBox">
+            </div>
+            <div class="col-md-6 storeBox">
             <h3>小米CC9</h3>
             <p><strong>「新品火爆热卖中，享花呗6期免息，赠活塞耳机！+19元可得果冻包」</strong>
                 前置3200万自拍 / 索尼4800万超广角三摄 / 多色炫彩轻薄机身 / 6.39英寸三星 AMOLED水滴屏
@@ -176,21 +182,56 @@
             </ul>
 
 
-            <form action="/product/product_0001" method="post" th:object="${shoppingcart}">
+            <!--<form action="/product/product_0001" method="post" th:object="${shoppingcart}">-->
 
-                <input type="hidden" class="form-control" name="proId" th:text="*{proId}" th:readonly="readonly" value="973642ea-b5c2-11e9-b765-48ba4e461957">
-                <!--<input type="text" class="form-control" name="quantity" th:field="*{quantity}">-->
-                <input type="hidden" class="form-control" name="tUId" th:value="${session.USER_ID}">
-                <div class="addCart">
-                <button type="submit" class="btn btn-primary myCart"><p>加入购物车</p></button>
+                <!--<input type="hidden" class="form-control" name="proId" th:text="*{proId}" th:readonly="readonly" value="973642ea-b5c2-11e9-b765-48ba4e461957">-->
+                <!--&lt;!&ndash;<input type="text" class="form-control" name="quantity" th:field="*{quantity}">&ndash;&gt;-->
+                <!--<input type="hidden" class="form-control" name="tUId" th:value="${session.USER_ID}">-->
+                <!--<div class="addCart">-->
+                <!--<button type="submit" class="btn btn-primary myCart"  ><p>加入购物车</p></button>-->
 
-                <a href="#" class="btn btn-primary myLove"><p>加入收藏</p></a>
-                </div>
-            </form>
+                <!--<a href="#" class="btn btn-primary myLove"><p>加入收藏</p></a>-->
+                <!--</div>-->
+            <!--</form>-->
+            <div class="addCart">
+                <button class="btn btn-success myCart" data-toggle="modal" data-target="#addToCart"><p>加入购物车</p></button>
+                <a href="#" class="btn btn-success myLove"><p>加入收藏</p></a>
+            </div>
+            <!--添加购物车的SKU选择-->
+            <div class="modal fade" id="addToCart" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">添加购物车</h4>
+                        </div>
+                        <form  method="post" th:action="@{/product/addCart}"  enctype="multipart/form-data">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label>商品名称</label>
+                                    <h4 th:text="${productsList.get(0).name}"></h4>
+                                </div>
+                                <div class="form-group">
+                                    <label>商品SKU选择</label>
+                                </div>
+                                <div class="form-group SKUCycle" th:each="product:${productsList}" >
+                                    <input type="radio" name="proID" th:value="${product.id}" th:text="${product.productType}">
+                                    <label  th:text="'￥'+${product.price}+'元'"></label>
+                                </div>
 
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+                                <button type="submit" class="btn btn-success">提交</button>
+
+                            </div>
+                        </form>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
 
         </div>
-    </div>
+        </div>
     </div>
     <div class="tab-pane fade" id="details">
         <div class="picture0">
@@ -600,4 +641,6 @@
 
 
 </body>
+<script src="/js/product_0001.js"></script>
+
 </html>

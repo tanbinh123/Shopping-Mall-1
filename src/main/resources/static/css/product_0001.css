@@ -22,7 +22,7 @@
 
 /*商品导航栏样式*/
 
-.staticHeader{background-color: white;z-index: 9999;position:relative;border-top: 1px solid #e0e0e0;border-bottom: 1px solid #e0e0e0;box-shadow: 0em 0.2em 0.2em rgba(0,0,0,0.07);}
+.staticHeader{background-color: white;z-index: 1000;position:relative;border-top: 1px solid #e0e0e0;border-bottom: 1px solid #e0e0e0;box-shadow: 0em 0.2em 0.2em rgba(0,0,0,0.07);}
 .staticHeader h3{float: left;margin-top: 0.3em;margin-bottom: 0;}
 .leftLink{float:left;margin-top: 0.7em;}
 .rightLink{float:right;}
@@ -68,6 +68,9 @@
 
 
 
+/*模态框样式*/
+.SKUCycle label{margin-left: 1em;color: rgb(240,90,45);}
+.modal-footer button{width: 4em;height: 2em;margin-left: 1em;}
 /*参数页面*/
 #parameter .row{border-bottom: 0.1em solid #999;}
 .context{margin-bottom: 5em;}

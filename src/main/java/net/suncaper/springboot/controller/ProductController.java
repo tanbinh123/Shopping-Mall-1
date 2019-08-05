@@ -1,8 +1,10 @@
 package net.suncaper.springboot.controller;
 import net.suncaper.springboot.domain.Product;
 import net.suncaper.springboot.domain.Shoppingcart;
+import net.suncaper.springboot.service.AdminService;
 import net.suncaper.springboot.service.ProductService;
 import net.suncaper.springboot.service.ShoppingcartService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,8 @@ import java.util.*;
 public class ProductController {
     @Autowired
     private ProductService productService;
+    @Autowired
+    private AdminService adminService;
 
     @Autowired
     private ShoppingcartService shoppingcartService;
@@ -58,17 +62,34 @@ public class ProductController {
 
 
 
-    @GetMapping("/product_0001")  //跳转至1号商品页面
-    public String goProductonePage(Model model){
+//    @GetMapping("/product_0001")  //跳转至1号商品页面
+//    public String goProductonePage(Model model){
+//
+//        model.addAttribute("shoppingcart", new Shoppingcart());
+//            return "/product_0001";
+//    }
 
-        model.addAttribute("shoppingcart", new Shoppingcart());
-            return "/product_0001";
+    @GetMapping("/details/{id}")//跳转到商品页面
+    public String goProductPage(@PathVariable("id") String id,Model model){
+        List<Product> products=  adminService.getProductsListByName(productService.findProductByPrimaryKey(id).getName());
+        model.addAttribute("productsList",products);
+        return "/product_0001";
     }
 
-    @PostMapping("/product_0001")
-    public String saveProduct1(Shoppingcart shoppingcart) {
-        shoppingcartService.saveShoppingcart(shoppingcart);
-        return "redirect:/product/shoppingcart";
+    @PostMapping("/addCart")//提交商品至购物车
+    public String addShoppingCart(HttpServletRequest request,String proID) {
+        String tUID= (String) request.getSession().getAttribute("USER_ID");
+        if(tUID!=null){
+            Shoppingcart shoppingcart=new Shoppingcart();
+            shoppingcart.setProId(proID);
+            shoppingcart.settUId(tUID);
+            shoppingcartService.saveShoppingcart(shoppingcart);
+            return "redirect:/product/shoppingcart";
+        }
+        else
+            return "redirect:/user/login";
+
+
     }
 
     @GetMapping("/product_0002")  //跳转至2号商品页面

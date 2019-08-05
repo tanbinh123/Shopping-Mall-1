@@ -33,24 +33,20 @@ public class ProductController {
         return "shoppingcartlist";
     }
     @GetMapping("/shoppingcart")
-    public String ShoppingCartPage(HttpServletRequest request,
-                                         HttpServletResponse response,
-                                         Model model) {
-       // model.addAttribute("shoppingcarts", shoppingcartService.listShoppingcart());
-        //model.addAttribute("shoppingcarts", new Shoppingcart());
-//        model.addAttribute("productName",productService.findProductByPrimaryKey("973642ea-b5c2-11e9-b765-48ba4e461957").getName());
-//        model.addAttribute("shoppingcarts",shoppingcartService.findShoppingcartByPrimaryKey(id));
-        //        model.addAttribute("user", new User());
-//        Boolean isLogin = request.getSession().getAttribute("USER_ID") != null;
-//        model.addAttribute("isLogin", isLogin);
+    public String ShoppingCartPage(HttpServletRequest request, Model model) {
         String userID= (String) request.getSession().getAttribute("USER_ID");
-        List<Shoppingcart> shoppingcarts=shoppingcartService.selectByUserID(userID);
-        List<Product> products =new ArrayList<>();
-        for(int i=0;i<shoppingcarts.size();i++){
-            products.add(productService.findProductByPrimaryKey(shoppingcarts.get(i).getProId()));
-    }
-        model.addAttribute("products",products);
-        return "shoppingcart";
+        if (userID!=null){
+            List<Shoppingcart> shoppingcarts=shoppingcartService.selectByUserID(userID);
+            List<Product> products =new ArrayList<>();
+            for(int i=0;i<shoppingcarts.size();i++){
+                products.add(productService.findProductByPrimaryKey(shoppingcarts.get(i).getProId()));
+            }
+            model.addAttribute("products",products);
+            return "shoppingcart";
+        }
+        else
+            return "redirect:/user/login";
+
     }
 
 

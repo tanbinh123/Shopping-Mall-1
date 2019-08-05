@@ -62,18 +62,37 @@
             </div>
             <div id="addressList">
                 <ul>
-                    <li>
+                    <!--<li>-->
+                        <!--<div class="myAddress">-->
+                            <!--<div class="userInfo">-->
+                                <!--<label>范灿</label>-->
+                                <!--<span>12345678987</span>-->
+                            <!--</div>-->
+                            <!--<div class="addressDetail">-->
+                                <!--<h6 class="province">四川省</h6>-->
+                                <!--<h6 class="city">成都市</h6>-->
+                                <!--<h6 class="county">成华区</h6>-->
+                                <!--<h6 class="town">猛追湾</h6>-->
+                                <!--<p>电子科技大学</p>-->
+                            <!--</div>-->
+                            <!--<div class="addressSub">-->
+                                <!--<a href=""><img src="../static/image/checkout/delete.png" th:src="@{/image/checkout/delete.png}">删除</a>-->
+                                <!--<a href=""><img src="../static/image/checkout/edit.png" th:src="@{/image/checkout/edit.png}">编辑</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                    <li th:each="myaddress:${addresses}">
                         <div class="myAddress">
                             <div class="userInfo">
-                                <label>范灿</label>
-                                <span>12345678987</span>
+                                <label th:text="${myaddress.tUName}">范灿</label>
+                                <span th:text="${myaddress.phone}">12345678987</span>
                             </div>
                             <div class="addressDetail">
-                                <h6 class="province">四川省</h6>
-                                <h6 class="city">成都市</h6>
-                                <h6 class="county">成华区</h6>
-                                <h6 class="town">猛追湾</h6>
-                                <p>电子科技大学</p>
+                                <h6 class="province" th:text="${myaddress.province}">四川省</h6>
+                                <h6 class="city" th:text="${myaddress.city}">成都市</h6>
+                                <h6 class="county" th:text="${myaddress.county}">成华区</h6>
+                                <h6 class="town" th:text="${myaddress.town}">猛追湾</h6>
+                                <p th:text="${myaddress.detail}">电子科技大学</p>
                             </div>
                             <div class="addressSub">
                                 <a href=""><img src="../static/image/checkout/delete.png" th:src="@{/image/checkout/delete.png}">删除</a>
@@ -87,6 +106,7 @@
                             <br/><span>新增收货地址</span>
                         </a>
                     </li>
+                    <!--//新增收货地址模态框-->
                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -94,36 +114,33 @@
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                     <h4 class="modal-title" id="myModalLabel">添加收货地址</h4>
                                 </div>
-                                <div class="modal-body">
-                                    <form role="form">
+                                <form role="form" th:action="@{/product/addAddress}" method="post" enctype="multipart/form-data">
+                                    <div class="modal-body">
                                         <div class="form-group">
-                                            <label for="name">姓名</label>
-                                            <input type="text" class="form-control" id="name" placeholder="请输入姓名">
+                                            <label>姓名</label>
+                                            <input type="text" class="form-control" id="tUName" th:field="${addaddress.tUName}" placeholder="请输入姓名">
                                         </div>
                                         <div class="form-group">
-                                            <label for="phone">联系方式</label>
-                                            <input type="tel" class="form-control" id="phone" placeholder="请输入联系方式">
+                                            <label>联系方式</label>
+                                            <input type="tel" class="form-control" id="phone" th:field="${addaddress.phone}" placeholder="请输入联系方式">
                                         </div>
                                         <div class="form-group">
                                             <label>地址</label>
-                                            <input type="text" id="province" placeholder="省/自治区/直辖市">
-                                            <input type="text" id="city" placeholder="市/区">
-                                            <input type="text" id="county" placeholder="县/市辖区">
-                                            <input type="text" id="town" placeholder="街道/镇/乡">
-
+                                            <input type="text" id="province" th:field="${addaddress.province}" placeholder="省/自治区/直辖市">
+                                            <input type="text" id="city" th:field="${addaddress.city}" placeholder="市/区">
+                                            <input type="text" id="county" th:field="${addaddress.county}" placeholder="县/市辖区">
+                                            <input type="text" id="town" th:field="${addaddress.town}" placeholder="街道/镇/乡">
                                         </div>
                                         <div class="form-group">
                                             <label>详细地址</label>
-                                            <textarea class="form-control" rows="3" id="Address"></textarea>
+                                            <textarea class="form-control" rows="3" id="detail" th:field="${addaddress.detail}"></textarea>
                                         </div>
-
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
-                                    <button type="submit" class="btn btn-success" id="saveAddress" data-dismiss="modal">保存</button>
-
-                                </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+                                        <button type="submit" class="btn btn-success">保存</button>
+                                    </div>
+                                </form>
                             </div><!-- /.modal-content -->
                         </div><!-- /.modal -->
                     </div>
@@ -135,27 +152,15 @@
             <h4>商品</h4>
             <div class="mainGoods">
                 <ul>
-                    <!--<li>-->
-                        <!--<img src="../static/image/product/product_0001_white1.jpg" th:src="@{/image/product/product_0001_white1.jpg}">-->
-                        <!--<span class="title">小米CC9 6GB+128GB 白色恋人（白色） </span>-->
-                        <!--<span class="num">x1</span>-->
-                        <!--<span class="price">1999元</span>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<img src="../static/image/product/product_0002/product_0002_aurora1.png" th:src="@{/image/product/product_0002/product_0002_aurora1.png}">-->
-                        <!--<span class="title">华为P30 pro 8GB+128GB 极光色 </span>-->
-                        <!--<span class="num">x1</span>-->
-                        <!--<span class="price">5488元</span>-->
-                    <!--</li>-->
 
                     <li th:each="product:${products}">
                         <!--<img th:src="@{/product/download(id=${product.id})}">-->
-                        <img  th:if="${product.filetitle}!=null" style="width: 3em;" th:src="'img/'+${product.id}">
-                        <span  th:text="${product.name}"></span>
-                        <span class="title" th:text="${product.productType}"></span>
-                        <span class="num">数量</span>
-                        <!--<span class="num">x1</span>-->
-                        <span class="price" th:text="${product.price}"></span>
+                        <img  th:if="${product.filetitle}!=null"  th:src="'/admin/img/'+${product.id}">
+                        <img th:if="${product.filetitle}==null" th:src="@{/image/logo/biglogo.png}">
+                        <span  class="Pname" th:text="${product.name}"></span>
+                        <span class="Ptype" th:text="${product.productType}"></span>
+                        <span class="Pnum">×1</span>
+                        <span class="Pprice" th:text="${product.price}"></span>
                     </li>
 
 
@@ -189,7 +194,7 @@
                     <li><label>商品总价:</label><span>2件</span></li>
                     <li><label>活动优惠:</label><span>-0元</span></li>
                     <li><label>优惠券抵扣:</label><span>-0元</span></li>
-                    <li><label>运费:</label><span>0元</span></li>
+                    <li><label>运费:</label><span>-0元</span></li>
                     <li><label>应付总额</label><h2>0元</h2></li>
                 </ul>
             </div>

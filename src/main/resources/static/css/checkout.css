@@ -31,16 +31,19 @@
 form input{width:9em;}
 /*商品*/
 .sectionGoods{margin-left: 3em;margin-top: 3em;height: auto;}
-.mainGoods{border-top: 1px solid #e0e0e0;border-bottom: 1px solid #e0e0e0;}
-.mainGoods li{padding: 0.6em;}
-.mainGoods li img{width:3em;}
-.mainGoods span{display: inline-block;}
-.title{width:20%;}
-.num{margin-left: 20%;}
-.price{margin-left: 27%;color: rgb(240,90,45);}
+.mainGoods{border-top: 1px solid #e0e0e0;}
+.mainGoods li{padding: 0.6em;height: 4.5em;border-bottom: 1px solid #e0e0e0;}
+.mainGoods li img{width:3em;float: left;}
+.mainGoods span{margin-top:0.5em;overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;}
+.Pname , .Ptype{float: left;width:30em;height:1.5em;margin-right: 2em;}
+.Pnum{float: left;color: rgb(240,90,45);margin-left: 2em;}
+.Pprice{float: right;color: rgb(240,90,45);}
+
+
 .sendWay{padding-top: 1em;padding-bottom: 1em;}
 .moneyBox{float: right;text-align: right;margin-top: 3em;width:16em;font-size: 1.3em;}
-.moneyBox label{font-weight: normal;width:8em;float: left;}
+.moneyBox li{height: 2em;}
+.moneyBox label{font-weight: normal;width:8em;float: left;margin-bottom: 0;}
 .moneyBox span{color: rgb(240,90,45);}
 .moneyBox h2{color: rgb(240,90,45);}
 .pullOrder{float: right;}

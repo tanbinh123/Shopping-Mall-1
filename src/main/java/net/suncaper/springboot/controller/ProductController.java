@@ -1,7 +1,10 @@
 package net.suncaper.springboot.controller;
+import net.suncaper.springboot.domain.Address;
 import net.suncaper.springboot.domain.Product;
 import net.suncaper.springboot.domain.Shoppingcart;
 import net.suncaper.springboot.domain.User;
+import net.suncaper.springboot.mapper.AddressMapper;
+import net.suncaper.springboot.service.AddressService;
 import net.suncaper.springboot.service.AdminService;
 import net.suncaper.springboot.service.ProductService;
 import net.suncaper.springboot.service.ShoppingcartService;
@@ -21,6 +24,8 @@ public class ProductController {
     private ProductService productService;
     @Autowired
     private AdminService adminService;
+    @Autowired
+    private AddressService addressService;
 
     @Autowired
     private ShoppingcartService shoppingcartService;
@@ -73,7 +78,23 @@ public class ProductController {
                                  HttpServletResponse response,
                                  Model model) {
         model.addAttribute("products", productService.listProduct());
+        String tuid= (String) request.getSession().getAttribute("USER_ID");
+        List<Address> addresses= addressService.selectByTUID(tuid);
+        model.addAttribute("addaddress",new Address());
+        model.addAttribute("addresses",addresses);
         return "checkout";
+    }
+    @PostMapping("/addAddress")//添加地址
+    public String addAddressInfo(HttpServletRequest request, Address address){
+        String tuid= (String) request.getSession().getAttribute("USER_ID");
+        if (tuid!=null){
+            address.settUId(tuid);
+            addressService.saveAddress(address);
+            return "redirect:/product/checkout";
+        }
+        else
+            return "redirect:/user/login";
+
     }
 
 

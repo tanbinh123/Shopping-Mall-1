@@ -21,7 +21,8 @@
     <script type="text/javascript">
         function foo(){
             var s=document.getElementById('m').innerHTML;
-            if(s==0){setTimeout("javascript:location.href='index'", 3000);alert("支付时间已过期，请重新选购！2秒后将返回主页。");return;}
+            if(s==0){setTimeout("javascript:location.href='/user/index'", 3000);
+            alert("支付时间已过期，请重新选购！2秒后将返回主页。");return;}
             document.getElementById('m').innerHTML=s-1;
             document.getElementById('n').innerHTML=s-1;
             t=setTimeout('foo()',1000);
@@ -83,7 +84,8 @@
                 </li>
                 <li class="dropdown topLang">
 
-                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"  style="background: none;color: black;">
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
+                            style="background: none;color: black;">
                         语言
                         <span class="caret"></span>
                     </button>
@@ -150,7 +152,14 @@
     </div>
     <div id="group_show">
         <div class="content_header clear">
-            <div class="cart_timer_wrapper"> <i class="icon_small png"></i> <span class="cart_timer_counting"> 请在 <span id="m"  class="cart_timer_text">900</span> 秒内去结账，并在下单后 <span class="pink">20</span> 分钟内完成支付 </span> <span class="cart_timer_out"> 已超过购物车商品保留时间，请尽快结算。 </span> [<a class="cart_timer_tip float_box" href="javascript:void(0)"> ? <div class="pop_box">  <span class="arrow_t_1"><span class="arrow_t_2"></span></span> <div class="timer_tip_text"> 由于商品库存有限，我们只能暂为您最多保存20分钟，<br>20分钟后购物车将被清空，请尽快结算订单。 </div> </div> </a>] </div>
+            <div class="cart_timer_wrapper"> <i class="icon_small png"></i> <span class="cart_timer_counting">
+                请在 <span id="m"  class="cart_timer_text">900</span> 秒内去结账，
+                并在下单后 <span class="pink">20</span> 分钟内完成支付 </span>
+                <span class="cart_timer_out"> 已超过购物车商品保留时间，请尽快结算。 </span>
+                [<a class="cart_timer_tip float_box" href="javascript:void(0)"> ? <div class="pop_box">
+                    <span class="arrow_t_1"><span class="arrow_t_2"></span></span>
+                    <div class="timer_tip_text"> 由于商品库存有限，我们只能暂为您最多保存20分钟，
+                        <br>20分钟后购物车将被清空，请尽快结算订单。 </div> </div> </a>] </div>
             <div class="top_banner">
                 <ul class="header_icons">
                     <li> <span> <i class="icon_zhenpin header_icon png"></i> 假一赔十 </span> </li>
@@ -161,8 +170,9 @@
             <div class="common_shippment"> <i class="icon_small icon_baoyou png">包邮</i>规则：HK商城满99元全场包邮 </div>
         </div>
 
-        <div class="groups_wrapper">
 
+        <form action="/product/shoppingcart" method="post" >
+        <div class="groups_wrapper">
             <table class="cart_group_item  cart_group_item_product">
                 <thead>
                 <tr>
@@ -178,18 +188,21 @@
                     <th class="cart_option">操作</th>
                 </tr>
                 </thead>
-                <tr class="hide2">
+                <!--<tr class="hide2">-->
                 <tr class="cart_item "  th:each="product:${products}">
                     <td valign="top">
                         <div class="cart_item_desc clear">
-                            <input class="js_item_selector cart_item_selector" data-item-key="1057066_d150603p892053zc" checked="'checked'/" type="checkbox">
+                            <!--<input class="js_item_selector cart_item_selector"-->
+                                   <!--data-item-key="1057066_d150603p892053zc" checked="'checked'/" type="checkbox">-->
                             <div class="cart_item_desc_wrapper">
                                 <a class="cart_item_pic" href="https://www.baidu.com" target="_blank">
                                     <!--<img  th:src="@{/product/download(id=${product.id})}" alt="商品1">-->
-                                    <img  th:if="${product.filetitle}!=null" style="width: 5em;" th:src="'/admin/img/'+${product.id}">
+                                    <img  th:if="${product.filetitle}!=null" style="width: 5em;"
+                                          th:src="'/admin/img/'+${product.id}">
                                     <span class="sold_out_pic png"></span> </a>
                                 <a class="cart_item_link"  th:text="${product.name}" >商品1</a>
-                                <!--<p class="sku_info" > 规格：<span class="cart_item_attribute" th:text="${product.productType}">% %</span>&nbsp; </p>-->
+                                <p class="sku_info" > 规格：<span class="cart_item_attribute"
+                                                               th:text="${product.productType}">% %</span>&nbsp; </p>
                             </div>
                         </div>
                     </td>
@@ -199,8 +212,8 @@
 
                     </td>
                     <td >
-
-                        <input type="number" min="1" value="1" class="goodsNum" style="width: 40%;margin-left: 3em;">
+                        <input th:value="${product.id}" name="proID" readonly="readonly">
+                        <input type="number" min="1" value="1" name="quantity" class="goodsNum"  style="width: 40%;margin-left: 3em;">
 
                     </td>
                     <td>
@@ -209,8 +222,8 @@
                     </td>
                     <td>
                         <div class="cart_item_option">
-                            <!--<a class="iconfont icon-shanchu" data-item-key="1057066_d150603p892053zc" href="javascript:void(0)"  title="删除"></a>-->
-                            <button  class="iconfont icon-shanchu"   data-th-attr="onclick='deleteShoppingcart2(this, \'' + ${product.id} + '\')'"></button>
+                            <a  class="iconfont icon-shanchu"
+                                data-th-attr="onclick='deleteShoppingcart2(this, \'' + ${product.id} + '\')'"></a>
                         </div>
                     </td>
                 </tr>
@@ -224,18 +237,33 @@
                 </tr>
                 </tfoot>
             </table>
-
         </div>
         <div class="common_handler_anchor"></div>
         <div class="common_handler">
-            <div class="right_handler"> 共 <span class="total_amount"> 3 </span> &nbsp;件商品 &nbsp;&nbsp; 商品应付总额：￥<span class="total_price" id="orderprice"></span><a id="go_to_order" class="btn" href="lookOrderForm.html">去结算</a> </div>
-            <label for="js_all_selector" class="cart_all_selector_wrapper">
-                <input id="js_all_selector" class="js_all_selector all_selector"  onclick="cli('多选项名称');"     type="checkbox"> 全选 </label> <a class="go_back_shopping" href="index">继续购物</a> <span class="seperate_line">|</span> <a class="clear_cart_all" href="">清空选中商品</a>
-            <form id="form_to_order" action="" method="post" style="display: none;">
-                <input name="items_key" type="hidden"> </form>
+            <div class="right_handler"> 共 <span class="total_amount"> 3 </span> &nbsp;件商品 &nbsp;&nbsp;
+                商品应付总额：￥<span class="total_price" id="orderprice"></span>
+
+                <button  type="submit" id="go_to_order" class="btn">去结算</button>
+            </div>
+            <!---->
+            <!--<label for="js_all_selector" class="cart_all_selector_wrapper">-->
+                <!--<input id="js_all_selector" class="js_all_selector all_selector"  onclick="cli('多选项名称');"-->
+                       <!--type="checkbox"> 全选 </label> -->
+            <a class="go_back_shopping" href="/user/index">继续购物</a>
+            <!--<span class="seperate_line">|</span> <a class="clear_cart_all" href="">清空选中商品</a>-->
+            <!--<form id="form_to_order" action="" method="post" style="display: none;">-->
+                <!--<input name="items_key" type="hidden"> </form>-->
         </div>
+        </form>
+
         <div class="content_footer clear">
-            <div class="cart_timer_wrapper"> <i class="icon_small png"></i> <span class="cart_timer_counting"> 请在 <span id="n" class="cart_timer_text">900</span> 秒内去结账，并在下单后 <span class="pink">20</span> 分钟内完成支付 </span> <span class="cart_timer_out"> 已超过购物车商品保留时间，请尽快结算。 </span> [<a class="cart_timer_tip float_box" href="javascript:void(0)"> ? <div class="pop_box">  <span class="arrow_t_1"><span class="arrow_t_2"></span></span> <div class="timer_tip_text"> 由于商品库存有限，我们只能暂为您最多保存20分钟，<br>20分钟后购物车将被清空，请尽快结算订单。 </div> </div> </a>] </div>
+            <div class="cart_timer_wrapper"> <i class="icon_small png"></i> <span class="cart_timer_counting">
+                请在 <span id="n" class="cart_timer_text">900</span> 秒内去结账，并在下单后 <span class="pink">20</span>
+                分钟内完成支付 </span> <span class="cart_timer_out"> 已超过购物车商品保留时间，请尽快结算。 </span>
+                [<a class="cart_timer_tip float_box" href="javascript:void(0)"> ? <div class="pop_box">
+                    <span class="arrow_t_1"><span class="arrow_t_2"></span></span> <div class="timer_tip_text">
+                    由于商品库存有限，我们只能暂为您最多保存20分钟，<br>20分钟后购物车将被清空，请尽快结算订单。 </div>
+                </div> </a>] </div>
         </div>
     </div>
     <div id="cart_side_nav">

@@ -23,11 +23,13 @@ public class ShoppingcartService {
 
     public Boolean saveShoppingcart(Shoppingcart shoppingcart) {
         shoppingcartMapper.insert(shoppingcart);
-    return true;
+        return true;
     }
+
     public Shoppingcart findShoppingcartByPrimaryKey(String id) {
         return shoppingcartMapper.selectByPrimaryKey(id);
     }
+
     public void deleteShoppingcartById(String id) {   //删除用户
         shoppingcartMapper.deleteByPrimaryKey(id);
     }
@@ -38,15 +40,27 @@ public class ShoppingcartService {
     }
 
     public List<Shoppingcart> selectByUserID(String userID) {
-        ShoppingcartExample ex=new ShoppingcartExample();
+        ShoppingcartExample ex = new ShoppingcartExample();
         ex.createCriteria()
                 .andTUIdEqualTo(userID);
         return shoppingcartMapper.selectByExample(ex);
     }
 
     public void deleteShoppingcartByProID(String id) {
-
         shoppingcartMapper.deleteByProID(id);
-
     }
+
+    public Shoppingcart findShoppingcartByProID(String proId) {
+        return shoppingcartMapper.selectByProID(proId);
+    }
+
+    public Boolean updateQuantity(Shoppingcart shoppingcart) {
+        int quantity=shoppingcart.getQuantity();
+        String proID=shoppingcart.getProId();
+        shoppingcartMapper.updateQuantity(quantity,proID);
+        return true;
+    }
+
+
+
 }

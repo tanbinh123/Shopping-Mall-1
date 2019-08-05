@@ -102,4 +102,9 @@ public interface ShoppingcartMapper{
     List<Product> addShoppingcart(@Param("id") String id);
 
     int deleteByProID(String id);
+
+    Shoppingcart selectByProID(String proID);
+
+    int updateQuantity( int quantity,String proID);
+
 }

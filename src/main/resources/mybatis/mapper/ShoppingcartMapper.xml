@@ -118,6 +118,12 @@
     from shopping_cart
     where id = #{id,jdbcType=VARCHAR}
   </select>
+
+  <select id="selectByProID" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select * from shopping_cart
+    where pro_id = #{proID}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     <!--
       WARNING - @mbg.generated
@@ -277,4 +283,14 @@
       quantity = #{quantity,jdbcType=INTEGER}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+
+  <update id="updateQuantity" parameterType="net.suncaper.springboot.domain.Shoppingcart">
+    update shopping_cart
+    set quantity = #{quantity,jdbcType=INTEGER}
+    where pro_id = #{proID,jdbcType=VARCHAR}
+  </update>
+
+
+
+
 </mapper>

@@ -1,6 +1,7 @@
 package net.suncaper.springboot.controller;
 import net.suncaper.springboot.domain.Product;
 import net.suncaper.springboot.domain.Shoppingcart;
+import net.suncaper.springboot.domain.User;
 import net.suncaper.springboot.service.ProductService;
 import net.suncaper.springboot.service.ShoppingcartService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +29,11 @@ public class ProductController {
         return "shoppingcartlist";
     }
     @GetMapping("/shoppingcart")
-    public String CartTestPage(HttpServletRequest request,
+    public String ShoppingCartPage(HttpServletRequest request,
                                          HttpServletResponse response,
                                          Model model) {
-        model.addAttribute("shoppingcarts", shoppingcartService.listShoppingcart());
+       // model.addAttribute("shoppingcarts", shoppingcartService.listShoppingcart());
+        //model.addAttribute("shoppingcarts", new Shoppingcart());
 //        model.addAttribute("productName",productService.findProductByPrimaryKey("973642ea-b5c2-11e9-b765-48ba4e461957").getName());
 //        model.addAttribute("shoppingcarts",shoppingcartService.findShoppingcartByPrimaryKey(id));
         //        model.addAttribute("user", new User());
@@ -45,6 +47,25 @@ public class ProductController {
     }
         model.addAttribute("products",products);
         return "shoppingcart";
+    }
+
+
+
+    @PostMapping("/shoppingcart")
+    public String ChangeQuantity(HttpServletRequest request,
+                                 HttpServletResponse response,
+                                 Model model, String[] proID,int[] quantity){
+        String userID= (String) request.getSession().getAttribute("USER_ID");
+        List<Shoppingcart> shoppingcarts=shoppingcartService.selectByUserID(userID);
+
+        for(int i=0;i<shoppingcarts.size();i++){
+//            shoppingcartService.findShoppingcartByProID(shoppingcarts.get(i).getProId()).setQuantity(quantity[i]);
+//            shoppingcartService.findShoppingcartByProID(proID[i]).setQuantity(quantity[i]);
+           Shoppingcart shoppingcart=shoppingcartService.findShoppingcartByProID(proID[i]);
+            shoppingcart.setQuantity(quantity[i]);
+            shoppingcartService.updateQuantity(shoppingcart);
+        }
+        return "redirect:/product/checkout";
     }
 
     @GetMapping("/checkout")      //订单页面的实验

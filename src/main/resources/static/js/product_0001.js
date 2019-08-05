@@ -4,16 +4,16 @@ $(function () {
     $('.colorSelect')[0].selectedIndex = 0
 
     // 价格随SKU改变
-    // $(".modelSelect").change(function () {
-    //     var model= $(this).val();
-    //     if(model=="6GB+64GB"){
-    //         $("#presentPrice").html("&nbsp;&nbsp;￥1999元");
-    //     }else if(model=="6GB+128GB"){
-    //         $("#presentPrice").html("&nbsp;&nbsp;￥2399元");
-    //     }else{
-    //         $("#presentPrice").html("&nbsp;&nbsp;￥2699元");
-    //     }
-    // });
+    $(".modelSelect").change(function () {
+        var model= $(this).val();
+        if(model=="6GB+64GB"){
+            $("#presentPrice").html("&nbsp;&nbsp;￥1999元");
+        }else if(model=="6GB+128GB"){
+            $("#presentPrice").html("&nbsp;&nbsp;￥2399元");
+        }else{
+            $("#presentPrice").html("&nbsp;&nbsp;￥2699元");
+        }
+    });
 
     //视图随SKU改变
     $(".colorSelect").change(function () {
@@ -40,7 +40,7 @@ $(function () {
     });
 
 
-    //商品导航随页面滚动，固定在顶部
+    // 商品导航随页面滚动，固定在顶部
     $(window).scroll(function () {
         var move=$(document).scrollTop();
         if(move<210){
@@ -84,5 +84,11 @@ $(function () {
             }
         });
 
+    });
+
+//    单选框设置必选
+    $(".myCart").click(function () {
+        var radios= $(".SKUCycle input");
+        radios.eq(0).attr("checked",true);
     });
 });

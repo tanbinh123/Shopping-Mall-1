@@ -25,7 +25,7 @@
                     <a th:if="${isLogin==true}"  >
                         欢迎,<i th:text="${session.USER_name}"></i>
                     </a>
-                    <a th:if="${isLogin==false}" href="login.html" th:href="@{login}">
+                    <a th:if="${isLogin!=true}" href="login.html" th:href="@{/user/login}">
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
                     </a>
                 </li>
@@ -161,7 +161,7 @@
                 <ul id="printList" class="clearFixed">
                     <li th:each="product:${productsList}">
                         <div class="proPanels">
-                            <a href="#">
+                            <a th:href="'/product/details/'+${product.id}">
                                 <p class="pImg">
                                     <img th:if="${product.filetitle}!=null" th:src="'/admin/img/'+${product.id}" >
                                     <img th:if="${product.filetitle}==null" src="../static/image/product/product_0001_blue1.jpg" th:src="@{/image/product/product_0001_blue1.jpg}">

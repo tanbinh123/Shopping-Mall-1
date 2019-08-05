@@ -46,4 +46,51 @@
 /* 页尾 */
 .lastNav ul{padding:0;font-size: 1.5em;text-align: center;}
 .lastNav ul li{font-size: 0.66em;}
+.mid{
+    color: #FFF;
+    width: 100%;
+    height: 100px;
+    background: orange;
+    padding: 30px  45%;
+    box-sizing: border-box;
+}
+.mid2{
+    color: #FFF;
+    width: 100%;
+    height: 2px;
+    background: orange;
 
+}
+.mid3{
+    color:#FFF;
+    width:80%;
+    height :800px;
+    background:white;
+    margin: 0px auto;
+    box-sizing: border-box;
+
+}
+.mid4{
+    color:#FFF;
+    width:100%;
+    height :100px;
+    background:white;
+
+
+
+}
+.mid5{
+    width: 100%;
+    height:200px;
+    background: red;
+    padding: 10px  35%;
+}
+.mid6{
+    color:#FFF;
+    width:100%;
+    height :100px;
+    background:white;
+    margin: 0px auto;
+    box-sizing: border-box;
+
+}

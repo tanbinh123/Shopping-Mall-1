@@ -53,6 +53,11 @@ public class UserController {
         }
     }
 
+    @GetMapping("/exitlogin")//用户退出登录
+    public String exitLogin(HttpServletRequest request){
+        request.getSession().setAttribute("USER_ID",null);
+        return "redirect:/user/index";
+    }
 
     @GetMapping("/login")   //跳转到登录页面login
     public String goLoginPage(Model model) {

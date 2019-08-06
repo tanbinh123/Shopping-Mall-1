@@ -72,19 +72,26 @@
         <div class="col-md-6">
             <p>欢迎光临&nbsp;HK商城</p>
         </div>
-        <div class=" col-md-6 topNav">
+        <div  class=" col-md-6 topNav">
             <ul class="breadcrumb">
-                <li>
-                    <a th:if="${session.USER_ID!=null}"  >
+                <li class="dropdown topLang">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown" th:if="${session.USER_ID!=null}"  >
                         欢迎,<i th:text="${session.USER_name}"></i>
-                    </a>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="presentation">
+                            <a href="#">个人主页</a>
+                        </li>
+                        <li role="presentation">
+                            <a th:href="@{/user/exitlogin}">退出登录</a>
+                        </li>
+                    </ul>
                     <a th:if="${session.USER_ID==null}" href="login.html" th:href="@{/user/login}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
                     </a>
                 </li>
                 <li class="dropdown topLang">
 
-                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                            style="background: none;color: black;">
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
                         语言
                         <span class="caret"></span>
                     </button>
@@ -109,7 +116,7 @@
 <!-- 搜索框部分 -->
 <div class="container">
     <div class="col-md-3 bigLogo">
-        <a href="#">
+        <a th:href="@{/user/index}">
             <img src="../static/image/logo/biglogo.png" th:src="@{/image/logo/biglogo.png}" alt="HK网上商城">
         </a>
     </div>

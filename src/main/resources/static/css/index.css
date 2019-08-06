@@ -5,7 +5,7 @@
 .topBar{background-color: rgb(245, 245, 245);height: 2.5em;margin-bottom: 2em;}
 .topBar p{font-size:1.5em;color: #323131;display: inline;}
 .topNav ul{font-size:1.5em;float: right;height: 100%;}
-.topLang button{font-size: inherit;}
+.topLang button{font-size: inherit;background:none;color: black;}
 .topLang button:hover{color: rgb(240, 90, 45);}
 .topLang ul{height:2.6em;}
 .topLang ul li{font-size: 0.7em;}
@@ -28,7 +28,7 @@
 .leftTag button{border:0;background-color: rgb(240, 90, 45);font-size: 2em;line-height: 2em;width:100%;color: white;}
 .leftTag button:focus, .leftTag button:hover{color:white;}
 .leftTag img{height:1.5em;margin-left:1em;margin-bottom: 0.2em;}
-.leftTag ul{height:30em;left:5%;width:90%;margin: 0;background-color: rgb(255, 255, 255,0.5);  }
+.leftTag ul{height:30em;left:5%;width:90%;margin: 0;background-color: rgb(255, 255, 255);  }
 .leftTag ul li{height:3em;}
 .leftTag ul img{height: 1.33em;float:left;}
 .leftTag a{font-size: 1.5em;text-align: center;}

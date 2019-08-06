@@ -71,4 +71,12 @@ public class ShoppingcartService {
     }
 
 
+    public void deleteBytUIDAndProID(String userID, String s) {
+        ShoppingcartExample ex= new ShoppingcartExample();
+        ex.createCriteria()
+                .andTUIdEqualTo(userID)
+                .andProIdEqualTo(s);
+        shoppingcartMapper.deleteByExample(ex);
+        return;
+    }
 }

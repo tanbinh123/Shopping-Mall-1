@@ -61,6 +61,21 @@
                 var shipPrice=Number($("#shippingprice").html());
                 $("#orderprice").html(finalNum+shipPrice);
             });
+            
+            $("#go_to_order").click(function () {
+                var myform=$("#myform");
+                var checkboxs=$('input[name="proID"]');
+                var quantities=$('input[name="quantity"]');
+                for(var i=0;i<checkboxs.length;i++){
+                    if(!checkboxs.eq(i).prop("checked")){
+                        alert(checkboxs.eq(i).val());
+                        quantities.eq(i).remove();
+                    }
+                }
+                myform.submit();
+
+            });
+            
         });
     </script>
 </head>
@@ -178,7 +193,7 @@
         </div>
 
 
-        <form action="/product/shoppingcart" method="post" >
+        <form action="/product/shoppingcart" method="post" id="myform">
         <div class="groups_wrapper">
             <table class="cart_group_item  cart_group_item_product">
                 <thead>
@@ -196,12 +211,14 @@
                 </tr>
                 </thead>
                 <!--<tr class="hide2">-->
-                <tr class="cart_item "  th:each="product:${products}">
+                <tr class="cart_item "  th:each="product:${products}" >
                     <td valign="top">
                         <div class="cart_item_desc clear">
                             <!--<input class="js_item_selector cart_item_selector"-->
                                    <!--data-item-key="1057066_d150603p892053zc" checked="'checked'/" type="checkbox">-->
                             <div class="cart_item_desc_wrapper">
+                                <input type="checkbox" th:value="${product.id}" name="proID">
+
                                 <a class="cart_item_pic" href="https://www.baidu.com" target="_blank">
                                     <!--<img  th:src="@{/product/download(id=${product.id})}" alt="商品1">-->
                                     <img  th:if="${product.filetitle}!=null" style="width: 5em;"
@@ -219,7 +236,7 @@
 
                     </td>
                     <td >
-                        <input th:value="${product.id}" name="proID" readonly="readonly" type="hidden">
+                        <!--<input th:value="${product.id}" name="proID" readonly="readonly" type="hidden">-->
                         <input type="number" min="1" value="1" name="quantity" class="goodsNum"  style="width: 40%;margin-left: 3em;">
 
                     </td>
@@ -250,7 +267,7 @@
             <div class="right_handler"> 共 <span class="total_amount"> 3 </span> &nbsp;件商品 &nbsp;&nbsp;
                 商品应付总额：￥<span class="total_price" id="orderprice"></span>
 
-                <button  type="submit" id="go_to_order" class="btn">去结算</button>
+                <button   id="go_to_order" class="btn">去结算</button>
             </div>
             <!---->
             <!--<label for="js_all_selector" class="cart_all_selector_wrapper">-->

@@ -1,9 +1,8 @@
 package net.suncaper.springboot.controller;
-import net.suncaper.springboot.domain.Address;
-import net.suncaper.springboot.domain.Product;
-import net.suncaper.springboot.domain.Shoppingcart;
-import net.suncaper.springboot.domain.User;
+import net.suncaper.springboot.domain.*;
 import net.suncaper.springboot.mapper.AddressMapper;
+import net.suncaper.springboot.mapper.CommerceMapper;
+import net.suncaper.springboot.mapper.OrderMapper;
 import net.suncaper.springboot.service.AddressService;
 import net.suncaper.springboot.service.AdminService;
 import net.suncaper.springboot.service.ProductService;
@@ -15,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.math.BigDecimal;
 import java.util.*;
 
 @Controller
@@ -26,6 +26,10 @@ public class ProductController {
     private AdminService adminService;
     @Autowired
     private AddressService addressService;
+    @Autowired
+    private CommerceMapper commerceMapper;
+    @Autowired
+    private OrderMapper orderMapper;
 
     @Autowired
     private ShoppingcartService shoppingcartService;
@@ -38,7 +42,7 @@ public class ProductController {
         return "shoppingcartlist";
     }
     @GetMapping("/shoppingcart")
-    public String ShoppingCartPage(HttpServletRequest request, Model model) {
+    public String ShoppingCartPage(HttpServletRequest request, Model model ) {
         String userID= (String) request.getSession().getAttribute("USER_ID");
         if (userID!=null){
             List<Shoppingcart> shoppingcarts=shoppingcartService.selectByUserID(userID);
@@ -47,6 +51,7 @@ public class ProductController {
                 products.add(productService.findProductByPrimaryKey(shoppingcarts.get(i).getProId()));
             }
             model.addAttribute("products",products);
+            request.getSession().setAttribute("CART_num",shoppingcartService.selectByUserID(userID).size());
             return "shoppingcart";
         }
         else
@@ -56,20 +61,27 @@ public class ProductController {
 
 
 
-    @PostMapping("/shoppingcart")
-    public String ChangeQuantity(HttpServletRequest request,
-                                 HttpServletResponse response,
-                                 Model model, String[] proID,int[] quantity){
-        String userID= (String) request.getSession().getAttribute("USER_ID");
-        List<Shoppingcart> shoppingcarts=shoppingcartService.selectByUserID(userID);
-
-        for(int i=0;i<shoppingcarts.size();i++){
-//            shoppingcartService.findShoppingcartByProID(shoppingcarts.get(i).getProId()).setQuantity(quantity[i]);
-//            shoppingcartService.findShoppingcartByProID(proID[i]).setQuantity(quantity[i]);
-           Shoppingcart shoppingcart=shoppingcartService.findShoppingcartByProID(proID[i]);
-            shoppingcart.setQuantity(quantity[i]);
-            shoppingcartService.updateQuantity(shoppingcart);
+    @PostMapping("/shoppingcart")//提交购物车，生成订单
+    public String ChangeQuantity(HttpServletRequest request,String[] proID,int[] quantity){
+        if(proID.length==quantity.length&&proID.length>0){
+            String userID= (String) request.getSession().getAttribute("USER_ID");
+            Order order=new Order();
+            order.settUId(userID);
+            order.setOrderStatus("待付款");
+            orderMapper.insert(order);
+            String oID=order.getId();
+            for(int i=0;i<proID.length;i++){
+                Commerce commerce=new Commerce();
+                commerce.settOId(oID);
+                commerce.setProId(proID[i]);
+                commerce.setQuantity(quantity[i]);
+                commerce.setPreprice(productService.findProductByPrimaryKey(proID[i]).getPrice().multiply(BigDecimal.valueOf(quantity[i])));
+                commerceMapper.insert(commerce);
+                shoppingcartService.deleteBytUIDAndProID(userID,proID[i]);
+            }
         }
+
+
         return "redirect:/product/checkout";
     }
 

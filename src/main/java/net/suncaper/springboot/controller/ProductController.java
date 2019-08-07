@@ -1,4 +1,5 @@
 package net.suncaper.springboot.controller;
+import com.sun.org.apache.xpath.internal.operations.Or;
 import net.suncaper.springboot.domain.*;
 import net.suncaper.springboot.mapper.AddressMapper;
 import net.suncaper.springboot.mapper.CommerceMapper;
@@ -80,7 +81,10 @@ public class ProductController {
             for(int i=0;i<proID.length;i++){
                 Commerce commerce=new Commerce();
                 commerce.settOId(oID);
-                commerce.setProId(proID[i]);
+                Product product=productService.findProductByPrimaryKey(proID[i]);
+                commerce.setProId(product.getId());
+                commerce.setProName(product.getName());
+                commerce.setProType(product.getProductType());
                 commerce.setQuantity(quantity[i]);
                 commerce.setPreprice(productService.findProductByPrimaryKey(proID[i]).getPrice().multiply(BigDecimal.valueOf(quantity[i])));
                 totalPrice=totalPrice.add(commerce.getPreprice());
@@ -115,33 +119,37 @@ public class ProductController {
 
     @GetMapping("/checkout/{id}")      //订单页面的实验
     public String goCheckOutPage(@PathVariable("id") String id,HttpServletRequest request, Model model) {
+        String tuid= (String) request.getSession().getAttribute("USER_ID");
         Order order=orderMapper.selectByPrimaryKey(id);
         List<Commerce> commerces=commerceService.selectBytOId(id);
         model.addAttribute("commmerces",commerces);
-
-//        model.addAttribute("products", productService.listProduct());
-        String tuid= (String) request.getSession().getAttribute("USER_ID");
+        model.addAttribute("order",order);
         List<Address> addresses= addressService.selectByTUID(tuid);
         model.addAttribute("addaddress",new Address());
         model.addAttribute("addresses",addresses);
         return "checkout";
     }
 
-    @GetMapping("/getname/{id}")
-    public ResponseEntity<String> getName(@PathVariable("id") String id){
-        Product product=productService.findProductByPrimaryKey(id);
-        return ResponseEntity.ok()
-                .body(product.getName());
+    @PostMapping("/topay")//去付款
+    public String goToPay(String checkedaddress, String order){
+        Address address= addressService.selectByPrimaryKey(checkedaddress);
+        Order orderexe=orderService.selectByPrimaryKey(order);
+        orderexe.settUName(address.gettUName());
+        orderexe.setPhone(address.getPhone());
+        orderexe.setOrderStatus("待发货");
+        orderexe.setAddress(address.getProvince()+address.getCity()+address.getCounty()+address.getTown()+address.getDetail());
+        orderMapper.updateByPrimaryKey(orderexe);
+        return "redirect:/product/checkoutlist";
     }
 
 
     @PostMapping("/addAddress")//添加地址
-    public String addAddressInfo(HttpServletRequest request, Address address){
+    public String addAddressInfo(HttpServletRequest request, Address address, String orderID){
         String tuid= (String) request.getSession().getAttribute("USER_ID");
         if (tuid!=null){
             address.settUId(tuid);
             addressService.saveAddress(address);
-            return "redirect:/product/checkout";
+            return "redirect:/product/checkout/"+orderID;
         }
         else
             return "redirect:/user/login";

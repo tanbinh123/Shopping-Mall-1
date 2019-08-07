@@ -1,5 +1,6 @@
 package net.suncaper.springboot.service;
 
+import net.suncaper.springboot.domain.Address;
 import net.suncaper.springboot.domain.Order;
 import net.suncaper.springboot.domain.OrderExample;
 import net.suncaper.springboot.mapper.OrderMapper;
@@ -18,5 +19,10 @@ public class OrderService {
         ex.createCriteria()
                 .andTUIdEqualTo(userID);
         return orderMapper.selectByExample(ex);
+    }
+
+    public Order selectByPrimaryKey(String order) {
+        return orderMapper.selectByPrimaryKey(order);
+
     }
 }

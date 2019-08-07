@@ -25,4 +25,8 @@ public class AddressService {
                 .andTUIdEqualTo(tuid);
         return addressMapper.selectByExample(ex);
     }
+
+    public Address selectByPrimaryKey(String checkedaddress) {
+       return addressMapper.selectByPrimaryKey(checkedaddress);
+    }
 }

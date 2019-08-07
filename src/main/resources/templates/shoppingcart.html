@@ -133,7 +133,7 @@
         </div>
 
 
-        <form action="/product/shoppingcart" method="post" id="myform">
+        <form th:action="@{/product/shoppingcart}" method="post" id="myform">
         <div class="groups_wrapper">
             <table class="cart_group_item  cart_group_item_product">
                 <thead>
@@ -339,7 +339,6 @@
             var quantities=$('input[name="quantity"]');
             for(var i=0;i<checkboxs.length;i++){
                 if(!checkboxs.eq(i).prop("checked")){
-                    alert(checkboxs.eq(i).val());
                     quantities.eq(i).remove();
                 }
             }

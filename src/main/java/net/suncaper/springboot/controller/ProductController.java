@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.*;
 
 @Controller
@@ -69,6 +70,7 @@ public class ProductController {
             order.settUId(userID);
             order.setOrderStatus("待付款");
             orderMapper.insert(order);
+            BigDecimal totalPrice=new BigDecimal(0);
             String oID=order.getId();
             for(int i=0;i<proID.length;i++){
                 Commerce commerce=new Commerce();
@@ -76,9 +78,12 @@ public class ProductController {
                 commerce.setProId(proID[i]);
                 commerce.setQuantity(quantity[i]);
                 commerce.setPreprice(productService.findProductByPrimaryKey(proID[i]).getPrice().multiply(BigDecimal.valueOf(quantity[i])));
+                totalPrice=totalPrice.add(commerce.getPreprice());
                 commerceMapper.insert(commerce);
                 shoppingcartService.deleteBytUIDAndProID(userID,proID[i]);
             }
+            order.setTotalPrice(totalPrice.add(BigDecimal.valueOf(10)));
+            orderMapper.updateByPrimaryKey(order);
         }
 
 

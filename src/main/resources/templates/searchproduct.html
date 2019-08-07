@@ -21,12 +21,22 @@
         </div>
         <div  class=" col-md-6 topNav">
             <ul class="breadcrumb">
-                <li>
-                    <a th:if="${isLogin==true}"  >
+                <li class="dropdown topLang">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown" th:if="${session.USER_ID!=null}"  >
                         欢迎,<i th:text="${session.USER_name}"></i>
-                    </a>
-                    <a th:if="${isLogin!=true}" href="login.html" th:href="@{/user/login}">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="presentation">
+                            <a href="#">个人主页</a>
+                        </li>
+                        <li role="presentation">
+                            <a th:href="@{/user/exitlogin}">退出登录</a>
+                        </li>
+                        <li role="presentation">
+                            <a th:href="@{/product/checkoutlist}">我的订单</a>
+                        </li>
+                    </ul>
+                    <a th:if="${session.USER_ID==null}" href="login.html" th:href="@{/user/login}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
                     </a>
                 </li>
                 <li class="dropdown topLang">
@@ -57,7 +67,7 @@
 <!-- 搜索框部分 -->
 <div class="container">
     <div class="col-md-3 bigLogo">
-        <a href="#">
+        <a th:href="@{/user/index}">
             <img src="../static/image/logo/biglogo.png" th:src="@{/image/logo/biglogo.png}" alt="HK网上商城">
         </a>
     </div>
@@ -78,13 +88,13 @@
             <li>
                 <a href="#">
                     <img src="../static/image/logo/wish.png" th:src="@{/image/logo/wish.png}" alt="心愿单">
-                    <p class="littleDot">2</p>
+                    <p th:if="${session.USER_ID!=null}" class="littleDot">0</p>
                 </a>
             </li>
             <li>
                 <a href="shoppingcart.html" th:href="@{/product/shoppingcart}">
                     <img src="../static/image/logo/cartLogo.png" th:src="@{/image/logo/cartLogo.png}" alt="购物车">
-                    <p class="littleDot">1</p>
+                    <p th:if="${session.USER_ID!=null}" th:text="${session.CART_num}" class="littleDot">0</p>
                 </a>
             </li>
         </ul>

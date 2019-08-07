@@ -1,12 +1,12 @@
 /*顶部导航栏*/
-.topBar{background-color: rgb(245, 245, 245);height: 2.5em;border-bottom: 2px solid rgb(240,90,45);}
-.topBar p{font-size:1.5em;color: #323131;display: inline;}
-.topNav ul{font-size:1.5em;float: right;height: 100%;}
-.topLang button{font-size: inherit;}
-.topLang button:hover{color: rgb(240, 90, 45);}
-.topLang ul{height:2.6em;}
-.topLang ul li{font-size: 0.7em;}
-.topLang li a:hover{color: rgb(240, 90, 45);}
+/*.topBar{background-color: rgb(245, 245, 245);height: 2.5em;border-bottom: 2px solid rgb(240,90,45);}*/
+/*.topBar p{font-size:1.5em;color: #323131;display: inline;}*/
+/*.topNav ul{font-size:1.5em;float: right;height: 100%;}*/
+/*.topLang button{font-size: inherit;}*/
+/*.topLang button:hover{color: rgb(240, 90, 45);}*/
+/*.topLang ul{height:2.6em;}*/
+/*.topLang ul li{font-size: 0.7em;}*/
+/*.topLang li a:hover{color: rgb(240, 90, 45);}*/
 
 /*主体样式*/
 

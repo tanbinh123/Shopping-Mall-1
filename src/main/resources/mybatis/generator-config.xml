@@ -57,13 +57,13 @@
             <!--<property name="rootInterface" value="net.suncaper.springboot.mapper.AddressMapper"/>-->
             <!--<generatedKey column="id" sqlStatement="select uuid()" identity="false"/>-->
         <!--</table>-->
-        <!--<table schema="hk" tableName="t_order" domainObjectName="Order">-->
-            <!--<property name="rootInterface" value="net.suncaper.springboot.mapper.OrderMapper"/>-->
-            <!--<generatedKey column="id" sqlStatement="select uuid()" identity="false"/>-->
-        <!--</table>-->
-        <table schema="hk" tableName="commerce_item" domainObjectName="Commerce">
-            <property name="rootInterface" value="net.suncaper.springboot.mapper.CommerceMapper"/>
+        <table schema="hk" tableName="t_order" domainObjectName="Order">
+            <property name="rootInterface" value="net.suncaper.springboot.mapper.OrderMapper"/>
             <generatedKey column="id" sqlStatement="select uuid()" identity="false"/>
         </table>
+        <!--<table schema="hk" tableName="commerce_item" domainObjectName="Commerce">-->
+            <!--<property name="rootInterface" value="net.suncaper.springboot.mapper.CommerceMapper"/>-->
+            <!--<generatedKey column="id" sqlStatement="select uuid()" identity="false"/>-->
+        <!--</table>-->
     </context>
 </generatorConfiguration>

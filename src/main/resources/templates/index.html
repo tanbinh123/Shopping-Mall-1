@@ -11,9 +11,6 @@
         <script src="../static/bootstrap/js/bootstrap.min.js" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
         <link rel="stylesheet" href="../static/css/main.css" th:href="@{/css/main.css}">
         <link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}">
-        <style>
-
-    </style>
     </head>
     <body>
     <!-- 顶部导航栏 -->
@@ -34,6 +31,9 @@
                             </li>
                             <li role="presentation">
                                 <a th:href="@{/user/exitlogin}">退出登录</a>
+                            </li>
+                            <li role="presentation">
+                                <a th:href="@{/product/checkoutlist}">我的订单</a>
                             </li>
                         </ul>
                         <a th:if="${session.USER_ID==null}" href="login.html" th:href="@{/user/login}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
@@ -145,11 +145,11 @@
             </div>
             <div class="col-md-9 rightTag">
                 <ul class="nav nav-pills nav-justified">
-                    <li><a href="#">主页</a></li>
-                    <li><a href="#">不是主页</a></li>
-                    <li><a href="#">不是主页</a></li>
-                    <li><a href="#">不是主页</a></li>
-                    <li><a href="#">不是主页</a></li>
+                    <li><a href="">品牌闪购</a></li>
+                    <li><a href="">HK会员</a></li>
+                    <li><a href="">HK超市</a></li>
+                    <li><a href="">HK国际</a></li>
+                    <li><a href="">猜你喜欢</a></li>
                 </ul>
             </div>
             

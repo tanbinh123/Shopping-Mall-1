@@ -62,25 +62,6 @@
             </div>
             <div id="addressList">
                 <ul>
-                    <!--<li>-->
-                        <!--<div class="myAddress">-->
-                            <!--<div class="userInfo">-->
-                                <!--<label>范灿</label>-->
-                                <!--<span>12345678987</span>-->
-                            <!--</div>-->
-                            <!--<div class="addressDetail">-->
-                                <!--<h6 class="province">四川省</h6>-->
-                                <!--<h6 class="city">成都市</h6>-->
-                                <!--<h6 class="county">成华区</h6>-->
-                                <!--<h6 class="town">猛追湾</h6>-->
-                                <!--<p>电子科技大学</p>-->
-                            <!--</div>-->
-                            <!--<div class="addressSub">-->
-                                <!--<a href=""><img src="../static/image/checkout/delete.png" th:src="@{/image/checkout/delete.png}">删除</a>-->
-                                <!--<a href=""><img src="../static/image/checkout/edit.png" th:src="@{/image/checkout/edit.png}">编辑</a>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</li>-->
                     <li th:each="myaddress:${addresses}">
                         <div class="myAddress">
                             <div class="userInfo">
@@ -153,14 +134,14 @@
             <div class="mainGoods">
                 <ul>
 
-                    <li th:each="product:${products}">
+                    <li th:each="commerce:${commmerces}">
                         <!--<img th:src="@{/product/download(id=${product.id})}">-->
-                        <img  th:if="${product.filetitle}!=null"  th:src="'/admin/img/'+${product.id}">
-                        <img th:if="${product.filetitle}==null" th:src="@{/image/logo/biglogo.png}">
-                        <span  class="Pname" th:text="${product.name}"></span>
-                        <span class="Ptype" th:text="${product.productType}"></span>
-                        <span class="Pnum">×1</span>
-                        <span class="Pprice" th:text="${product.price}"></span>
+                        <!--<img  th:if="${product.filetitle}!=null"  th:src="'/admin/img/'+${product.id}">-->
+                        <img th:src="'/admin/img/'+${commerce.proId}">
+                        <span  class="Pname" th:text="${commerce.proId}"></span>
+                        <span class="Ptype" th:src="'/product/getsku/'+${commerce.proId}"></span>
+                        <span class="Pnum" th:text="'×'+${commerce.quantity}">×1</span>
+                        <span class="Pprice" th:text="${commerce.preprice}"></span>
                     </li>
 
 

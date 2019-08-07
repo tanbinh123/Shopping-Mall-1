@@ -3,15 +3,15 @@ import net.suncaper.springboot.domain.*;
 import net.suncaper.springboot.mapper.AddressMapper;
 import net.suncaper.springboot.mapper.CommerceMapper;
 import net.suncaper.springboot.mapper.OrderMapper;
-import net.suncaper.springboot.service.AddressService;
-import net.suncaper.springboot.service.AdminService;
-import net.suncaper.springboot.service.ProductService;
-import net.suncaper.springboot.service.ShoppingcartService;
+import net.suncaper.springboot.service.*;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import sun.java2d.pipe.AAShapePipe;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.math.BigDecimal;
@@ -31,6 +31,10 @@ public class ProductController {
     private CommerceMapper commerceMapper;
     @Autowired
     private OrderMapper orderMapper;
+    @Autowired
+    private OrderService orderService;
+    @Autowired
+    private CommerceService commerceService;
 
     @Autowired
     private ShoppingcartService shoppingcartService;
@@ -42,6 +46,7 @@ public class ProductController {
         model.addAttribute("shoppingcarts", shoppingcartService.listShoppingcart());
         return "shoppingcartlist";
     }
+
     @GetMapping("/shoppingcart")
     public String ShoppingCartPage(HttpServletRequest request, Model model ) {
         String userID= (String) request.getSession().getAttribute("USER_ID");
@@ -87,20 +92,49 @@ public class ProductController {
         }
 
 
-        return "redirect:/product/checkout";
+        return "redirect:/product/checkoutlist";
     }
 
-    @GetMapping("/checkout")      //订单页面的实验
-    public String goCheckOutPage(HttpServletRequest request,
-                                 HttpServletResponse response,
-                                 Model model) {
-        model.addAttribute("products", productService.listProduct());
+    @GetMapping("/checkoutlist")//进入我的订单
+    public String goMyCheckoutPage(HttpServletRequest request, Model model){
+        String userID= (String) request.getSession().getAttribute("USER_ID");
+        if(userID!=null){
+            List<Order> orders=orderService.selesctBytUId(userID);  //获得此位用户的所有订单行
+            model.addAttribute("orders",orders);  //赋值给orders
+//            for(int i=0;i<orders.size();i++){
+//                String goID=orders.get(i).getId();
+//                model.addAttribute(goID,commerceService.selectBytOId(orders.get(i).getId()));
+//            }
+            return "checkoutlist";
+        }
+        else
+            return "redirect:/user/login";
+    }
+
+
+
+    @GetMapping("/checkout/{id}")      //订单页面的实验
+    public String goCheckOutPage(@PathVariable("id") String id,HttpServletRequest request, Model model) {
+        Order order=orderMapper.selectByPrimaryKey(id);
+        List<Commerce> commerces=commerceService.selectBytOId(id);
+        model.addAttribute("commmerces",commerces);
+
+//        model.addAttribute("products", productService.listProduct());
         String tuid= (String) request.getSession().getAttribute("USER_ID");
         List<Address> addresses= addressService.selectByTUID(tuid);
         model.addAttribute("addaddress",new Address());
         model.addAttribute("addresses",addresses);
         return "checkout";
     }
+
+    @GetMapping("/getname/{id}")
+    public ResponseEntity<String> getName(@PathVariable("id") String id){
+        Product product=productService.findProductByPrimaryKey(id);
+        return ResponseEntity.ok()
+                .body(product.getName());
+    }
+
+
     @PostMapping("/addAddress")//添加地址
     public String addAddressInfo(HttpServletRequest request, Address address){
         String tuid= (String) request.getSession().getAttribute("USER_ID");

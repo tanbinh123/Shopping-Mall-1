@@ -18,3 +18,12 @@ a:hover{text-decoration: none;color: rgb(240, 90, 45);}
 .carousel-indicators li{border:1px solid #8F8F8F;background-color: #8F8F8F;}
 
 .separator{margin: 0.25em;color: #e0e0e0;}
+/*顶部导航栏样式*/
+.topBar{background-color: rgb(245, 245, 245);height: 2.5em;margin-bottom: 2em;}
+.topBar p{font-size:1.5em;color: #323131;display: inline;}
+.topNav ul{font-size:1.5em;float: right;height: 100%;}
+.topLang button{font-size: inherit;background:none;color: black;}
+.topLang button:hover{color: rgb(240, 90, 45);}
+.topLang ul{height:auto;}
+.topLang ul li{font-size: 0.7em;}
+.topLang li a:hover{color: rgb(240, 90, 45);}

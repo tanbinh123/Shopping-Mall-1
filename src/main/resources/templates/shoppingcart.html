@@ -18,66 +18,6 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/index.css" />
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_1317171_9tqodcy3kpr.css">
-    <script type="text/javascript">
-        function foo(){
-            var s=document.getElementById('m').innerHTML;
-            if(s==0){setTimeout("javascript:location.href='/user/index'", 3000);
-            alert("支付时间已过期，请重新选购！2秒后将返回主页。");return;}
-            document.getElementById('m').innerHTML=s-1;
-            document.getElementById('n').innerHTML=s-1;
-            t=setTimeout('foo()',1000);
-        }
-
-        $(function () {
-            var finalNum = 0;
-            $(".item_total_price").each(function () {
-                finalNum += Number($(this).html());
-            });
-            $("#itemprice").html(finalNum);
-            var quantity=0;
-            $(".goodsNum").each(function () {
-                quantity+=Number($(this).val());
-            });
-            $(".total_amount").html(quantity);
-            var shipPrice=Number($("#shippingprice").html());
-            $("#orderprice").html(finalNum+shipPrice);
-
-            //点击之后，再算一遍
-            $(".goodsNum").change(function () {
-                var price = $(this).parent().prev().children().html();      //商品单价
-                var num = $(this).val();                                    //商品数量
-                var total = price * num;
-                $(this).parent().next().children().html(total);
-                var finalNum = 0;
-                $(".item_total_price").each(function () {
-                    finalNum += Number($(this).html());
-                });
-                $("#itemprice").html(finalNum);
-                var quantity=0;
-                $(".goodsNum").each(function () {
-                    quantity+=Number($(this).val());
-                });
-                $(".total_amount").html(quantity);
-                var shipPrice=Number($("#shippingprice").html());
-                $("#orderprice").html(finalNum+shipPrice);
-            });
-            
-            $("#go_to_order").click(function () {
-                var myform=$("#myform");
-                var checkboxs=$('input[name="proID"]');
-                var quantities=$('input[name="quantity"]');
-                for(var i=0;i<checkboxs.length;i++){
-                    if(!checkboxs.eq(i).prop("checked")){
-                        alert(checkboxs.eq(i).val());
-                        quantities.eq(i).remove();
-                    }
-                }
-                myform.submit();
-
-            });
-            
-        });
-    </script>
 </head>
 
 <body onload="foo();">
@@ -217,7 +157,7 @@
                             <!--<input class="js_item_selector cart_item_selector"-->
                                    <!--data-item-key="1057066_d150603p892053zc" checked="'checked'/" type="checkbox">-->
                             <div class="cart_item_desc_wrapper">
-                                <input type="checkbox" th:value="${product.id}" name="proID">
+                                <input type="checkbox" style="float: left;margin-top: 1em;" checked="checked" th:value="${product.id}" name="proID" class="checkBox">
 
                                 <a class="cart_item_pic" href="https://www.baidu.com" target="_blank">
                                     <!--<img  th:src="@{/product/download(id=${product.id})}" alt="商品1">-->
@@ -347,5 +287,66 @@
     }
 </script>
 </body>
+<script type="text/javascript">
+    function foo(){
+        var s=document.getElementById('m').innerHTML;
+        if(s==0){setTimeout("javascript:location.href='/user/index'", 3000);
+            alert("支付时间已过期，请重新选购！2秒后将返回主页。");return;}
+        document.getElementById('m').innerHTML=s-1;
+        document.getElementById('n').innerHTML=s-1;
+        t=setTimeout('foo()',1000);
+    }
 
+    $(function () {
+        getPrice();
+
+        //计算价格
+        function getPrice(){
+            var eqCheckBox=$('input[name="proID"]');
+            var eqQuantities=$('input[name="quantity"]');
+            var eqPrePrice=$(".jumei_price");
+            var eqTotalPrice=$(".item_total_price");
+            for(var i=0;i<eqCheckBox.length;i++){
+                eqTotalPrice.eq(i).html(eqPrePrice.eq(i).html()*eqQuantities.eq(i).val());
+            }
+            var finalNum = 0;
+            var quantity=0;
+            for(var j=0;j<eqCheckBox.length;j++){
+                if(eqCheckBox.eq(j).prop("checked")){
+                    finalNum+=Number(eqTotalPrice.eq(j).html());
+                    quantity+=Number(eqQuantities.eq(j).val());
+                }
+            }
+            $("#itemprice").html(finalNum);
+            $(".total_amount").html(quantity);
+            var shipPrice=Number($("#shippingprice").html());
+            $("#orderprice").html(finalNum+shipPrice);
+        }
+
+        $(".goodsNum").change(function () {
+            getPrice();
+        });
+
+        $(".checkBox").click(function () {
+            getPrice();
+        });
+
+
+        //实现部分提交
+        $("#go_to_order").click(function () {
+            var myform=$("#myform");
+            var checkboxs=$('input[name="proID"]');
+            var quantities=$('input[name="quantity"]');
+            for(var i=0;i<checkboxs.length;i++){
+                if(!checkboxs.eq(i).prop("checked")){
+                    alert(checkboxs.eq(i).val());
+                    quantities.eq(i).remove();
+                }
+            }
+            myform.submit();
+
+        });
+
+    });
+</script>
 </html>

@@ -34,7 +34,6 @@ public class ShoppingcartService {
         shoppingcartMapper.deleteByPrimaryKey(id);
     }
 
-
     public List<Shoppingcart> getProid(ShoppingcartExample example) {
         return shoppingcartMapper.selectByExample(example);
     }

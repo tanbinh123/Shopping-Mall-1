@@ -119,10 +119,10 @@
     where id = #{id,jdbcType=VARCHAR}
   </select>
 
-  <select id="selectByProID" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select * from shopping_cart
-    where pro_id = #{proID}
-  </select>
+  <!--<select id="selectByProID" parameterType="java.lang.String" resultMap="BaseResultMap">-->
+    <!--select * from shopping_cart-->
+    <!--where pro_id = #{proID}-->
+  <!--</select>-->
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     <!--
@@ -145,10 +145,10 @@
     </if>
   </delete>
 
-  <delete id="deleteByProID" parameterType="net.suncaper.springboot.domain.ShoppingcartExample">
-    delete from shopping_cart
-     where shopping_cart.pro_id=#{id}
-  </delete>
+  <!--<delete id="deleteByProID" parameterType="net.suncaper.springboot.domain.ShoppingcartExample">-->
+    <!--delete from shopping_cart-->
+     <!--where shopping_cart.pro_id=#{id}-->
+  <!--</delete>-->
 
 
   <insert id="insert" parameterType="net.suncaper.springboot.domain.Shoppingcart">
@@ -284,11 +284,11 @@
     where id = #{id,jdbcType=VARCHAR}
   </update>
 
-  <update id="updateQuantity" parameterType="net.suncaper.springboot.domain.Shoppingcart">
-    update shopping_cart
-    set quantity = #{quantity,jdbcType=INTEGER}
-    where pro_id = #{proID,jdbcType=VARCHAR}
-  </update>
+  <!--<update id="updateQuantity" parameterType="net.suncaper.springboot.domain.Shoppingcart">-->
+    <!--update shopping_cart-->
+    <!--set quantity = #{quantity,jdbcType=INTEGER}-->
+    <!--where pro_id = #{proID,jdbcType=VARCHAR}-->
+  <!--</update>-->
 
 
 

@@ -40,13 +40,14 @@ public class ProductController {
     @Autowired
     private ShoppingcartService shoppingcartService;
 
-    @GetMapping("/showshoppingcartlist")
+    @GetMapping("/showshoppingcartlist") //跳转到shoppingcartlist页面显示shoppingcart表中的元素
     public String goShoppingcartListPage(HttpServletRequest request,
                                     HttpServletResponse response,
                                     Model model) {
         model.addAttribute("shoppingcarts", shoppingcartService.listShoppingcart());
         return "shoppingcartlist";
     }
+
 
     @GetMapping("/shoppingcart")
     public String ShoppingCartPage(HttpServletRequest request, Model model ) {
@@ -65,8 +66,6 @@ public class ProductController {
             return "redirect:/user/login";
 
     }
-
-
 
     @PostMapping("/shoppingcart")//提交购物车，生成订单
     public String ChangeQuantity(HttpServletRequest request,String[] proID,int[] quantity){
@@ -156,13 +155,13 @@ public class ProductController {
 
     }
 
-
-
     @GetMapping("/details/{id}")//跳转到商品页面
     public String goProductPage(@PathVariable("id") String id,Model model){
         List<Product> products=  adminService.getProductsListByName(productService.findProductByPrimaryKey(id).getName());
         model.addAttribute("productsList",products);
-        return "/product_0001";
+        String proName=productService.findProductByPrimaryKey(id).getName();
+        return "/product";         //先暂时跳转到统一的页面product,等到为每个名字的商品建立专属页面后，可以把本句注释，把下一行取消注释
+//        return proName;
     }
 
     @PostMapping("/addCart")//提交商品至购物车
@@ -180,8 +179,6 @@ public class ProductController {
         }
         else
             return "redirect:/user/login";
-
-
     }
 
     @GetMapping("/product_0002")  //跳转至2号商品页面
@@ -190,7 +187,7 @@ public class ProductController {
     }
 
 
-    @GetMapping("/deletecart")   //delete
+    @GetMapping("/deletecart")   //在shoppingcartlist页面删除shoppingcart表的元素
     @ResponseBody
     public Boolean deleteShoppingcart(@RequestParam("id") String id) {
         shoppingcartService.deleteShoppingcartById(id);
@@ -198,7 +195,7 @@ public class ProductController {
     }
 
 
-    @GetMapping("/deletecart2")   //delete
+    @GetMapping("/deletecart2")   //在购物车页面shoppingcart删除一种商品
     @ResponseBody
     public Boolean deleteShoppingcart2(@RequestParam("id") String id) {
         shoppingcartService.deleteShoppingcartByProID(id);
@@ -211,25 +208,4 @@ public class ProductController {
         productService.deleteProductById(id);
         return true;
     }
-
-
-//    @GetMapping("/addproduct")
-//    public String goProductAddPage(Model model) {
-//        model.addAttribute("product", new Product());
-//        return "product-add";
-//    }
-
-
-
-    //    @PostMapping("/addproduct")
-//    public String saveProduct(Product product,@RequestParam("file") MultipartFile file) throws IOException {
-//        if(file!=null){
-//            product.setFiletitle(file.getOriginalFilename());
-//            product.setFilelenth(file.getSize());
-//            product.setFiletype(file.getContentType());
-//        }
-//        productService.saveProduct(product);
-//        return "redirect:/product/showproduct";
-//    }
-
 }

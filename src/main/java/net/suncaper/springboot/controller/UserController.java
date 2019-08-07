@@ -31,9 +31,6 @@ public class UserController {
                                  HttpServletResponse response,
                                  Model model) {
         model.addAttribute("users", userService.listUser());
-//      User usertest=selectUser("7ce47660-af50-11e9-8b9d-48ba4e461957");
-//    System.out.println(usertest.);
-
         return "userList";
     }
 

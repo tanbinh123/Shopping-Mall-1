@@ -116,7 +116,7 @@ public class ProductController {
 
 
 
-    @GetMapping("/checkout/{id}")      //订单页面的实验
+    @GetMapping("/checkout/{id}")      //订单支付页面
     public String goCheckOutPage(@PathVariable("id") String id,HttpServletRequest request, Model model) {
         String tuid= (String) request.getSession().getAttribute("USER_ID");
         Order order=orderMapper.selectByPrimaryKey(id);

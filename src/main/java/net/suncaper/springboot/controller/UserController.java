@@ -1,8 +1,10 @@
 package net.suncaper.springboot.controller;
 
+import net.suncaper.springboot.domain.Address;
 import net.suncaper.springboot.domain.Product;
 import net.suncaper.springboot.domain.Shoppingcart;
 import net.suncaper.springboot.domain.User;
+import net.suncaper.springboot.service.AddressService;
 import net.suncaper.springboot.service.AdminService;
 import net.suncaper.springboot.service.ShoppingcartService;
 import net.suncaper.springboot.service.UserService;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 
 @Controller
@@ -23,6 +26,8 @@ public class UserController {
     private UserService userService;
     @Autowired
     private AdminService adminService;
+    @Autowired
+    private AddressService addressService;
     @Autowired
     private ShoppingcartService shoppingcartService;
 
@@ -92,6 +97,43 @@ public class UserController {
     @GetMapping("/index")    //主页
     public String goIndexPage() {
         return "index";
+    }
+
+    @GetMapping("/userInfo")//用户界面
+    public String goUserInfoPage(HttpServletRequest request,Model model){
+        User user=userService.findUserByPrimaryKey((String) request.getSession().getAttribute("USER_ID"));
+        user.setPassword("");
+        List<Address> address=addressService.selectByTUID(user.getId());
+        model.addAttribute("user",user);
+        model.addAttribute("addresses",address);
+        model.addAttribute("addaddress",new Address());
+        return "userInfo";
+    }
+
+    @PostMapping("/addAddress")//添加地址
+    public String addAddressInfo(HttpServletRequest request, Address addaddress){
+        String tuid= (String) request.getSession().getAttribute("USER_ID");
+        if (tuid!=null){
+            addaddress.settUId(tuid);
+            addressService.saveAddress(addaddress);
+            return "redirect:/user/userInfo";
+        }
+        else
+            return "redirect:/user/userInfo";
+
+    }
+
+    @PostMapping("/deleteAddress")//删除地址
+    public String deleteAddressInfo(String id){
+        addressService.deleteById(id);
+        return "redirect:/user/userInfo";
+    }
+    @PostMapping("/editAddress")//编辑地址
+    public String editAddressInfo(Address address, HttpServletRequest request){
+//        String tuid= (String) request.getSession().getAttribute("USER_ID");
+//        address.settUId(tuid);
+        addressService.upDateById(address);
+        return "redirect:/user/userInfo";
     }
 
     @RequestMapping("/searchproduct") //搜索结果界面

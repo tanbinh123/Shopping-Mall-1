@@ -104,22 +104,22 @@
                                         <div class="form-group">
                                             <label>姓名</label>
                                             <input type="text" th:value="${order.id}" hidden="hidden" name="orderID">
-                                            <input type="text" class="form-control" id="tUName" th:field="${addaddress.tUName}" placeholder="请输入姓名">
+                                            <input type="text" class="form-control" id="tUName" th:field="${addaddress.tUName}" placeholder="请输入姓名" required="required">
                                         </div>
                                         <div class="form-group">
                                             <label>联系方式</label>
-                                            <input type="tel" class="form-control" id="phone" th:field="${addaddress.phone}" placeholder="请输入联系方式">
+                                            <input type="tel" class="form-control" id="phone" th:field="${addaddress.phone}" placeholder="请输入联系方式" required="required">
                                         </div>
                                         <div class="form-group">
                                             <label>地址</label>
-                                            <input type="text" id="province" th:field="${addaddress.province}" placeholder="省/自治区/直辖市">
-                                            <input type="text" id="city" th:field="${addaddress.city}" placeholder="市/区">
-                                            <input type="text" id="county" th:field="${addaddress.county}" placeholder="县/市辖区">
-                                            <input type="text" id="town" th:field="${addaddress.town}" placeholder="街道/镇/乡">
+                                            <input type="text" id="province" th:field="${addaddress.province}" placeholder="省/自治区/直辖市" required="required">
+                                            <input type="text" id="city" th:field="${addaddress.city}" placeholder="市/区" required="required">
+                                            <input type="text" id="county" th:field="${addaddress.county}" placeholder="县/市辖区" required="required">
+                                            <input type="text" id="town" th:field="${addaddress.town}" placeholder="街道/镇/乡" required="required">
                                         </div>
                                         <div class="form-group">
                                             <label>详细地址</label>
-                                            <textarea class="form-control" rows="3" id="detail" th:field="${addaddress.detail}"></textarea>
+                                            <textarea class="form-control" rows="3" id="detail" th:field="${addaddress.detail}" required="required"></textarea>
                                         </div>
                                     </div>
                                     <div class="modal-footer">

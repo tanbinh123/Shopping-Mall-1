@@ -27,14 +27,15 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li role="presentation">
-                                <a href="#">个人主页</a>
-                            </li>
-                            <li role="presentation">
-                                <a th:href="@{/user/exitlogin}">退出登录</a>
+                                <a th:href="@{/user/userInfo}">个人主页</a>
                             </li>
                             <li role="presentation">
                                 <a th:href="@{/product/checkoutlist}">我的订单</a>
                             </li>
+                            <li role="presentation">
+                                <a th:href="@{/user/exitlogin}">退出登录</a>
+                            </li>
+
                         </ul>
                         <a th:if="${session.USER_ID==null}" href="login.html" th:href="@{/user/login}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
                         </a>

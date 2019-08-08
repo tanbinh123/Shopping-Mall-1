@@ -29,4 +29,13 @@ public class AddressService {
     public Address selectByPrimaryKey(String checkedaddress) {
        return addressMapper.selectByPrimaryKey(checkedaddress);
     }
+
+    public void deleteById(String id) {
+        addressMapper.deleteByPrimaryKey(id);
+        return;
+    }
+
+    public void upDateById(Address address) {
+        addressMapper.updateByPrimaryKeySelective(address);
+    }
 }

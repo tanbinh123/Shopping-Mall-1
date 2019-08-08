@@ -59,18 +59,24 @@ public class UserController {
     @GetMapping("/login")   //跳转到登录页面login
     public String goLoginPage(Model model) {
         model.addAttribute("user", new User());
+        model.addAttribute("havewrong",false);
         return "login";
     }
 
     @PostMapping("/login")   //在登录页面提交表单后判断用户名、密码是否正确
-    public String goIndexPage(HttpServletRequest request,User user) {
+    public String goIndexPage(HttpServletRequest request,User user,Model model) {
         User loginUser=userService.login(user);
         if (loginUser!=null) {
             request.getSession().setAttribute("USER_ID", loginUser.getId());
             request.getSession().setAttribute("USER_name", loginUser.getName());
             request.getSession().setAttribute("CART_num",shoppingcartService.selectByUserID(loginUser.getId()).size());
+            return  "redirect:/user/index";
         }
-        return  "redirect:/user/index";
+        else {
+            model.addAttribute("havewrong",true);
+            return  "login";
+
+        }
     }
     @GetMapping("/index")    //主页
     public String goIndexPage() {

@@ -40,6 +40,7 @@
                     <form th:action="@{/user/login}" method="post" th:object="${user}">
                         <div class="form-group">
                             <input type="text" class="form-control"name="name" th:field="*{name}" placeholder="用户名">
+                            <p th:if="${havewrong}==true" style="color: red">用户名或密码错误</p>
                         </div>
                         <div class="form-group">
                                 <input class="form-control" type="password"  name="password" th:field="*{password}" placeholder="密码">

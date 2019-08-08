@@ -27,14 +27,15 @@
                     </button>
                     <ul class="dropdown-menu" role="menu">
                         <li role="presentation">
-                            <a href="#">个人主页</a>
-                        </li>
-                        <li role="presentation">
-                            <a th:href="@{/user/exitlogin}">退出登录</a>
+                            <a th:href="@{/user/userInfo}">个人主页</a>
                         </li>
                         <li role="presentation">
                             <a th:href="@{/product/checkoutlist}">我的订单</a>
                         </li>
+                        <li role="presentation">
+                            <a th:href="@{/user/exitlogin}">退出登录</a>
+                        </li>
+
                     </ul>
                     <a th:if="${session.USER_ID==null}" href="login.html" th:href="@{/user/login}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录/注册
                     </a>
@@ -182,9 +183,82 @@
                                 <h3 th:text="'邮箱：'+${user.email}" >邮箱：</h3>
                             </div>
                             <div class="rightPart">
-                                <button class="btn btn-warning" id="editPassword">修改密码</button>
-                                <button class="btn btn-success" id="editInfo">编辑个人信息</button>
+                                <button class="btn btn-warning" data-toggle="modal" data-target="#changepassword" id="editPassword" th:value="${user.id}">修改密码</button>
+                                <button class="btn btn-success" data-toggle="modal" data-target="#changeUserInfo" id="editInfo">编辑个人信息</button>
                             </div>
+                            <!--更改用户密码-->
+                            <div class="modal fade" id="changepassword" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title">更改密码</h4>
+                                        </div>
+                                        <form th:action="@{/user/editPassword}" method="post" enctype="multipart/form-data">
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <label>用户账号</label>
+                                                    <input type="text" name="id" th:value="${user.id}" readonly="readonly" hidden="hidden">
+                                                    <input type="text" class="form-control" name="name"th:value="${user.name}" readonly="readonly">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>原密码</label>
+                                                    <input type="password" class="form-control" name="password"  required="required">
+                                                    <p th:if="${isPassword}==true" class="haveWrong">*密码错误</p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label >新密码</label>
+                                                    <input type="password" class="form-control" name="newpassword" required="required">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label >再次确认新密码</label>
+                                                    <input type="password" class="form-control" name="checkedpassword" required="required">
+                                                    <p th:if="${isEquals}">*两次密码不一致</p>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+                                                <button type="submit" class="btn btn-success">确认修改</button>
+                                            </div>
+                                        </form>
+                                    </div><!-- /.modal-content -->
+                                </div><!-- /.modal -->
+                            </div>
+
+
+                            <!--更改用户密码-->
+                            <div class="modal fade" id="changeUserInfo" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title">更改用户信息</h4>
+                                        </div>
+                                        <form th:action="@{/user/editUserInfo}" method="post" enctype="multipart/form-data">
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <label>用户名</label>
+                                                    <input type="text" name="id" th:value="${user.id}" readonly="readonly" hidden="hidden">
+                                                    <input type="text" class="form-control" name="shoId"th:value="${user.shoId}">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>电话</label>
+                                                    <input type="text" class="form-control" name="phone" th:value="${user.phone}" required="required">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label >邮箱</label>
+                                                    <input type="email" class="form-control" name="email" th:value="${user.email}" required="required">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+                                                <button type="submit" class="btn btn-success">确认修改</button>
+                                            </div>
+                                        </form>
+                                    </div><!-- /.modal-content -->
+                                </div><!-- /.modal -->
+                            </div>
+
                         </div>
                         <div class="boxBd">
                             <h4>地址管理</h4>

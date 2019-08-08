@@ -45,6 +45,7 @@
 /*模态框*/
 .modal-footer button{width:5em;height:2em;}
 #saveAddress{margin-left: 2em;}
+.haveWrong{color: red;}
 
 
 .clearFix::after{clear: both;}

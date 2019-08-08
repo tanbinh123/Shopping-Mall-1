@@ -45,5 +45,9 @@ public Boolean saveUser(User user) {        //注册：将表单中的user对象
         userMapper.deleteByPrimaryKey(id);
     }
 
+    public void upDateById(User userExam) {
+        userMapper.updateByPrimaryKeySelective(userExam);
+        return;
+    }
 }
 

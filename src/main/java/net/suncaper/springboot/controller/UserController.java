@@ -130,8 +130,6 @@ public class UserController {
     }
     @PostMapping("/editAddress")//编辑地址
     public String editAddressInfo(Address address, HttpServletRequest request){
-//        String tuid= (String) request.getSession().getAttribute("USER_ID");
-//        address.settUId(tuid);
         addressService.upDateById(address);
         return "redirect:/user/userInfo";
     }
@@ -141,6 +139,24 @@ public class UserController {
         model.addAttribute("productsList",adminService.getProductsListByName(keyword));
         model.addAttribute("keyword",keyword);
         return "searchproduct";
+    }
+
+    @PostMapping("/editPassword")//修改密码
+    public String editPasswordInfo(User user,String newpassword,String checkedpassword,Model model,HttpServletRequest request){
+        User userExam= userService.login(user);
+            if((userExam!=null)&&newpassword.equals(checkedpassword)){
+                userExam.setPassword(newpassword);
+                userService.upDateById(userExam);
+                request.getSession().setAttribute("USER_ID",null);
+                return "redirect:/user/login";
+            }
+        else
+            return "redirect:/user/userInfo";
+    }
+    @PostMapping("/editUserInfo")//修改用户个人信息
+    public String editUserInfo(User user){
+        userService.upDateById(user);
+        return "redirect:/user/userInfo";
     }
 
 

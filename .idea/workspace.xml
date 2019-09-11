@@ -1,0 +1,1266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="009b277c-04b7-4c41-b7e5-6b172169881b" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="hk@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="hk@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="hk@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="hk: schema" type="c314c289:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="hk@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="hk: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="t_user: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="656374260">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="19" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.10" value="4" />
+          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.12" value="2" />
+          <entry key="project.open.time.13" value="4" />
+          <entry key="project.open.time.14" value="2" />
+          <entry key="project.open.time.18" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.open.time.9" value="3" />
+          <entry key="project.opened" value="19" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="12" />
+          <entry key="CSS" value="45" />
+          <entry key="Database Element" value="80" />
+          <entry key="HTML" value="148" />
+          <entry key="Image" value="5" />
+          <entry key="JAVA" value="226" />
+          <entry key="JavaScript" value="8" />
+          <entry key="Scratch" value="33" />
+          <entry key="XML" value="33" />
+          <entry key="YAML" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="CSS" value="2204" />
+          <entry key="HTML" value="10683" />
+          <entry key="JAVA" value="8017" />
+          <entry key="JavaScript" value="256" />
+          <entry key="PLAIN_TEXT" value="810" />
+          <entry key="SQL" value="95" />
+          <entry key="Scratch" value="625" />
+          <entry key="ThymeleafExpressions" value="1" />
+          <entry key="XML" value="105" />
+          <entry key="YAML" value="59" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/product_0001.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="11" column="56" lean-forward="true" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Good Table</find>
+      <find>card</find>
+      <find>nav</find>
+      <find>deleteBtn</find>
+      <find>.text-nowrap</find>
+      <find>s</find>
+      <find>myCart</find>
+      <find>proID</find>
+      <find>title</find>
+      <find>pullOrder</find>
+      <find>checkBox</find>
+      <find>item_total_price</find>
+      <find>shippingprice</find>
+      <find>itemprice</find>
+      <find>orderDatails</find>
+      <find>active</find>
+      <find>orderDetails</find>
+      <find>eachProduct</find>
+      <find>orderItem</find>
+      <find>orderSummary</find>
+      <find>orderTable</find>
+      <find>myModal</find>
+      <find>deleteaddress</find>
+      <find>id</find>
+      <find>deleteAddress</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/net/suncaper/springboot/mapper/PhoneMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/css/page_car.css" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/0dc19ec5-9b60-44f3-8538-1fc338e914d1/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/htlogin.html" />
+        <option value="$PROJECT_DIR$/src/main/java/net/suncaper/springboot/mapper/AdminMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/htindex.html" />
+        <option value="$PROJECT_DIR$/src/main/java/net/suncaper/springboot/domain/Product.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/suncaper/springboot/mapper/UserMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/suncaper/springboot/mapper/ProductMapper.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b35ca709-fe31-4483-8e28-99f9bcded7bd/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/dist/css/styles.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/layouts-goodstables.html" />
+        <option value="$PROJECT_DIR$/src/main/java/net/suncaper/springboot/service/ProductService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/suncaper/springboot/service/AdminService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/product_0001.js" />
+        <option value="$PROJECT_DIR$/src/main/java/net/suncaper/springboot/domain/Shoppingcart.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/suncaper/springboot/mapper/ShoppingcartMapper.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/28636aaa-c5d4-48ba-9c0c-17c3bb947342/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/net/suncaper/springboot/mapper/AddressMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/suncaper/springboot/controller/AdminController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/suncaper/springboot/service/ShoppingcartService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/shoppingcart.html" />
+        <option value="$PROJECT_DIR$/src/main/java/net/suncaper/springboot/mapper/OrderMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/suncaper/springboot/service/CommerceService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/css/index.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/css/main.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/css/searchproduct.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/css/checkout.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/css/product_0001.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/searchproduct.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/product_0001.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/generator-config.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/net/suncaper/springboot/mapper/CommerceMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/checkout.js" />
+        <option value="$PROJECT_DIR$/src/main/java/net/suncaper/springboot/service/OrderService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/login.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/user-add.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/userinfor.html" />
+        <option value="$PROJECT_DIR$/src/main/java/net/suncaper/springboot/controller/ProductController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/css/checkoutlist.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/checkoutlist.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/checkout.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/net/suncaper/springboot/service/AddressService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/suncaper/springboot/security/WebConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/suncaper/springboot/security/LoginInterceptor.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/css/userInfo.css" />
+        <option value="$PROJECT_DIR$/src/main/java/net/suncaper/springboot/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/suncaper/springboot/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/userInfo.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="springboot-example" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="springboot-example" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="springboot-example" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+          <item name="mybatis-generator" type="36feed69:MavenProjectsStructure$PluginNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="400" />
+    <option name="y" value="45" />
+    <option name="width" value="1145" />
+    <option name="height" value="970" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>Thymeleaf</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>ThymeleafVariablesResolveInspection</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="springboot-example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newhk" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot-example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newhk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot-example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newhk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot-example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newhk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot-example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newhk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565253003356" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\78234\Desktop\newhk\src\main\resources\static\image\content" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="SpringbootExampleApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springboot-example" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="net.suncaper.springboot.SpringbootExampleApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="009b277c-04b7-4c41-b7e5-6b172169881b" name="Default Changelist" comment="" />
+      <created>1564447364529</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1564447364529</updated>
+      <workItem from="1564447366530" duration="2552000" />
+      <workItem from="1564450879225" duration="13821000" />
+      <workItem from="1564473818443" duration="10080000" />
+      <workItem from="1564532128100" duration="23056000" />
+      <workItem from="1564623204013" duration="17020000" />
+      <workItem from="1564666457944" duration="1912000" />
+      <workItem from="1564703529005" duration="29397000" />
+      <workItem from="1564749372595" duration="7805000" />
+      <workItem from="1564758370091" duration="2224000" />
+      <workItem from="1564789878315" duration="14687000" />
+      <workItem from="1564809897237" duration="13648000" />
+      <workItem from="1564878303209" duration="11133000" />
+      <workItem from="1564895281473" duration="5865000" />
+      <workItem from="1564906002160" duration="1848000" />
+      <workItem from="1564911594733" duration="25785000" />
+      <workItem from="1565089693346" duration="57974000" />
+      <workItem from="1565222782626" duration="25967000" />
+      <workItem from="1565355201756" duration="332000" />
+      <workItem from="1566380558356" duration="120000" />
+    </task>
+    <task id="LOCAL-00001" summary="7.30订单界面和资源">
+      <created>1564447700504</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1564447700504</updated>
+    </task>
+    <task id="LOCAL-00002" summary="修改登录按钮样式">
+      <created>1564467448161</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1564467448161</updated>
+    </task>
+    <task id="LOCAL-00003" summary="登陆界面添加了th路径">
+      <created>1564542711949</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1564542711949</updated>
+    </task>
+    <task id="LOCAL-00004" summary="登陆界面和注册添加了th路径">
+      <created>1564558146534</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1564558146534</updated>
+    </task>
+    <task id="LOCAL-00005" summary="资源改名">
+      <created>1564558296660</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1564558296660</updated>
+    </task>
+    <task id="LOCAL-00006" summary="资源改名">
+      <created>1564558332393</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1564558332393</updated>
+    </task>
+    <task id="LOCAL-00007" summary="修改注册逻辑">
+      <created>1564566392076</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1564566392076</updated>
+    </task>
+    <task id="LOCAL-00008" summary="逻辑更新">
+      <created>1564623707831</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1564623707831</updated>
+    </task>
+    <task id="LOCAL-00009" summary="002">
+      <created>1564644783992</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1564644783992</updated>
+    </task>
+    <task id="LOCAL-00010" summary="动态页面逻辑">
+      <created>1564654331047</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1564654331047</updated>
+    </task>
+    <task id="LOCAL-00011" summary="购物车删除无用部分">
+      <created>1564660068818</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1564660068818</updated>
+    </task>
+    <task id="LOCAL-00012" summary="解决管理员界面无法登录问题">
+      <created>1564668360776</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1564668360776</updated>
+    </task>
+    <task id="LOCAL-00013" summary="商品列表界面实现打印商品。">
+      <created>1564715169826</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1564715169826</updated>
+    </task>
+    <task id="LOCAL-00014" summary="实现图片的上传和页面显示">
+      <created>1564738904957</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1564738904957</updated>
+    </task>
+    <task id="LOCAL-00015" summary="商品界面删除功能的实现">
+      <created>1564760580916</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1564760580916</updated>
+    </task>
+    <task id="LOCAL-00016" summary="资源改名">
+      <created>1564813995472</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1564813995472</updated>
+    </task>
+    <task id="LOCAL-00017" summary="编辑功能实现">
+      <created>1564814317205</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1564814317205</updated>
+    </task>
+    <task id="LOCAL-00018" summary="实现了按商品名称搜索功能">
+      <created>1564818355639</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1564818355639</updated>
+    </task>
+    <task id="LOCAL-00019" summary="搜索结果页面和功能已实现，动态打印。">
+      <created>1564891006562</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1564891006562</updated>
+    </task>
+    <task id="LOCAL-00020" summary="搜索功能实现，增加主页跳转。">
+      <created>1564901405412</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1564901405412</updated>
+    </task>
+    <task id="LOCAL-00021" summary="搜索结果增加打印商品SKU信息">
+      <created>1564905824026</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1564905824026</updated>
+    </task>
+    <task id="LOCAL-00022" summary="搜索界面跳转到相应的商品界面，并能实现SKU选中并提交至购物车，能在购物车打印">
+      <created>1564974187782</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1564974187782</updated>
+    </task>
+    <task id="LOCAL-00023" summary="修改购物车逻辑，未登录跳转到登录界面">
+      <created>1564986753536</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1564986753536</updated>
+    </task>
+    <task id="LOCAL-00024" summary="新增功能：搜索栏购物车能实施更新用户购物车商品数量，购物车无法重复添加同一ID的商品">
+      <created>1564992361911</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1564992361911</updated>
+    </task>
+    <task id="LOCAL-00025" summary="修改前端：修正了订单表商品的排版&#10;实现功能：用户可以添加地址，并打印在订单界面。&#10;完善添加购物车逻辑，同意用户ID不可重复添加同一ID商品至购物车">
+      <created>1564999172695</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1564999172695</updated>
+    </task>
+    <task id="LOCAL-00026" summary="主页，购物车页，product_0001页新增退出登录功能，用户可退出登录">
+      <created>1565092250661</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1565092250661</updated>
+    </task>
+    <task id="LOCAL-00027" summary="新增功能：购物车提交后能成功生成订单表，并删除购物车中已提交的商品&#10;新增功能：购物车实现部分提交部分商品至订单表。">
+      <created>1565134824918</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1565134824918</updated>
+    </task>
+    <task id="LOCAL-00028" summary="新增JS：价格随checkbox和数量动态改变">
+      <created>1565139779005</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1565139779005</updated>
+    </task>
+    <task id="LOCAL-00029" summary="新增功能：生成订单时生成总价存入数据库">
+      <created>1565142712868</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1565142712868</updated>
+    </task>
+    <task id="LOCAL-00030" summary="新增页面：我的订单&#10;新增功能：能在我的订单打印除用户的所有订单">
+      <created>1565172674677</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1565172674677</updated>
+    </task>
+    <task id="LOCAL-00031" summary="新增功能：订单界面去付款，订单状态发生更改。">
+      <created>1565185148925</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1565185148925</updated>
+    </task>
+    <task id="LOCAL-00032" summary="新增功能：登录失败会给用户反馈">
+      <created>1565224446928</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1565224446928</updated>
+    </task>
+    <task id="LOCAL-00033" summary="新增功能：注册失败时会给用户反馈">
+      <created>1565225948760</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1565225948760</updated>
+    </task>
+    <task id="LOCAL-00034" summary="新增功能：用户界面，能对地址进行操作">
+      <created>1565247748564</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1565247748564</updated>
+    </task>
+    <task id="LOCAL-00035" summary="新增功能：用户界面用户能修改自己的个人信息">
+      <created>1565252160913</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1565252160913</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="265226000" />
+  </component>
+  <component name="TodoView" selected-index="2">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24128686" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Image Layers" order="6" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49463806" weight="0.3835022" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49597856" weight="0.34442836" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3299566" />
+      <window_info anchor="bottom" id="Spring" order="7" weight="0.3299566" />
+      <window_info anchor="bottom" id="Database Console" order="8" sideWeight="0.49865952" weight="0.31114328" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3299566" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50402147" side_tool="true" weight="0.34442836" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3299566" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.3299566" />
+      <window_info anchor="bottom" id="Database Changes" order="13" weight="0.3299566" />
+      <window_info anchor="bottom" id="Version Control" order="14" weight="0.22720695" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.27479893" />
+      <window_info anchor="right" id="Database" order="6" weight="0.23190348" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" weight="0.3297587" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23458445" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Image Layers" order="6" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49463806" visible="true" weight="0.3835022" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49597856" weight="0.34442836" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3299566" />
+      <window_info anchor="bottom" id="Spring" order="7" weight="0.3299566" />
+      <window_info anchor="bottom" id="Database Console" order="8" sideWeight="0.49865952" weight="0.31114328" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3299566" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50402147" side_tool="true" weight="0.34442836" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3299566" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.3299566" />
+      <window_info anchor="bottom" id="Database Changes" order="13" weight="0.3299566" />
+      <window_info anchor="bottom" id="Version Control" order="14" weight="0.22720695" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.27479893" />
+      <window_info anchor="right" id="Database" order="6" weight="0.23190348" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" weight="0.3297587" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="解决管理员界面无法登录问题" />
+    <MESSAGE value="商品列表界面实现打印商品。" />
+    <MESSAGE value="实现图片的上传和页面显示" />
+    <MESSAGE value="商品界面删除功能的实现" />
+    <MESSAGE value="资源改名" />
+    <MESSAGE value="编辑功能实现" />
+    <MESSAGE value="实现了按商品名称搜索功能" />
+    <MESSAGE value="搜索结果页面和功能已实现，动态打印。" />
+    <MESSAGE value="搜索功能实现，增加主页跳转。" />
+    <MESSAGE value="搜索结果增加打印商品SKU信息" />
+    <MESSAGE value="搜索界面跳转到相应的商品界面，并能实现SKU选中并提交至购物车，能在购物车打印" />
+    <MESSAGE value="修改购物车逻辑，未登录跳转到登录界面" />
+    <MESSAGE value="新增功能：搜索栏购物车能实施更新用户购物车商品数量，购物车无法重复添加同一ID的商品" />
+    <MESSAGE value="实现功能：用户可以添加地址，并打印在订单界面。" />
+    <MESSAGE value="修改前端：修正了订单表商品的排版&#10;实现功能：用户可以添加地址，并打印在订单界面。&#10;完善添加购物车逻辑，同意用户ID不可重复添加同一ID商品至购物车" />
+    <MESSAGE value="主页，购物车页，product_0001页新增退出登录功能，用户可退出登录" />
+    <MESSAGE value="新增功能：购物车提交后能成功生成订单表，并删除购物车中已提交的商品&#10;新增功能：购物车实现部分提交部分商品至订单表。" />
+    <MESSAGE value="新增JS：价格随checkbox和数量动态改变" />
+    <MESSAGE value="新增功能：生成订单时生成总价存入数据库" />
+    <MESSAGE value="新增页面：我的订单&#10;新增功能：能在我的订单打印除用户的所有订单" />
+    <MESSAGE value="新增功能：订单界面去付款，订单状态发生更改。" />
+    <MESSAGE value="新增功能：登录失败会给用户反馈" />
+    <MESSAGE value="新增功能：注册失败时会给用户反馈" />
+    <MESSAGE value="新增功能：用户界面，能对地址进行操作" />
+    <MESSAGE value="新增功能：用户界面用户能修改自己的个人信息" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增功能：用户界面用户能修改自己的个人信息" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/net/suncaper/springboot/controller/ProductController.java</url>
+          <line>111</line>
+          <properties />
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/suncaper/springboot/mapper/AdminMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-898">
+          <caret line="40" column="11" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/AdminMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="200" column="30" selection-start-line="200" selection-start-column="30" selection-end-line="200" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="163" column="11" selection-start-line="163" selection-start-column="11" selection-end-line="163" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/suncaper/springboot/mapper/ShoppingcartMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="74" column="7" lean-forward="true" selection-start-line="74" selection-start-column="7" selection-end-line="74" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/suncaper/springboot/service/ShoppingcartService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://28636aaa-c5d4-48ba-9c0c-17c3bb947342/schema/hk/table/shopping_cart">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://28636aaa-c5d4-48ba-9c0c-17c3bb947342/schema/hk/table/product">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/reset.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="139" column="5" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/suncaper/springboot/domain/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="103" column="18" selection-start-line="103" selection-start-column="18" selection-end-line="103" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/suncaper/springboot/service/CommerceService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/shoppingcart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1050">
+          <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" selection-start-line="4" selection-end-line="11" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/product_0001.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="30" lean-forward="true" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/searchproduct.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="30" lean-forward="true" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/suncaper/springboot/service/ProductService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/searchproduct.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-85">
+          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/generator-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="58" column="23" lean-forward="true" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/suncaper/springboot/domain/CommerceExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/suncaper/springboot/domain/Commerce.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2940">
+          <caret line="154" column="22" selection-start-line="154" selection-start-column="22" selection-end-line="154" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/suncaper/springboot/mapper/AddressMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="64" column="12" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/suncaper/springboot/mapper/OrderMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="96" column="8" selection-start-line="96" selection-start-column="8" selection-end-line="96" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://28636aaa-c5d4-48ba-9c0c-17c3bb947342/schema/hk/table/t_order">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/checkout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="80" selection-start-line="10" selection-start-column="80" selection-end-line="10" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/suncaper/springboot/mapper/CommerceMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/suncaper/springboot/service/OrderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://28636aaa-c5d4-48ba-9c0c-17c3bb947342/schema/hk/table/commerce_item">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/user-add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="49" column="18" lean-forward="true" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/userinfor.html" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/checkoutlist.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="25" lean-forward="true" selection-end-line="47" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/checkout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="29" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/checkoutlist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1187">
+          <caret line="297" column="6" lean-forward="true" selection-start-line="297" selection-start-column="6" selection-end-line="297" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/checkout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="134" column="18" lean-forward="true" selection-start-line="134" selection-start-column="18" selection-end-line="134" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/suncaper/springboot/domain/Address.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="296" column="16" selection-start-line="296" selection-start-column="16" selection-end-line="296" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/suncaper/springboot/controller/ProductController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-798">
+          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="29" selection-end-column="42" />
+          <folding>
+            <element signature="method#ShoppingCartPage#0;class#ProductController#0" />
+            <element signature="method#ChangeQuantity#0;class#ProductController#0" />
+            <element signature="method#goMyCheckoutPage#0;class#ProductController#0" />
+            <element signature="method#goCheckOutPage#0;class#ProductController#0" />
+            <element signature="method#addShoppingCart#0;class#ProductController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://28636aaa-c5d4-48ba-9c0c-17c3bb947342/schema/hk/table/address">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/suncaper/springboot/security/WebConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="10" column="154" selection-start-line="10" selection-start-column="154" selection-end-line="10" selection-end-column="154" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/suncaper/springboot/security/LoginInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/layouts-goodstables.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="250" column="44" selection-start-line="250" selection-start-column="44" selection-end-line="289" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/suncaper/springboot/service/AddressService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/userInfo.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="47" column="22" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="65" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/suncaper/springboot/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://28636aaa-c5d4-48ba-9c0c-17c3bb947342/schema/hk/table/admin">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/userInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1281">
+          <caret line="248" column="70" selection-start-line="248" selection-start-column="70" selection-end-line="248" selection-end-column="70" />
+          <folding>
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#script#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/suncaper/springboot/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2457">
+          <caret line="158" column="41" selection-start-line="158" selection-start-column="41" selection-end-line="158" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#saveUser#0;class#UserController#0" />
+            <element signature="method#goIndexPage#0;class#UserController#0" />
+            <element signature="method#addAddressInfo#0;class#UserController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/suncaper/springboot/controller/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="36" column="44" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
+          <folding>
+            <element signature="method#goIndexPage#1;class#AdminController#0" />
+            <element signature="method#goAdminTablePage#0;class#AdminController#0" />
+            <element signature="method#saveImage#0;class#AdminController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/suncaper/springboot/service/AdminService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="24" column="26" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://28636aaa-c5d4-48ba-9c0c-17c3bb947342/schema/hk/table/t_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/product_0001.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="11" column="56" lean-forward="true" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring|springboot-example</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>12</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: ch.qos.logback:logback-classic:1.2.3</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

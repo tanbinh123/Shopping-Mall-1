@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.suncaper.springboot.mapper.ShoppingcartMapper">
+
+    <update id="updateQuantity" parameterType="net.suncaper.springboot.domain.Shoppingcart">
+    update shopping_cart
+    set quantity = #{quantity,jdbcType=INTEGER}
+    where pro_id = #{proID,jdbcType=VARCHAR}
+  </update>
+
+
+    <delete id="deleteByProID" parameterType="net.suncaper.springboot.domain.ShoppingcartExample">
+    delete from shopping_cart
+     where shopping_cart.pro_id=#{id}
+  </delete>
+
+    <select id="selectByProID" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select * from shopping_cart
+    where pro_id = #{proID}
+  </select>
+
+</mapper>
